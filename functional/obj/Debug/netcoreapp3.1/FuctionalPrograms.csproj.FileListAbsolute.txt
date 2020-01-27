@@ -1,0 +1,11 @@
+C:\Users\hariv\source\repos\FuctionalPrograms\bin\Debug\netcoreapp3.1\FuctionalPrograms.exe
+C:\Users\hariv\source\repos\FuctionalPrograms\bin\Debug\netcoreapp3.1\FuctionalPrograms.deps.json
+C:\Users\hariv\source\repos\FuctionalPrograms\bin\Debug\netcoreapp3.1\FuctionalPrograms.runtimeconfig.json
+C:\Users\hariv\source\repos\FuctionalPrograms\bin\Debug\netcoreapp3.1\FuctionalPrograms.runtimeconfig.dev.json
+C:\Users\hariv\source\repos\FuctionalPrograms\bin\Debug\netcoreapp3.1\FuctionalPrograms.dll
+C:\Users\hariv\source\repos\FuctionalPrograms\bin\Debug\netcoreapp3.1\FuctionalPrograms.pdb
+C:\Users\hariv\source\repos\FuctionalPrograms\obj\Debug\netcoreapp3.1\FuctionalPrograms.csprojAssemblyReference.cache
+C:\Users\hariv\source\repos\FuctionalPrograms\obj\Debug\netcoreapp3.1\FuctionalPrograms.AssemblyInfoInputs.cache
+C:\Users\hariv\source\repos\FuctionalPrograms\obj\Debug\netcoreapp3.1\FuctionalPrograms.AssemblyInfo.cs
+C:\Users\hariv\source\repos\FuctionalPrograms\obj\Debug\netcoreapp3.1\FuctionalPrograms.dll
+C:\Users\hariv\source\repos\FuctionalPrograms\obj\Debug\netcoreapp3.1\FuctionalPrograms.pdb
