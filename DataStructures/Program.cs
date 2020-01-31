@@ -8,6 +8,7 @@ namespace DataStructures
         {
             Console.WriteLine("1.UnOrderedListTest");
             Console.WriteLine("2.OrderedListTest");
+            Console.WriteLine("3.BalancedParanthesis");
             int option = Utility.readInt();
             switch(option)
             {
@@ -17,6 +18,9 @@ namespace DataStructures
                 case 2:
                      OrderedListTest.Test();
                    // OrderedListTest.ReadingNumbersFromFile();
+                    break;
+                case 3:
+                    BalancedParanthesis.balancedParanthesis();
                     break;
             }
         }
