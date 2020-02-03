@@ -1,0 +1,11 @@
+C:\Users\BridgeLabz\source\repos\DataStructures\bin\Debug\netcoreapp3.0\DataStructures.exe
+C:\Users\BridgeLabz\source\repos\DataStructures\bin\Debug\netcoreapp3.0\DataStructures.deps.json
+C:\Users\BridgeLabz\source\repos\DataStructures\bin\Debug\netcoreapp3.0\DataStructures.runtimeconfig.json
+C:\Users\BridgeLabz\source\repos\DataStructures\bin\Debug\netcoreapp3.0\DataStructures.runtimeconfig.dev.json
+C:\Users\BridgeLabz\source\repos\DataStructures\bin\Debug\netcoreapp3.0\DataStructures.dll
+C:\Users\BridgeLabz\source\repos\DataStructures\bin\Debug\netcoreapp3.0\DataStructures.pdb
+C:\Users\BridgeLabz\source\repos\DataStructures\obj\Debug\netcoreapp3.0\DataStructures.csprojAssemblyReference.cache
+C:\Users\BridgeLabz\source\repos\DataStructures\obj\Debug\netcoreapp3.0\DataStructures.AssemblyInfoInputs.cache
+C:\Users\BridgeLabz\source\repos\DataStructures\obj\Debug\netcoreapp3.0\DataStructures.AssemblyInfo.cs
+C:\Users\BridgeLabz\source\repos\DataStructures\obj\Debug\netcoreapp3.0\DataStructures.dll
+C:\Users\BridgeLabz\source\repos\DataStructures\obj\Debug\netcoreapp3.0\DataStructures.pdb
