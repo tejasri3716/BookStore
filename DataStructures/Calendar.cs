@@ -38,7 +38,7 @@ namespace DataStructures
             Console.WriteLine("   " + months[month] + " " + year);
             Console.WriteLine(" S  M Tu  W Th  F  S");
             Console.WriteLine("------------------------------------");
-            int d = day(month, 1, year);
+            int d = day(month, 01, year);
 
             for (int i = 0; i < d; i++)
                 Console.Write("   ");

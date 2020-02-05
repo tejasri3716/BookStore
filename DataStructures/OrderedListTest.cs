@@ -22,6 +22,7 @@ namespace DataStructures
             Console.WriteLine(ol.Size());
 
         }*/
+       
         public static void Test()
         {
             OrderedList<int> ol = new OrderedList<int>();

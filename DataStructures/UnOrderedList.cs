@@ -7,7 +7,7 @@ namespace DataStructures
     class UnOrderedList<T>
     {
         Node head;
-       
+
         public void Add(T info)
         {
             Node nextNode = head;
@@ -119,13 +119,20 @@ namespace DataStructures
         {
             Node n = head;
             Node prev = null;
-            while (!n.info.Equals(remove))
+            if (n.info.Equals(remove))
             {
-                prev = n;
+                head = head.link;
+            }
+            else
+            {
+                while (!n.info.Equals(remove))
+                {
+                    prev = n;
+                    n = n.link;
+                }
+                prev.link = n.link;
                 n = n.link;
             }
-            prev.link = n.link;
-            n = n.link;
         }
         public void Insert(int position, T info)
         {
@@ -166,7 +173,7 @@ namespace DataStructures
         {
             Node n = head;
             Node prev = null;
-            while(n.link!=null)
+            while (n.link != null)
             {
                 prev = n;
                 n = n.link;
