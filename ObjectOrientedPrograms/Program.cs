@@ -17,7 +17,7 @@ namespace ObjectOrientedPrograms.InventoryManagement
                     break;
                 case 2:
                     Inventory3 inventorydata = new Inventory3();
-                    inventorydata.UpdateData();
+                    inventorydata.calling();
                     break;
             }
         }

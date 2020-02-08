@@ -21,7 +21,7 @@ namespace ObjectOrientedPrograms.InventoryManagement
             Console.WriteLine("3.Adding to Wheats File");
             Console.WriteLine("enter an option to add data into file");
             int option = Utility.readInt();
-            switch(option)
+            switch (option)
             {
                 case 1:
                     Console.WriteLine("enter values to get added into json file :");
@@ -48,25 +48,35 @@ namespace ObjectOrientedPrograms.InventoryManagement
                     break;
             }
         }
-        public void UpdateData()
+        public void UpdateData(string oldName)
         {
             string jsonfile = File.ReadAllText(json);
-           // var obj = JObject.Parse(jsonfile);
-            /*  JArray jArray = (JArray)obj["Rices"];
-              foreach(string s in jArray)
-              {
-                  Console.WriteLine(s);
-              }*/
-            //   string[] res = (string[])obj; //convertion object to string array
-            /*  string iii = Convert.ToString(item["subjects"]);
-              Rices[] rice= JsonConvert.DeserializeObject<Rices[]>(iii);*/
-            Rices[] arr = JObject.Parse(jsonfile)["Rices"].ToObject<Rices[]>();
-            foreach(var s in arr)
+            var obj = JObject.Parse(jsonfile);
+            JArray jArray = (JArray)obj["Rices"];
+            if (obj != null)
             {
-                Console.WriteLine(s);
-            }
+                foreach (var rice in jArray)
+                {
+                    Console.WriteLine("Rice variety:" + rice["Name"].ToString());
+                   // Console.WriteLine("price :" + rice["price"].ToString());
+                    //Console.WriteLine("weight :" + rice["weight"].ToString());
+                    if(rice["Name"].Equals(oldName))
+                    {
+                        Console.WriteLine("enter a variety of rice to get updated");
+                        rice["Name"] = Utility.readString();
+                    }
+                }
+                File.WriteAllText(jsonfile, obj.ToString());
 
+
+            }
         }
+        public void calling()
+        {
+          UpdateData("BrownRice");
+        }
+
+
     }
 }
 
