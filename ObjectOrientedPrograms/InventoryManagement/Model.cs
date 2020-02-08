@@ -4,29 +4,16 @@ using System.Text;
 
 namespace ObjectOrientedPrograms.InventoryManagement
 {
-    class Model
+    public class Model
     {
-        public List<Rices> Rices { get; set; }
-        public List<Pulses> Pulses { get; set; }
-        public List<Wheats> Wheats { get; set; }
-    }
-    public class Rices
-    {
-        public string name { get; set; }
-        public double price { get; set; }
-        public double weight { get; set; }
-    }
-    public class Pulses
-    {
-        public string name { get; set; }
-        public double price { get; set; }
-        public double weight { get; set; }
-    }
-    public class Wheats
-    {
-        public string name { get; set; }
-        public double price { get; set; }
-        public double weight { get; set; }
-    }
+        private List<Rices> rices;
+        private List<Pulses> pulses;
+        private List<Wheats> wheats;
 
+        public List<Rices> Rices { get => this.rices; set => this.rices = value; }
+        public List<Pulses> Pulses { get => this.pulses; set => this.pulses = value; }
+        public List<Wheats> Wheats { get => this.wheats; set => this.wheats = value; }
+    }
+    
+    
 }

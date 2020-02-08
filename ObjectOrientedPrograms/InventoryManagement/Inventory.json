@@ -1,38 +1,63 @@
 {
   "Rices": [
     {
-      "name": "BrownRice",
-      "price": 90,
-      "weight": 2
+      "Name": "BrownRice",
+      "Price": 90.0,
+      "Weight": 2.0
     },
     {
-      "name": "BasmatiRice",
-      "price": 100,
-      "weight": 3
+      "Name": "BasmatiRice",
+      "Price": 100.0,
+      "Weight": 3.0
+    },
+    {
+      "Name": "Red Rice",
+      "Price": 70.0,
+      "Weight": 30.0
+    },
+    {
+      "Name": "Millets",
+      "Price": 80.0,
+      "Weight": 2.0
     }
   ],
   "Pulses": [
     {
-      "name": "Lentils",
-      "price": 60,
-      "weight": 2
+      "Name": "Lentils",
+      "Price": 60.0,
+      "Weight": 2.0
     },
     {
-      "name": "Rajma",
-      "price": 50,
-      "weight": 1
+      "Name": "Rajma",
+      "Price": 50.0,
+      "Weight": 1.0
+    },
+    {
+      "Name": "Masoor Dal",
+      "Price": 70.0,
+      "Weight": 2.0
+    },
+    {
+      "Name": "pulses",
+      "Price": 70.0,
+      "Weight": 2.0
     }
   ],
   "Wheats": [
     {
-      "name": "Jowar",
-      "price": 70,
-      "weight": 2
+      "Name": "Jowar",
+      "Price": 70.0,
+      "Weight": 2.0
     },
     {
-      "name": "Oats",
-      "price": 80,
-      "weight": 2
+      "Name": "Oats",
+      "Price": 80.0,
+      "Weight": 2.0
+    },
+    {
+      "Name": "Emmer",
+      "Price": 60.0,
+      "Weight": 2.0
     }
   ]
 }

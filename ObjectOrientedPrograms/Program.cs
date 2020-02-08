@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectOrientedPrograms
+namespace ObjectOrientedPrograms.InventoryManagement
 {
     class Program
     {
@@ -12,7 +12,12 @@ namespace ObjectOrientedPrograms
             switch(option)
             {
                 case 1:
-                    InventoryDetails.ReadingFromFile();
+                    InventoryDetails inventory = new InventoryDetails();
+                    inventory.ReadingFromFile();
+                    break;
+                case 2:
+                    Inventory3 inventorydata = new Inventory3();
+                    inventorydata.UpdateData();
                     break;
             }
         }
