@@ -1,0 +1,19 @@
+{
+  "student": [
+    {
+      "firstname": "kantheti",
+      "lastname": "tejasri",
+      "training": "4 months"
+    },
+    {
+      "firstname": "harshini",
+      "lastname": "polasani",
+      "training": "4 months"
+    },
+    {
+      "firstname": "manasa",
+      "lastname": "pagadoju",
+      "training": "4 months"
+    }
+  ]
+}
