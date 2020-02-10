@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -27,9 +27,9 @@ namespace ObjectOrientedPrograms.InventoryManagement
                     Console.WriteLine("enter values to get added into json file :");
                     Rices rice = new Rices { Name = Utility.readString(), Price = Utility.readDouble(), Weight = Utility.readDouble(), };
                     obj.Rices.Add(rice);
-                    /* String s = JsonConvert.SerializeObject(obj);
+                    *//* String s = JsonConvert.SerializeObject(obj);
                      File.WriteAllText(json,s);
-                     Console.WriteLine(s);*/
+                     Console.WriteLine(s);*//*
                     Utility.Writefile(json, obj);
                     break;
                 case 2:
@@ -81,3 +81,4 @@ namespace ObjectOrientedPrograms.InventoryManagement
 }
 
 
+*/

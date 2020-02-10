@@ -1,12 +1,12 @@
 ﻿using System;
-
 namespace ObjectOrientedPrograms.InventoryManagement
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("1.InventoryDetails");
+            Console.WriteLine("1.InventoryDetails\n2.StockManagement");
+           
             Console.WriteLine("enter an option to get executed");
             int option = Utility.readInt();
             switch(option)
@@ -16,9 +16,10 @@ namespace ObjectOrientedPrograms.InventoryManagement
                     inventory.ReadingFromFile();
                     break;
                 case 2:
-                    Inventory3 inventorydata = new Inventory3();
-                    inventorydata.calling();
+                    StockManagement.Stockdata();
                     break;
+
+               
             }
         }
     }

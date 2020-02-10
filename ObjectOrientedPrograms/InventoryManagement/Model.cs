@@ -6,13 +6,13 @@ namespace ObjectOrientedPrograms.InventoryManagement
 {
     public class Model
     {
-        private List<Rices> rices;
-        private List<Pulses> pulses;
-        private List<Wheats> wheats;
+        /*private List<InventoryData> rices;
+        private List<InventoryData> pulses;
+        private List<InventoryData> wheats;*/
 
-        public List<Rices> Rices { get => this.rices; set => this.rices = value; }
-        public List<Pulses> Pulses { get => this.pulses; set => this.pulses = value; }
-        public List<Wheats> Wheats { get => this.wheats; set => this.wheats = value; }
+        public List<InventoryData> Rices;
+        public List<InventoryData> Pulses;
+        public List<InventoryData> Wheats;
     }
     
     
