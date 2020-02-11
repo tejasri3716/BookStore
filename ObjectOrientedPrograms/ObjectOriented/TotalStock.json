@@ -1,0 +1,19 @@
+{
+  "TotalStocks": [
+    {
+      "stockname": "Nestle-India",
+      "share": 25,
+      "price": 60.0
+    },
+    {
+      "stockname": "JSW Steel",
+      "share": 30,
+      "price": 70.0
+    },
+    {
+      "stockname": "Dabur India",
+      "share": 40,
+      "price": 80.0
+    }
+  ]
+}
