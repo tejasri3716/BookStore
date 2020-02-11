@@ -231,7 +231,7 @@ namespace ObjectOrientedPrograms
         ///Serialization
         public static StockPortfolio Deserialization(String stockfile)
         {
-            StockPortfolio stockobj=null;
+            StockPortfolio stockobj = null;
             try
             {
                 stockobj = JsonConvert.DeserializeObject<StockPortfolio>(stockfile);
@@ -246,13 +246,14 @@ namespace ObjectOrientedPrograms
         {
             try
             {
-                IList<StockInfo> list = stockObj.TotalStocks;
-                Console.WriteLine("StockName\t\t\tPrice\t\tShare\t\tTotalPrice");
+                List<StockInfo> list = new List<StockInfo>();
+                list = stockObj.TotalStocks;
+                Console.WriteLine("StockName\t\t\tPrice\t\t\tShare\t\t\tTotalPrice");
                 if (stockObj != null)
                 {
                     foreach (var stock in list)
                     {
-                        Console.WriteLine(stock.StockName + "\t\t\t" + stock.Price + "\t\t" + stock.Share + "\t\t" + ((stock.Share) * (stock.Price)));
+                        Console.WriteLine(stock.StockName + "\t\t" + stock.Price + "\t\t" + stock.Share + "\t\t" + ((stock.Share) * (stock.Price)));
                     }
                 }
             }
@@ -260,16 +261,7 @@ namespace ObjectOrientedPrograms
             {
                 Console.WriteLine(e.Message.ToString());
             }
-        }
-        ///for Deck of Cards 
-        ///for shuffling cards
-        ///for converting to 2d array
-        public int RandomValues(int num)
-        {
-            Random random = new Random();
-            int value = random.Next(num);
-            return value;
-        }
 
+        }
     }
 }

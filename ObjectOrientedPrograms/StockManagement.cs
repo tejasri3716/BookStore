@@ -11,11 +11,7 @@ namespace ObjectOrientedPrograms
             String stockfile = @"C:\Users\BridgeLabz\source\repos\ObjectOrientedPrograms\TotalStock.json";
             String stockreading = Utility.ReadFile(stockfile);
             Console.WriteLine(stockreading);
-            StockPortfolio stockObject = Utility.Deserialization(stockreading);
-            if (stockObject == null)
-            {
-                Console.WriteLine("object is null");
-            }
+            StockPortfolio stockObject = Utility.Deserialization(stockfile);
             Utility.DisplayStock(stockObject);
         }
     }
