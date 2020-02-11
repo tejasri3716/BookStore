@@ -272,6 +272,19 @@ namespace ObjectOrientedPrograms
         }
         public static void CardArray(String[] Suits,String[,]Cards,String[]Rank)
         {
+            for(int i=0;i<4;i++)
+            {
+                for(int j=0;j<13;j++)
+                {
+                    Cards[i, j] = Suits[i] + "--" + Rank[j];
+                }
+
+            }
+        }
+        public void ShufflingCards(String[,]CardsArray)
+        {
+            int row1, row2, column1, column2;
+
 
         }
     }
