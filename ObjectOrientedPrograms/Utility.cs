@@ -231,7 +231,7 @@ namespace ObjectOrientedPrograms
         ///Serialization
         public static StockPortfolio Deserialization(String stockfile)
         {
-            StockPortfolio stockobj=null;
+            StockPortfolio stockobj = null;
             try
             {
                 stockobj = JsonConvert.DeserializeObject<StockPortfolio>(stockfile);
@@ -256,7 +256,7 @@ namespace ObjectOrientedPrograms
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message.ToString());
             }
@@ -264,24 +264,33 @@ namespace ObjectOrientedPrograms
         ///for Deck of Cards 
         ///for shuffling cards
         ///for converting to 2d array
-        public int RandomValues(int num)
+        public static int RandomValues(int num)
         {
             Random random = new Random();
             int value = random.Next(num);
             return value;
         }
-        public static void CardArray(String[] Suits,String[,]Cards,String[]Rank)
+        public static void PrintString2DArray(string[,] PlayersArray)
         {
-            for(int i=0;i<4;i++)
+            for (int i = 0; i < PlayersArray.GetLength(0); i++)
             {
-                for(int j=0;j<13;j++)
+                for (int j = 0; j < PlayersArray.GetLength(1); j++)
+                    Console.Write(PlayersArray[i, j]);
+                Console.WriteLine();
+            }
+        }
+        public static void CardArray(String[] Suits, String[,] Cards, String[] Rank)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 13; j++)
                 {
-                    Cards[i, j] = Suits[i] + "--" + Rank[j];
+                    Cards[i, j] = Suits[i] + "-" + Rank[j];
                 }
 
             }
         }
-        public void ShufflingCards(String[,]CardsArray)
+        public static void ShufflingCards(String[,] CardsArray)
         {
             int row1, row2, column1, column2;
             for (int i = 0; i < 52; i++)
@@ -299,7 +308,14 @@ namespace ObjectOrientedPrograms
             CardsArray[row1, column1] = CardsArray[row2, column2];
             CardsArray[row2, column2] = temp;
         }
+        public static void DistributingCards(string[,] Cards, string[,] Players)
+        {
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 9; j++)
+                    Players[i, j] = Cards[i, j];
+        }
+
 
     }
 }
-}
+

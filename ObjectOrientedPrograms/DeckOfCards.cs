@@ -14,7 +14,13 @@ namespace ObjectOrientedPrograms
             String[,] Players = new String[4, 13];
             Utility.CardArray(Suits, Cards, Rank);
 
+            Utility.ShufflingCards(Cards);
 
+            ////Distributes 9 - 9 cards to each of 4 player
+            Utility.DistributingCards(Cards, Players);
+
+            //// prints the cards with each players
+            Utility.PrintString2DArray(Players);
         }
     }
 }
