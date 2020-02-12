@@ -1,22 +1,31 @@
 {
   "Person": [
     {
-      "firstName": "gabbita",
-      "lastName": "radha suvarchala",
-      "address": "fno:303,siri towers",
-      "city": "hyderabad",
-      "state": "telangana",
-      "zip": 500036,
-      "phoneNumber": 9701426345
+      "FirstName": "gabbita",
+      "LastName": "radha suvarchala",
+      "Address": "fno:303,siri towers",
+      "City": "hyderabad",
+      "State": "telangana",
+      "Zip": 500036,
+      "PhoneNumber": 9701426345.0
     },
     {
-      "firstName": "hari",
-      "lastName": "Sai Indrani",
-      "address": "hno:304,sai residency",
-      "city": "hyderabad",
-      "state": "telangana",
-      "zip": 500036,
-      "phoneNumber": 9701426346
+      "FirstName": "hari",
+      "LastName": "Sai Indrani",
+      "Address": "hgdfdsj",
+      "City": "hyderabad",
+      "State": "telangana",
+      "Zip": 500036,
+      "PhoneNumber": 9701426346.0
+    },
+    {
+      "FirstName": "teju",
+      "LastName": "vgh",
+      "Address": "566",
+      "City": "bnj",
+      "State": "jh",
+      "Zip": 8709,
+      "PhoneNumber": 6554897.0
     }
   ]
 }

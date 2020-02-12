@@ -6,14 +6,14 @@ namespace ObjectOrientedPrograms
 {
     public class Person
     {
-        
+
         private string firstName;
         private string lastName;
         private string address;
         private string city;
         private string state;
         private int zip;
-        private int phoneNumber;
+        private double phoneNumber;
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
@@ -122,7 +122,7 @@ namespace ObjectOrientedPrograms
         /// <value>
         /// The phone number.
         /// </value>
-        public int PhoneNumber
+        public double PhoneNumber
         {
             get
             {
