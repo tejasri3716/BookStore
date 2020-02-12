@@ -6,6 +6,9 @@ namespace ObjectOrientedPrograms
 {
     class DeckOfCards
     {
+        /// <summary>
+        /// Distributes the cards.
+        /// </summary>
         public void DistributeCards()
         {
             String[] Suits = { "Club", "Diamond", "Heart", "Spade" };

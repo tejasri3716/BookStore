@@ -3,26 +3,20 @@
     {
       "firstName": "gabbita",
       "lastName": "radha suvarchala",
-      "address": [
-        {
-          "city": "hyderabad",
-          "state": "telangana",
-          "zip": 500036,
-          "phoneNumber": 9701426345
-        }
-      ]
+      "address": "fno:303,siri towers",
+      "city": "hyderabad",
+      "state": "telangana",
+      "zip": 500036,
+      "phoneNumber": 9701426345
     },
     {
       "firstName": "hari",
       "lastName": "Sai Indrani",
-      "address": [
-        {
-          "city": "hyderabad",
-          "state": "telangana",
-          "zip": 500036,
-          "phoneNumber": 9701426346
-        }
-
-      ]
-
+      "address": "hno:304,sai residency",
+      "city": "hyderabad",
+      "state": "telangana",
+      "zip": 500036,
+      "phoneNumber": 9701426346
     }
+  ]
+}
