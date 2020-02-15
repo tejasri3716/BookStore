@@ -58,6 +58,11 @@ namespace ObjectOrientedPrograms
             }
             return file;
         }
+        /// <summary>
+        /// Serializings the specified model.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <param name="jsonfile">The jsonfile.</param>
         public static void Serializing(Model model, string jsonfile)
         {
             try
@@ -70,7 +75,10 @@ namespace ObjectOrientedPrograms
                 Console.Write(e.Message);
             }
         }
-
+        /// <summary>
+        /// Adds the rice.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void AddRice(Model model)
         {
             List<InventoryData> rice = model.Rices;
@@ -97,6 +105,10 @@ namespace ObjectOrientedPrograms
             wheat.Add(wheats);
             model.Wheats = wheat;
         }
+        /// <summary>
+        /// Adds the pulses.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void AddPulses(Model model)
         {
             List<InventoryData> pulses = model.Pulses;
@@ -110,6 +122,10 @@ namespace ObjectOrientedPrograms
             pulses.Add(newpulses);
             model.Pulses = pulses;
         }
+        /// <summary>
+        /// Removes the item rice.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void RemoveItemRice(Model model)
         {
             List<InventoryData> rices = model.Rices;
@@ -125,6 +141,10 @@ namespace ObjectOrientedPrograms
             }
 
         }
+        /// <summary>
+        /// Removes the item wheat.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void RemoveItemWheat(Model model)
         {
             List<InventoryData> wheats = model.Wheats;
@@ -139,6 +159,10 @@ namespace ObjectOrientedPrograms
                 }
             }
         }
+        /// <summary>
+        /// Removes the item pulses.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void RemoveItemPulses(Model model)
         {
             List<InventoryData> pulses = model.Pulses;
@@ -153,6 +177,10 @@ namespace ObjectOrientedPrograms
                 }
             }
         }
+        /// <summary>
+        /// Removes the item.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void RemoveItem(Model model)
         {
             List<InventoryData>[] inventory = new List<InventoryData>[3];
@@ -172,13 +200,17 @@ namespace ObjectOrientedPrograms
                 }
             }
         }
+        /// <summary>
+        /// Updates the data.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void UpdateData(Model model)
         {
             List<InventoryData>[] inventory = new List<InventoryData>[3];
             inventory[0] = model.Rices;
             inventory[1] = model.Wheats;
             inventory[2] = model.Pulses;
-            Console.WriteLine("enter an item to get updated in the list");
+            Console.WriteLine("enter LastName of a person to update in the list");
             String updateitem = Utility.readString();
             foreach (var items in inventory)   //for rices or wheats or pulses
             {
@@ -210,6 +242,10 @@ namespace ObjectOrientedPrograms
                 }
             }
         }
+        /// <summary>
+        /// Displays the specified model.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public static void Display(Model model)
         {
             List<InventoryData>[] list = new List<InventoryData>[3];
@@ -270,6 +306,10 @@ namespace ObjectOrientedPrograms
             int value = random.Next(num);
             return value;
         }
+        /// <summary>
+        /// Prints the string2 d array.
+        /// </summary>
+        /// <param name="PlayersArray">The players array.</param>
         public static void PrintString2DArray(string[,] PlayersArray)
         {
             for (int i = 0; i < PlayersArray.GetLength(0); i++)
@@ -279,6 +319,12 @@ namespace ObjectOrientedPrograms
                 Console.WriteLine();
             }
         }
+        /// <summary>
+        /// Cards the array.
+        /// </summary>
+        /// <param name="Suits">The suits.</param>
+        /// <param name="Cards">The cards.</param>
+        /// <param name="Rank">The rank.</param>
         public static void CardArray(String[] Suits, String[,] Cards, String[] Rank)
         {
             for (int i = 0; i < 4; i++)
@@ -290,6 +336,10 @@ namespace ObjectOrientedPrograms
 
             }
         }
+        /// <summary>
+        /// Shufflings the cards.
+        /// </summary>
+        /// <param name="CardsArray">The cards array.</param>
         public static void ShufflingCards(String[,] CardsArray)
         {
             int row1, row2, column1, column2;
@@ -302,12 +352,25 @@ namespace ObjectOrientedPrograms
                 Swap(CardsArray, row1, column1, row2, column2);
             }
         }
+        /// <summary>
+        /// Swaps the specified cards array.
+        /// </summary>
+        /// <param name="CardsArray">The cards array.</param>
+        /// <param name="row1">The row1.</param>
+        /// <param name="column1">The column1.</param>
+        /// <param name="row2">The row2.</param>
+        /// <param name="column2">The column2.</param>
         public static void Swap(string[,] CardsArray, int row1, int column1, int row2, int column2)
         {
             string temp = CardsArray[row1, column1];
             CardsArray[row1, column1] = CardsArray[row2, column2];
             CardsArray[row2, column2] = temp;
         }
+        /// <summary>
+        /// Distributings the cards.
+        /// </summary>
+        /// <param name="Cards">The cards.</param>
+        /// <param name="Players">The players.</param>
         public static void DistributingCards(string[,] Cards, string[,] Players)
         {
             for (int i = 0; i < 4; i++)
