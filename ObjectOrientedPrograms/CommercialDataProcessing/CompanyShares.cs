@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
-    class CompanyShares
+    public class CompanyShares
     {
         private string symbol;
         private int numberOfShare;

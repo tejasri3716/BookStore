@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
-    class StockInfo
+    public class StockInfo
     {
         private string stockName;
         private int totalShares;

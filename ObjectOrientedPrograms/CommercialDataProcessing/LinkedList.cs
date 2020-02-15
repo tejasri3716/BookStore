@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
-    class LinkedList
+    public class LinkedList
     {
         private CompanyShares info;
         private LinkedList link;
