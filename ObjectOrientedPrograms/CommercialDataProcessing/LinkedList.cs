@@ -14,13 +14,13 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// <value>
         /// The information.
         /// </value>
-        internal CompanyShares Info { get => info; set => info = value; }
+        public CompanyShares Info { get => info; set => info = value; }
         /// <summary>
         /// Gets or sets the link.
         /// </summary>
         /// <value>
         /// The link.
         /// </value>
-        internal LinkedList Link { get => link; set => link = value; }
+        public LinkedList Link { get => link; set => link = value; }
     }
 }
