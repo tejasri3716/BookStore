@@ -74,6 +74,21 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             LinkedList newNode = new LinkedList();
             return newNode;
         }
+        public void Save(string fileName)
+        {
+            string jsonResultString = JsonConvert.SerializeObject(stocks);
+            File.WriteAllText(fileName, jsonResultString);
+        }
+
+        /// <summary>
+        /// Saves the customer share to a file (serialize)
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        public void SaveCustomerShare(string fileName)
+        {
+            string jsonResultString = JsonConvert.SerializeObject(NewCustomerShareAccount);
+            File.WriteAllText(fileName, jsonResultString);
+        }
 
     }
 }
