@@ -9,6 +9,13 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
     /// </summary>
     class StockOptions
     {
+        /// <summary>
+        /// The stocks class Object
+        /// </summary>
         Stocks stocks = null;
+        /// <summary>
+        /// Creates new customershareaccount.
+        /// </summary>
+        CustomerShare NewCustomerShareAccount = null;
     }
 }
