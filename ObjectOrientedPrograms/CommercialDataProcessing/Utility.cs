@@ -58,16 +58,22 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// <returns></returns>
         public static Stocks Deserializing(string Jsonfile)
         {
-            Stocks file = null;
+            Stocks stocks = null;
             try
             {
-                file = JsonConvert.DeserializeObject<Stocks>(Jsonfile);
+                stocks = JsonConvert.DeserializeObject<Stocks>(Jsonfile);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            return file;
+            return stocks;
         }
+        public static LinkedList CreateListNodeCompany()
+        {
+            LinkedList newNode = new LinkedList();
+            return newNode;
+        }
+
     }
 }
