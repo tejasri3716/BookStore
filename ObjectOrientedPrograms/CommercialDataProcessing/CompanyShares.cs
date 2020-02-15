@@ -7,7 +7,7 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
     public class CompanyShares
     {
         private string symbol;
-        private int numberOfShare;
+        private int totalShares;
         private DateTime dateTime;
         /// <summary>
         /// Gets or sets the symbol.
@@ -17,12 +17,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// </value>
         public string Symbol { get => symbol; set => symbol = value; }
         /// <summary>
-        /// Gets or sets the number of share.
+        /// Gets or sets the total shares.
         /// </summary>
         /// <value>
-        /// The number of share.
+        /// The total shares.
         /// </value>
-        public int NumberOfShare { get => numberOfShare; set => numberOfShare = value; }
+        public int TotalShares { get => totalShares; set => totalShares = value; }
         /// <summary>
         /// Gets or sets the date time.
         /// </summary>

@@ -6,16 +6,16 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
     public class Stocks
     {
-        public List<StockInfo> Stock
-        {
-            get
-            {
-                return this.Stock;
-            }
-            set
-            {
-                this.Stock = value;
-            }
-        }
+        // private List<StockInfo> stock;
+
+        public List<StockInfo> Stock { get; set; }
+        /* get
+         {
+             return this.Stock;
+         }
+         set
+         {
+             this.Stock = value;
+         }*/
     }
 }

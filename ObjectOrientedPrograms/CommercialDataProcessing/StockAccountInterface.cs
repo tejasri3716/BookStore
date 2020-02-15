@@ -24,13 +24,14 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// Buys the specified stocks.
         /// </summary>
         /// <param name="stocks">The stocks.</param>
-        void Buy(Stocks stocks);
+        void Buy(Stocks stocks, Stack1 stack, Queue1 queue);
 
         /// <summary>
         /// Sells the specified stocks.
         /// </summary>
         /// <param name="stocks">The stocks.</param>
-        void Sell(Stocks stocks);
+        void Sell(Stocks stocks, Stack1 stack, Queue1 queue);
+
 
         /// <summary>
         /// Saves the specified filename.

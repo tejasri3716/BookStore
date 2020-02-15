@@ -10,6 +10,10 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
     class StockOptions
     {
         /// <summary>
+        /// The deposit
+        /// </summary>
+        public static double deposit = 50000000;
+        /// <summary>
         /// The stocks class Object
         /// </summary>
         Stocks stocks = null;
@@ -20,11 +24,11 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// <summary>
         /// The stock account object
         /// </summary>
-        public static StockAccount stockAccountObject = null;
+        public  StockAccount stockAccountObject = null;
         /// <summary>
         /// Stocks the options method.
         /// </summary>
-         Stack1 stack = new Stack1();
+        Stack1 stack = new Stack1();
 
         /// <summary>
         /// The queue Using linked list
@@ -33,14 +37,14 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
 
         public void StockOptionsMethod()
         {
-
+            int option = 0;
             String StockFilePath = @"C:\Users\BridgeLabz\source\repos\ObjectOrientedPrograms\CommercialDataProcessing\StockList.json";
             String CustomerFilePath = @"C:\Users\BridgeLabz\source\repos\ObjectOrientedPrograms\CommercialDataProcessing\Customer.json";
             stockAccountObject = new StockAccount();
-            int option = Utility.readInt();
-            do
+            if (stockAccountObject == null)
+                Console.WriteLine("object is null");
+            while (option != 99)
             {
-                Console.WriteLine("enter any option to get executed");
                 Console.WriteLine(" 1. Create New StockAccount and CustomerShareAccount");
                 Console.WriteLine(" 2. Total Value of stockAccount");
                 Console.WriteLine(" 3. Buy share ");
@@ -51,24 +55,25 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 Console.WriteLine(" 8. printReport of customer stock");
                 Console.WriteLine(" 9. print transaction done using stack");
                 Console.WriteLine("10. print Date time of transaction using Queue");
-
+                Console.WriteLine("enter any option to get executed");
+                option = Utility.readInt();
                 switch (option)
                 {
                     case 1:
                         stocks = stockAccountObject.NewStockAccount(StockFilePath);
-                        NewCustomerShareAccount = stockAccountObject.CustomerShareAccountMethods();
+                        NewCustomerShareAccount = stockAccountObject.NewCustomerShareAccount();
                         break;
                     case 2:
                         Console.WriteLine("total value of all the stock shares are : {0}", stockAccountObject.ValueOf());
                         break;
 
                     case 3:
-                        stockAccountObject.Buy(stocks, stackLL, queueLL);
+                        stockAccountObject.Buy(stocks, stack, queue);
                         stockAccountObject.PrintReport(stocks);
                         break;
 
                     case 4:
-                        stockAccountObject.Sell(stocks, stackLL, queueLL);
+                        stockAccountObject.Sell(stocks, stack, queue);
                         stockAccountObject.PrintReport(stocks);
                         break;
 
@@ -95,13 +100,15 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                     case 10:
                         Utility.PrintDateTime(queue);
                         break;
-
+                    case 99:
+                        return;
                     default:
                         Console.WriteLine("enter correct option");
                         break;
                 }
 
-            } while (option < 11);
+            }
+
         }
     }
 }
