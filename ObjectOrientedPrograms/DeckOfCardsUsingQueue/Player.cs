@@ -6,7 +6,9 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
-
+    /// <summary>
+    /// Class Player used to initialize empty nodes
+    /// </summary>
     public class Player
     {
           public CardsQueue queueCard = UtilityQueue.CreateQCard();

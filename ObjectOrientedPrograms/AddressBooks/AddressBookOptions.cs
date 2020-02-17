@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms
 {
     using System;
 
+    /// <summary>
+    /// Class Address Book Options for adding or removing or updating person details
+    /// </summary>
     class AddressBookOptions
     {
         public  void addressBookOptions(ModelClass modeldata)

@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms
 {
     using System;
 
+    /// <summary>
+    /// Class Address Book used for performing deserialization and serialization
+    /// </summary>
     class AddressBook
     {
         public static void PersonDetails()

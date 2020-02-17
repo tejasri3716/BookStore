@@ -1,9 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=StockInfo.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
+    /// <summary>
+    /// Stock Info Class is used for Encapsulation
+    /// </summary>
     public class StockInfo
     {
         private string stockName;

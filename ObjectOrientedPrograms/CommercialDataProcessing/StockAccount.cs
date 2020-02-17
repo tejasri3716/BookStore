@@ -1,11 +1,20 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=StockAccount.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+
+    /// <summary>
+    /// Stock Account class implements Stock Account Interface and overrides the methods in interface
+    /// </summary>
+    /// <seealso cref="ObjectOrientedPrograms.CommercialDataProcessing.StockAccountInterface" />
     class StockAccount : StockAccountInterface
     {
         Stocks stocks = null;

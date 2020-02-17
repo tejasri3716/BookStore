@@ -1,14 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=CompanyShares.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
+   using System;
+
+    /// <summary>
+    /// Company Shares Class is used for Encapsulation
+    /// </summary>
     public class CompanyShares
     {
         private string symbol;
         private int totalShares;
         private DateTime dateTime;
+
         /// <summary>
         /// Gets or sets the symbol.
         /// </summary>

@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=StockAccountInterface.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
+    using System;
 
+    /// <summary>
+    /// Stock Account Interface having abstract methods
+    /// </summary>
     interface StockAccountInterface
     {
         /// <summary>

@@ -6,6 +6,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms
 {
+
+    /// <summary>
+    /// Person Class used for Encapsulation
+    /// </summary>
     public class Person
     {
 

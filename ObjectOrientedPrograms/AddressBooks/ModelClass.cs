@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms
 {
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Model Class for declaring list of Person Class
+    /// </summary>
     class ModelClass
     {
         /// <summary>

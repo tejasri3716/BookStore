@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms
 {
     using System;
 
+    /// <summary>
+    /// Deck Of Cards class is used for shuffling and distributing cards to players
+    /// </summary>
     class DeckOfCards
     {
         /// <summary>

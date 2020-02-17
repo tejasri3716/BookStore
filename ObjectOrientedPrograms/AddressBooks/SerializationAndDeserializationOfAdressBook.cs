@@ -11,6 +11,9 @@ namespace ObjectOrientedPrograms
     using System.Collections.Generic;
     using System.IO;
 
+    /// <summary>
+    /// Serialization And Deserialization Of AdressBook Class is used for performing operations on json file 
+    /// </summary>
     class SerializationAndDeserializationOfAdressBook
     {
         /// <summary>

@@ -1,9 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=LinkedList.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace ObjectOrientedPrograms.CommercialDataProcessing
 {
+    /// <summary>
+    /// Linked List class used to declare fields in Linked List
+    /// </summary>
     public class LinkedList
     {
         private CompanyShares info;
