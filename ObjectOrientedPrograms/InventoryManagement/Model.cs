@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=Model.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms.InventoryManagement
 {
+    using System.Collections.Generic;
+
     public class Model
     {
         public List<InventoryData> Rices;

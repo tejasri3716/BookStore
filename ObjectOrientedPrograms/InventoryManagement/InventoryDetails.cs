@@ -1,13 +1,15 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using ObjectOrientedPrograms.InventoryManagement;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=InventoryDetails.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+
 
 namespace ObjectOrientedPrograms.InventoryManagement
 {
+    using System;
+
     public class InventoryDetails
     {
         public void Operations()

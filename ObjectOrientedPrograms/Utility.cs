@@ -1,11 +1,17 @@
-﻿using Newtonsoft.Json;
-using ObjectOrientedPrograms.InventoryManagement;
-using System;
-using System.Collections.Generic;
-using System.IO;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=Utility.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms
 {
+    using Newtonsoft.Json;
+    using ObjectOrientedPrograms.InventoryManagement;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+
     class Utility
     {
         public static int readInt()
@@ -48,12 +54,12 @@ namespace ObjectOrientedPrograms
             }
             return jsonfile;
         }
-        public static Model Deserializing(string Jsonfile)
+        public static InventoryManagement.Model Deserializing(string Jsonfile)
         {
-            Model file = null;
+            InventoryManagement.Model file = null;
             try
             {
-                file = JsonConvert.DeserializeObject<Model>(Jsonfile);
+                file = JsonConvert.DeserializeObject<InventoryManagement.Model>(Jsonfile);
             }
             catch (Exception e)
             {
@@ -66,7 +72,7 @@ namespace ObjectOrientedPrograms
         /// </summary>
         /// <param name="model">The model.</param>
         /// <param name="jsonfile">The jsonfile.</param>
-        public static void Serializing(Model model, string jsonfile)
+        public static void Serializing(InventoryManagement.Model model, string jsonfile)
         {
             try
             {
@@ -82,7 +88,7 @@ namespace ObjectOrientedPrograms
         /// Adds the rice.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void AddRice(Model model)
+        public static void AddRice(InventoryManagement.Model model)
         {
             List<InventoryData> rice = model.Rices;
             InventoryData newitem = new InventoryData();
@@ -95,7 +101,7 @@ namespace ObjectOrientedPrograms
             rice.Add(newitem);
             model.Rices = rice;
         }
-        public static void AddWheats(Model model)
+        public static void AddWheats(InventoryManagement.Model model)
         {
             List<InventoryData> wheat = model.Wheats;
             InventoryData wheats = new InventoryData();
@@ -112,7 +118,7 @@ namespace ObjectOrientedPrograms
         /// Adds the pulses.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void AddPulses(Model model)
+        public static void AddPulses(InventoryManagement.Model model)
         {
             List<InventoryData> pulses = model.Pulses;
             InventoryData newpulses = new InventoryData();
@@ -129,7 +135,7 @@ namespace ObjectOrientedPrograms
         /// Removes the item rice.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void RemoveItemRice(Model model)
+        public static void RemoveItemRice(InventoryManagement.Model model)
         {
             List<InventoryData> rices = model.Rices;
             Console.WriteLine("enter variety of rice to get removed from the list");
@@ -148,7 +154,7 @@ namespace ObjectOrientedPrograms
         /// Removes the item wheat.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void RemoveItemWheat(Model model)
+        public static void RemoveItemWheat(InventoryManagement.Model model)
         {
             List<InventoryData> wheats = model.Wheats;
             Console.WriteLine("enter an item to get removed from the list");
@@ -166,7 +172,7 @@ namespace ObjectOrientedPrograms
         /// Removes the item pulses.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void RemoveItemPulses(Model model)
+        public static void RemoveItemPulses(InventoryManagement.Model model)
         {
             List<InventoryData> pulses = model.Pulses;
             Console.WriteLine("enter an item to get removed from the list");
@@ -184,7 +190,7 @@ namespace ObjectOrientedPrograms
         /// Removes the item.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void RemoveItem(Model model)
+        public static void RemoveItem(InventoryManagement.Model model)
         {
             List<InventoryData>[] inventory = new List<InventoryData>[3];
             inventory[0] = model.Rices;
@@ -192,7 +198,7 @@ namespace ObjectOrientedPrograms
             inventory[2] = model.Pulses;
             Console.WriteLine("enter an item to get removed from the list");
             String removeitem = Utility.readString();
-            foreach (var items in inventory)   
+            foreach (var items in inventory)
             {                                     // for rices or pulses or wheats
                 foreach (var item in items)
                 {                                // for variety of each inventory
@@ -207,7 +213,7 @@ namespace ObjectOrientedPrograms
         /// Updates the data.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void UpdateData(Model model)
+        public static void UpdateData(InventoryManagement.Model model)
         {
             List<InventoryData>[] inventory = new List<InventoryData>[3];
             inventory[0] = model.Rices;
@@ -249,7 +255,7 @@ namespace ObjectOrientedPrograms
         /// Displays the specified model.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void Display(Model model)
+        public static void Display(InventoryManagement.Model model)
         {
             List<InventoryData>[] list = new List<InventoryData>[3];
             list[0] = model.Rices;

@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=Player.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
 

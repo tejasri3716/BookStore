@@ -10,7 +10,7 @@ namespace ObjectOrientedPrograms
 
     class AddressBookOptions
     {
-        public  void addressBookOptions(Model1 modeldata)
+        public  void addressBookOptions(ModelClass modeldata)
         {
             Console.WriteLine("1.Adding a Person Details ");
             Console.WriteLine("2.Removing a Person Details");

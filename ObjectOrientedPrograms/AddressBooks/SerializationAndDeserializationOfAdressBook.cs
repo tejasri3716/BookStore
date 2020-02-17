@@ -37,12 +37,12 @@ namespace ObjectOrientedPrograms
         /// </summary>
         /// <param name="Jsonfile">The jsonfile.</param>
         /// <returns></returns>
-        public static Model1 Deserializing(string Jsonfile)
+        public static ModelClass Deserializing(string Jsonfile)
         {
-            Model1 file = null;
+            ModelClass file = null;
             try
             {
-                file = JsonConvert.DeserializeObject<Model1>(Jsonfile);
+                file = JsonConvert.DeserializeObject<ModelClass>(Jsonfile);
             }
             catch (Exception e)
             {
@@ -54,7 +54,7 @@ namespace ObjectOrientedPrograms
         /// Displays the specified model.
         /// </summary>
         /// <param name="model">The model.</param>
-        public static void Display(Model1 model)
+        public static void Display(ModelClass model)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace ObjectOrientedPrograms
         /// Adds the person.
         /// </summary>
         /// <param name="modelinfo">The modelinfo.</param>
-        public static void AddPerson(Model1 modelinfo)
+        public static void AddPerson(ModelClass modelinfo)
         {
             List<Person> people = modelinfo.Person;
             Person person = new Person();
@@ -103,7 +103,7 @@ namespace ObjectOrientedPrograms
         /// Removes the person.
         /// </summary>
         /// <param name="modelinfo">The modelinfo.</param>
-        public static void RemovePerson(Model1 modelinfo)
+        public static void RemovePerson(ModelClass modelinfo)
         {
             List<Person> people = modelinfo.Person;
             Console.WriteLine("enter persons last+ name to get removed from the list");
@@ -121,7 +121,7 @@ namespace ObjectOrientedPrograms
         /// Updates the person.
         /// </summary>
         /// <param name="modelinfo">The modelinfo.</param>
-        public static void UpdatePerson(Model1 modelinfo)
+        public static void UpdatePerson(ModelClass modelinfo)
         {
             List<Person> people = modelinfo.Person;
             Console.WriteLine("enter Last Name of a person get updated");
@@ -181,7 +181,7 @@ namespace ObjectOrientedPrograms
         /// </summary>
         /// <param name="modelinfo">The modelinfo.</param>
         /// <param name="jsonfile">The jsonfile.</param>
-        public static void Serializing(Model1 modelinfo, string jsonfile)
+        public static void Serializing(ModelClass modelinfo, string jsonfile)
         {
             try
             {

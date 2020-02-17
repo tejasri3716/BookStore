@@ -1,9 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=InventoryManagement1.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace ObjectOrientedPrograms.InventoryManagement
 {
+    using System;
+
     class InventoryManagement1
     {
         public void inventoryManagement(Model model)

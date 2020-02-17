@@ -1,11 +1,14 @@
-﻿using ObjectOrientedPrograms.InventoryManagement;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=InventoryObject.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms.Inventory
 {
+    using ObjectOrientedPrograms.InventoryManagement;
+    using System;
+
     class InventoryObject
     {
         public void ReadingFromFile()

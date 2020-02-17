@@ -1,8 +1,12 @@
-﻿namespace ObjectOrientedPrograms
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file=StockManagement.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace ObjectOrientedPrograms
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
 
     class StockManagement
     {
