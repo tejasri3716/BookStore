@@ -1,39 +1,43 @@
-﻿using System;
-namespace ObjectOrientedPrograms.InventoryManagement
+﻿
+namespace ObjectOrientedPrograms
 {
+    using System;
+
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("1.InventoryDetails\n2.StockManagement\n3.DeckOfCards\n4.AddressBook\n5.CommercialDataProcessing\n10.DeckOfCardsUsingQ");
-           
+            Console.WriteLine("1.AddressBook\n2.Inventory\n3.InventoryDetails\n4.StockManagement\n9.DeckOfCards\n5.CommercialDataProcessing\n10.DeckOfCardsUsingQ");
+
             Console.WriteLine("enter an option to get executed");
             int option = Utility.readInt();
-            switch(option)
+            switch (option)
             {
                 case 1:
-                    InventoryDetails inventory = new InventoryDetails();
-                    inventory.ReadingFromFile();
+                    AddressBook.PersonDetails();
                     break;
                 case 2:
-                    StockManagement.Stockdata();
+                    Inventory.InventoryObject inventoryObject = new Inventory.InventoryObject();
+                    inventoryObject.ReadingFromFile();
                     break;
                 case 3:
-                    DeckOfCards cards = new DeckOfCards();
-                    cards.DistributeCards();
+                    InventoryManagement.InventoryDetails inventory = new InventoryManagement.InventoryDetails();
+                    inventory.Operations();
                     break;
                 case 4:
-                    AddressBook.PersonDetails();
+                    StockManagement.Stockdata();
                     break;
                 case 5:
                     CommercialDataProcessing.StockOptions stockOptions = new CommercialDataProcessing.StockOptions();
                     stockOptions.StockOptionsMethod();
                     break;
+                case 9:
+                    DeckOfCards cards = new DeckOfCards();
+                    cards.DistributeCards();
+                    break;
                 case 10:
                     DeckOfCardsUsingQueue.DeckOfCardsUsingQ.DistributeCards();
                     break;
-
-
             }
         }
     }

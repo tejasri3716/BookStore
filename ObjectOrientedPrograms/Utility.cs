@@ -136,7 +136,7 @@ namespace ObjectOrientedPrograms
             string removeitem = Utility.readString();
             foreach (var rice in rices)
             {
-                if ((rice.Name).Equals(removeitem))
+                if (rice.Name.Equals(removeitem))
                 {
                     rices.Remove(rice);
                     break;
@@ -215,10 +215,10 @@ namespace ObjectOrientedPrograms
             inventory[2] = model.Pulses;
             Console.WriteLine("enter LastName of a person to update in the list");
             String updateitem = Utility.readString();
-            foreach (var items in inventory)   // for rices or wheats or pulses
-            {
-                foreach (var item in items) // for variety of each inventory
-                {
+            foreach (var items in inventory)
+            {                                      // for rices or wheats or pulses
+                foreach (var item in items)
+                {                                  // for variety of each inventory
                     if (item.Name == updateitem)
                     {
                         Console.WriteLine("enter any property to get updated");
@@ -232,13 +232,13 @@ namespace ObjectOrientedPrograms
                         if (property == "Weight")
                         {
                             Console.WriteLine("enter a new weight to get updated");
-                            Double newWeight = Utility.readDouble();
+                            double newWeight = Utility.readDouble();
                             item.Weight = newWeight;
                         }
                         if (property == "Price")
                         {
                             Console.WriteLine("enter a new price to get updated");
-                            Double newPrice = Utility.readDouble();
+                            double newPrice = Utility.readDouble();
                             item.Price = newPrice;
                         }
                     }
@@ -291,7 +291,7 @@ namespace ObjectOrientedPrograms
                 {
                     foreach (var stock in list)
                     {
-                        Console.WriteLine(stock.StockName + "\t\t\t" + stock.Price + "\t\t" + stock.Share + "\t\t" + ((stock.Share) * (stock.Price)));
+                        Console.WriteLine(stock.StockName + "\t\t\t" + stock.Price + "\t\t" + stock.Share + "\t\t" + stock.Share * stock.Price);
                     }
                 }
             }

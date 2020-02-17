@@ -63,7 +63,7 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// </summary>
         /// <param name="stocks">The stocks.</param>
         /// <exception cref="NotImplementedException"></exception>
-        public void Sell(Stocks stocks, Stack1 stack, Queue1 queue)
+        public void Sell(Stocks stocks, Stack stack, Queue queue)
         {
             Console.WriteLine("enter the shareName to sell ");
             string shareName = Utility.readString();
@@ -111,7 +111,7 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 totalValue = share.TotalShares * share.SharePrice;
             return totalValue;
         }
-        public void Buy(Stocks memberStockPortfolioObject, Stack1 stack, Queue1 queue)
+        public void Buy(Stocks memberStockPortfolioObject, Stack stack, Queue queue)
         {
             CompanyShares companyShareObject = null;
             LinkedList newListNodeCompanyShare = null;

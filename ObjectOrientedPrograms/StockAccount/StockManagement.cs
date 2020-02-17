@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ObjectOrientedPrograms
+﻿namespace ObjectOrientedPrograms
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     class StockManagement
     {
         public static void Stockdata()
         {
-            String stockfile = @"C:\Users\BridgeLabz\source\repos\ObjectOrientedPrograms\TotalStock.json";
+            String stockfile = @"C:\Users\BridgeLabz\source\repos\ObjectOrientedPrograms\StockAccount\TotalStock.json";
             String stockreading = Utility.ReadFile(stockfile);
             Console.WriteLine(stockreading);
             StockPortfolio stockObject = Utility.Deserialization(stockreading);

@@ -28,12 +28,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// <summary>
         /// Stocks the options method.
         /// </summary>
-        Stack1 stack = new Stack1();
+        Stack stack = new Stack();
 
         /// <summary>
         /// The queue Using linked list
         /// </summary>
-        Queue1 queue = new Queue1();
+        Queue queue = new Queue();
 
         public void StockOptionsMethod()
         {

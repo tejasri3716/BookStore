@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=CardNode.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
+    using System;
+
     /// <summary>
     /// class Node for cards
     /// </summary>
-   public class CardNode
+    public class CardNode
     {
         /// <summary>
         /// The suit

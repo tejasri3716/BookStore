@@ -187,9 +187,9 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             }
             return head;
         }
-        public static void PrintTransaction(Stack1 stack)
+        public static void PrintTransaction(Stack stack)
         {
-            Node2 temp;
+            Node temp;
             if (stack == null || stack.top == null)
                 return;
             else
@@ -203,9 +203,9 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
 
             }
         }
-        public static void PrintDateTime(Queue1 queue)
+        public static void PrintDateTime(Queue queue)
         {
-            Node2 temp = null;
+            Node temp = null;
             if (queue == null)
                 return;
             else

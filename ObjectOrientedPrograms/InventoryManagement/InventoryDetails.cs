@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace ObjectOrientedPrograms
+namespace ObjectOrientedPrograms.InventoryManagement
 {
     public class InventoryDetails
     {
-        public void ReadingFromFile()
+        public void Operations()
         {
             try
             {

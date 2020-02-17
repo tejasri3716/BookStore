@@ -4,12 +4,11 @@
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     /// <summary>
     /// class for Deck Of Cards Using Queue
     /// </summary>
@@ -18,7 +17,7 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
         public static void DistributeCards()
         {
             String[] Suits = { "Club", "Diamond", "Heart", "Spade" };
-            int[] Ranks = { 2,3,4,5,6,7,8,9,10,11,12,13,14};
+            int[] Ranks = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
             String[,] Cards = new String[4, 13];
 
             UtilityQueue.ArrayOfCards(Cards, Suits, Ranks);
