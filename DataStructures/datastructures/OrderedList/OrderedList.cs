@@ -48,7 +48,7 @@ namespace DataStructures
         }
         internal int Remove(T data)
         {
-            Node node = head.link;
+            Node node = head;
             Node prev = null;
             if (head.info.Equals(data))
             {
@@ -98,24 +98,26 @@ namespace DataStructures
             }
             return false;
         }
-        public Boolean Search(T info)
+        public Boolean Search(T data)
         {
             Node node = head;
-            if (head.info.Equals(info))
+            while (node != null)
             {
-                return true;
-            }
-            else
-            {
-                while (!node.link.info.Equals(info))
+                if (node.info.Equals(data))
+                {
+                    return true;
+                }
+                else
                 {
                     node = node.link;
-                    return false;
                 }
-                return true;
+              /*  node = node.link;
+                return true;*/
             }
+            return false;
         }
 
-        
+
+
     }
 }
