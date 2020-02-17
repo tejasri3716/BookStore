@@ -54,12 +54,12 @@ namespace ObjectOrientedPrograms
             try
             {
                 List<Person> list = model.Person;
-                Console.WriteLine("FirstName\t\tLastName\t\t\tAddress\t\t\tCity\t\tState\t\t\tZip\t\t\t\tPhoneNumber");
+                Console.WriteLine("FirstName\tLastName\tAddress\t\t\tCity\t\t\tState\t\t\tZip\t\tPhoneNumber");
                 if (model != null)
                 {
                     foreach (var info in list)
                     {
-                        Console.WriteLine(info.FirstName + "\t" + info.LastName + "\t\t" + info.Address + "\t\t" + info.City + "\t" + info.State + "\t\t" + info.Zip + "\t\t\t" + info.PhoneNumber);
+                        Console.WriteLine(info.FirstName + "\t\t" + info.LastName + "\t\t" + info.Address + "\t\t" + info.City + "\t\t" + info.State + "\t\t" + info.Zip + "\t\t" + info.PhoneNumber);
                     }
                 }
             }
@@ -90,7 +90,7 @@ namespace ObjectOrientedPrograms
             Console.WriteLine("enter Zip Code");
             person.Zip = Utility.readInt();
             Console.WriteLine("enter Phone Number");
-            person.PhoneNumber = Utility.readInt();
+            person.PhoneNumber = Utility.readLong();
             people.Add(person);
             //modelinfo.Person = people;
         }

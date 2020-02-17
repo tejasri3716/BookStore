@@ -12,7 +12,7 @@ namespace ObjectOrientedPrograms
             try
             {
 
-                string json = @"C:\Users\BridgeLabz\source\repos\ObjectOrientedPrograms\AddressBook.json";
+                string json = @"C:\Users\BridgeLabz\source\repos\ObjectOrientedPrograms\AddressBooks\AddressBook.json";
                 String jsonfiletext = SerializationAndDeserializationOfAdressBook.ReadFile(json);
                 Model1 modeldata = SerializationAndDeserializationOfAdressBook.Deserializing(jsonfiletext);
                 SerializationAndDeserializationOfAdressBook.Display(modeldata);

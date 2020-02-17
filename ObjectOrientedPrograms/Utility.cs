@@ -12,7 +12,10 @@ namespace ObjectOrientedPrograms
         {
             return Convert.ToInt32(Console.ReadLine());
         }
-
+        public static long readLong()
+        {
+            return long.Parse(Console.ReadLine());
+        }
         public static string readString()
         {
             return Console.ReadLine();
@@ -189,10 +192,10 @@ namespace ObjectOrientedPrograms
             inventory[2] = model.Pulses;
             Console.WriteLine("enter an item to get removed from the list");
             String removeitem = Utility.readString();
-            foreach (var items in inventory)   //for rices or wheats or pulses
-            {
-                foreach (var item in items) //for variety of each inventory
-                {
+            foreach (var items in inventory)   
+            {                                     // for rices or pulses or wheats
+                foreach (var item in items)
+                {                                // for variety of each inventory
                     if (item.Name == removeitem)
                     {
                         items.Remove(item);
@@ -212,9 +215,9 @@ namespace ObjectOrientedPrograms
             inventory[2] = model.Pulses;
             Console.WriteLine("enter LastName of a person to update in the list");
             String updateitem = Utility.readString();
-            foreach (var items in inventory)   //for rices or wheats or pulses
+            foreach (var items in inventory)   // for rices or wheats or pulses
             {
-                foreach (var item in items) //for variety of each inventory
+                foreach (var item in items) // for variety of each inventory
                 {
                     if (item.Name == updateitem)
                     {
@@ -262,9 +265,9 @@ namespace ObjectOrientedPrograms
                 }
             }
         }
-        ///For Stock Management
-        ///Deserialization
-        ///Serialization
+        /// For Stock Management
+        /// Deserialization
+        /// Serialization
         public static StockPortfolio Deserialization(String stockfile)
         {
             StockPortfolio stockobj = null;
@@ -297,9 +300,9 @@ namespace ObjectOrientedPrograms
                 Console.WriteLine(e.Message.ToString());
             }
         }
-        ///for Deck of Cards 
-        ///for shuffling cards
-        ///for converting to 2d array
+        /// for Deck of Cards 
+        /// for shuffling cards
+        /// for converting to 2d array
         public static int RandomValues(int num)
         {
             Random random = new Random();

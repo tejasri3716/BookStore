@@ -24,6 +24,9 @@ namespace ObjectOrientedPrograms
                 case 3:
                     SerializationAndDeserializationOfAdressBook.UpdatePerson(modeldata);
                     break;
+                default:
+                    Console.WriteLine("enter correct option");
+                    break;
             }
         }
     }

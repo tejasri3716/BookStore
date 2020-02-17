@@ -13,7 +13,7 @@ namespace ObjectOrientedPrograms
         private string city;
         private string state;
         private int zip;
-        private double phoneNumber;
+        private long phoneNumber;
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
@@ -122,7 +122,7 @@ namespace ObjectOrientedPrograms
         /// <value>
         /// The phone number.
         /// </value>
-        public double PhoneNumber
+        public long PhoneNumber
         {
             get
             {

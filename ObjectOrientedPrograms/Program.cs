@@ -5,7 +5,7 @@ namespace ObjectOrientedPrograms.InventoryManagement
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("1.InventoryDetails\n2.StockManagement\n3.DeckOfCards\n4.AddressBook\n5.CommercialDataProcessing");
+            Console.WriteLine("1.InventoryDetails\n2.StockManagement\n3.DeckOfCards\n4.AddressBook\n5.CommercialDataProcessing\n10.DeckOfCardsUsingQ");
            
             Console.WriteLine("enter an option to get executed");
             int option = Utility.readInt();
@@ -28,6 +28,9 @@ namespace ObjectOrientedPrograms.InventoryManagement
                 case 5:
                     CommercialDataProcessing.StockOptions stockOptions = new CommercialDataProcessing.StockOptions();
                     stockOptions.StockOptionsMethod();
+                    break;
+                case 10:
+                    DeckOfCardsUsingQueue.DeckOfCardsUsingQ.DistributeCards();
                     break;
 
 
