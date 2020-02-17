@@ -7,6 +7,9 @@
 
 namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
+    /// <summary>
+    /// Player Node class for intializing data and next values 
+    /// </summary>
     class PlayerNode
     {
         /// <summary>

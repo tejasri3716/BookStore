@@ -6,6 +6,9 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace ObjectOrientedPrograms
 {
+    /// <summary>
+    /// Stock Info class is used to get and set stock name , share and price
+    /// </summary>
     public class StockInfo
     {
         public string stockname;

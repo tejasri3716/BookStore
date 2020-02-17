@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms
 {
     using System;
 
+    /// <summary>
+    /// Program Class used to execute all classes
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)

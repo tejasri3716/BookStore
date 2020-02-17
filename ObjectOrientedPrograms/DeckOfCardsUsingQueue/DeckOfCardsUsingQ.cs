@@ -7,8 +7,7 @@
 namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
+ 
     /// <summary>
     /// class for Deck Of Cards Using Queue
     /// </summary>

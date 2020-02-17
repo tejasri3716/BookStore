@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms.InventoryManagement
 {
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Model class used for declaring list of rices,wheats and pulses
+    /// </summary>
     public class Model
     {
         public List<InventoryData> Rices;

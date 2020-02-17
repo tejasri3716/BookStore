@@ -7,6 +7,9 @@
 
 namespace ObjectOrientedPrograms.InventoryManagement
 {
+    /// <summary>
+    /// Inventory Data Class for getting and setting name , weight and price values
+    /// </summary>
     public class InventoryData
     {
 

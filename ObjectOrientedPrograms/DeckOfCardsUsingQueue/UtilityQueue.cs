@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
     using System;
 
+    /// <summary>
+    /// Utility Queue for shuffling and distributing cards
+    /// </summary>
     class UtilityQueue
     {
         /// <summary>

@@ -9,6 +9,9 @@ namespace ObjectOrientedPrograms.InventoryManagement
 {
     using System;
 
+    /// <summary>
+    /// Inventory Management class used for displaying options to add or remove or update inventory
+    /// </summary>
     class InventoryManagement1
     {
         public void inventoryManagement(Model model)

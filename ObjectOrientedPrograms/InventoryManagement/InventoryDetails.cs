@@ -10,6 +10,9 @@ namespace ObjectOrientedPrograms.InventoryManagement
 {
     using System;
 
+    /// <summary>
+    /// Inventory Details class used for reading file and deserializing it
+    /// </summary>
     public class InventoryDetails
     {
         public void Operations()

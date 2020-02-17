@@ -9,6 +9,9 @@ namespace ObjectOrientedPrograms.Inventory
     using ObjectOrientedPrograms.InventoryManagement;
     using System;
 
+    /// <summary>
+    /// Inventory Object class for reading  and deserializing inventory
+    /// </summary>
     class InventoryObject
     {
         public void ReadingFromFile()

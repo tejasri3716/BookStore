@@ -12,6 +12,9 @@ namespace ObjectOrientedPrograms
     using System.Collections.Generic;
     using System.IO;
 
+    /// <summary>
+    /// Utility class used to read all data types and consists of business logic of programs
+    /// </summary>
     class Utility
     {
         public static int readInt()

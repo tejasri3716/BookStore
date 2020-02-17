@@ -8,6 +8,9 @@ namespace ObjectOrientedPrograms
 {
     using System;
 
+    /// <summary>
+    /// Stock Management class used to read file and deserialize it
+    /// </summary>
     class StockManagement
     {
         public static void Stockdata()

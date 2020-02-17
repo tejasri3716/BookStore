@@ -7,6 +7,9 @@
 
 namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
 {
+    /// <summary>
+    /// Player Queue class for getting and setting front and rear pointers
+    /// </summary>
     class PlayerQueue
     {
         private PlayerNode front;
