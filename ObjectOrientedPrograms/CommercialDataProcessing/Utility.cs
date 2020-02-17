@@ -77,11 +77,22 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             }
             return stocks;
         }
+        /// <summary>
+        /// Creates the list node company.
+        /// </summary>
+        /// <returns></returns>
         public static LinkedList CreateListNodeCompany()
         {
             LinkedList newNode = new LinkedList();
             return newNode;
         }
+        /// <summary>
+        /// Checks the share available in member stock object.
+        /// </summary>
+        /// <param name="stocks">The stocks.</param>
+        /// <param name="shareName">Name of the share.</param>
+        /// <param name="totalShares">The total shares.</param>
+        /// <returns></returns>
         public static StockInfo CheckShareAvailableInMemberStockObject(Stocks stocks, string shareName, int totalShares)
         {
             IList<StockInfo> list = stocks.Stock;
@@ -93,6 +104,13 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                         Console.WriteLine("number of share is only : {0} ", share.TotalShares);
             return null;
         }
+        /// <summary>
+        /// Checks the share available in linked list company.
+        /// </summary>
+        /// <param name="head">The head.</param>
+        /// <param name="shareName">Name of the share.</param>
+        /// <param name="numberOfShare">The number of share.</param>
+        /// <returns></returns>
         public static CompanyShares CheckShareAvailableInLinkedListCompany(LinkedList head, string shareName, int numberOfShare)
         {
             LinkedList temp = null;
@@ -112,6 +130,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             }
             return null;
         }
+        /// <summary>
+        /// Checks the share name is in linked list company.
+        /// </summary>
+        /// <param name="head">The head.</param>
+        /// <param name="shareName">Name of the share.</param>
+        /// <returns></returns>
         public static CompanyShares CheckShareNameIsInLinkedListCompany(LinkedList head, string shareName)
         {
             LinkedList temp = null;
@@ -131,6 +155,13 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             }
             return null;
         }
+        /// <summary>
+        ///checks if Deposits is available or not.
+        /// </summary>
+        /// <param name="deposit">The deposit.</param>
+        /// <param name="numberOfShareToBuy">The number of share to buy.</param>
+        /// <param name="sharePrice">The share price.</param>
+        /// <returns></returns>
         public static bool DepositAvailable(int deposit, int numberOfShareToBuy, int sharePrice)
         {
             if (deposit >= (numberOfShareToBuy * sharePrice))
@@ -138,6 +169,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             else
                 return false;
         }
+        /// <summary>
+        /// Makes the purchase.
+        /// </summary>
+        /// <param name="stocks">The stocks.</param>
+        /// <param name="CompanyShareObject">The company share object.</param>
+        /// <param name="numberOfShare">The number of share.</param>
         public static void MakePurchase(Stocks stocks, CompanyShares CompanyShareObject, int numberOfShare)
         {
             IList<StockInfo> list = stocks.Stock;
@@ -150,6 +187,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                     CompanyShareObject.DateTime = DateTime.Now;
                 }
         }
+        /// <summary>
+        /// Makes the sell.
+        /// </summary>
+        /// <param name="numberOfShare">The number of share.</param>
+        /// <param name="CompanyShareObject">The company share object.</param>
+        /// <param name="stocks">The stocks.</param>
         public static void MakeSell(int numberOfShare, CompanyShares CompanyShareObject, Stocks stocks)
         {
             IList<StockInfo> list = stocks.Stock;
@@ -162,6 +205,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                     CompanyShareObject.DateTime = DateTime.Now;
                 }
         }
+        /// <summary>
+        /// Adds the list node company.
+        /// </summary>
+        /// <param name="head">The head.</param>
+        /// <param name="newListNodeCompanyShare">The new list node company share.</param>
+        /// <returns></returns>
         public static LinkedList AddListNodeCompany(LinkedList head, LinkedList newListNodeCompanyShare)
         {
             if (head == null)
@@ -175,6 +224,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             }
             return head;
         }
+        /// <summary>
+        /// Deletes the list node company.
+        /// </summary>
+        /// <param name="head">The head.</param>
+        /// <param name="CompanyShareObject">The company share object.</param>
+        /// <returns></returns>
         public static LinkedList DeleteListNodeCompany(LinkedList head, CompanyShares CompanyShareObject)
         {
             LinkedList temp = null;
@@ -195,6 +250,10 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             }
             return head;
         }
+        /// <summary>
+        /// Prints the transaction.
+        /// </summary>
+        /// <param name="stack">The stack.</param>
         public static void PrintTransaction(Stack stack)
         {
             Node temp;
@@ -211,6 +270,10 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
 
             }
         }
+        /// <summary>
+        /// Prints date and time.
+        /// </summary>
+        /// <param name="queue">The queue.</param>
         public static void PrintDateTime(Queue queue)
         {
             Node temp = null;

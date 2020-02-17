@@ -11,6 +11,9 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
     /// </summary>
     public class Player
     {
-          public CardsQueue queueCard = UtilityQueue.CreateQCard();
+        /// <summary>
+        /// creates the queue card
+        /// </summary>
+        public CardsQueue queueCard = UtilityQueue.CreateQCard();
     }
 }

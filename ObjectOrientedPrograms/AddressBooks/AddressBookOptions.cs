@@ -13,7 +13,11 @@ namespace ObjectOrientedPrograms
     /// </summary>
     class AddressBookOptions
     {
-        public  void addressBookOptions(ModelClass modeldata)
+        /// <summary>
+        /// options to perform crud operations on address book
+        /// </summary>
+        /// <param name="modeldata">The modeldata.</param>
+        public void addressBookOptions(ModelClass modeldata)
         {
             Console.WriteLine("1.Adding a Person Details ");
             Console.WriteLine("2.Removing a Person Details");

@@ -86,18 +86,18 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 Console.WriteLine("company share not available");
                 return;
             }
-            ////subtract share of stock from that companyshareobject that is inside companylinkedlist
+            //// subtract share of stock from that companyshareobject that is inside companylinkedlist
             //// update into Memberstockobject
             Utility.MakeSell(numberOfShare, companyShareObject, stocks);
             string item = " sold \t" + companyShareObject.Symbol + "\t " + companyShareObject.TotalShares + "\t " + companyShareObject.DateTime;
 
-            ////for every sell transaction , add the status to the queueCompanytransaction
+            //// for every sell transaction , add the status to the queueCompanytransaction
             stack.Push(item);
 
-            ////for every sell transaction add the status to the queueCompanytransaction
+            //// for every sell transaction add the status to the queueCompanytransaction
             queue.Enqueue(item);
 
-            ////check if number of shares are equal then delete the node(companyShareObject).
+            //// check if number of shares are equal then delete the node(companyShareObject).
             if (companyShareObject.TotalShares == 0)
                 CustomerShareAccount.Head = Utility.DeleteListNodeCompany(CustomerShareAccount.Head, companyShareObject);
         }
@@ -112,6 +112,10 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             CustomerShareAccount = new CustomerShare();
             return CustomerShareAccount;
         }
+        /// <summary>
+        /// prints the value of total stock price
+        /// </summary>
+        /// <returns></returns>
         public double ValueOf()
         {
             double totalValue = 0.0;
@@ -120,7 +124,13 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 totalValue = share.TotalShares * share.SharePrice;
             return totalValue;
         }
-        public void Buy(Stocks memberStockPortfolioObject, Stack stack, Queue queue)
+        /// <summary>
+        /// Buys the specified member stock portfolio object.
+        /// </summary>
+        /// <param name="stocks">The member stock portfolio object.</param>
+        /// <param name="stack">The stack.</param>
+        /// <param name="queue">The queue.</param>
+        public void Buy(Stocks stocks, Stack stack, Queue queue)
         {
             CompanyShares companyShareObject = null;
             LinkedList newListNodeCompanyShare = null;
@@ -131,7 +141,7 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
 
             ////check for availbale stock in memberStockObject
             ////look into the member stock object
-            StockInfo memberStockShareAvailable = Utility.CheckShareAvailableInMemberStockObject(memberStockPortfolioObject, shareName, numberOfShare);
+            StockInfo memberStockShareAvailable = Utility.CheckShareAvailableInMemberStockObject(stocks, shareName, numberOfShare);
             if (memberStockShareAvailable == null)
             {
                 Console.WriteLine("share not available");
@@ -166,6 +176,10 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             ////add the companyshareObject to the stack.
 
         }
+        /// <summary>
+        /// Prints the customer share report.
+        /// </summary>
+        /// <param name="CustomerShareObject">The customer share object.</param>
         public void PrintCustomerShareReport(CustomerShare CustomerShareObject)
         {
             if (CustomerShareObject.Head == null)

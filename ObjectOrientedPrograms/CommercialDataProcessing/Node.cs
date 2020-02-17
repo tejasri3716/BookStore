@@ -16,6 +16,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         private String data;
         private Node link;
 
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public string Data
         {
             get
@@ -27,6 +33,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 this.data = value;
             }
         }
+        /// <summary>
+        /// Gets or sets the link.
+        /// </summary>
+        /// <value>
+        /// The link.
+        /// </value>
         public Node Link
         {
             get

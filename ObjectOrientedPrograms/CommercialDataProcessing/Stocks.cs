@@ -13,7 +13,12 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
     /// </summary>
     public class Stocks
     {
-
+        /// <summary>
+        /// Gets or sets the stock.
+        /// </summary>
+        /// <value>
+        /// The stock.
+        /// </value>
         public List<StockInfo> Stock { get; set; }
          
     }

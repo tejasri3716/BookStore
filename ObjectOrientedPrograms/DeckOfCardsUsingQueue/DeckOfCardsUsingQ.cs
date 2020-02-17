@@ -18,7 +18,6 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
             String[] Suits = { "Club", "Diamond", "Heart", "Spade" };
             int[] Ranks = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
             String[,] Cards = new String[4, 13];
-
             UtilityQueue.ArrayOfCards(Cards, Suits, Ranks);
             UtilityQueue.Shuffle(Cards);
             PlayerQueue playerQueue = UtilityQueue.CreateQPlayer();

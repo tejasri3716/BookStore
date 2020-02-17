@@ -16,16 +16,29 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         public Node front;
         public Node rear;
         private int length;
-       
+
+        /// <summary>
+        /// return Size
+        /// </summary>
+        /// <returns></returns>
         public int Size()
         {
             Console.WriteLine(length);
             return length;
         }
+        /// <summary>
+        /// Determines whether queue is empty.
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if this instance is empty; otherwise, <c>false</c>.
+        /// </returns>
         public Boolean IsEmpty()
         {
             return length == 0;
         }
+        /// <summary>
+        /// Prints the queue.
+        /// </summary>
         public void PrintQueue()
         {
             Node current = front;
@@ -42,6 +55,10 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 }
             }
         }
+        /// <summary>
+        /// return first element in queue
+        /// </summary>
+        /// <returns></returns>
         public String First()
         {
             if (IsEmpty())
@@ -53,6 +70,11 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 return front.Data;
             }
         }
+
+        /// <summary>
+        /// return last element in queue
+        /// </summary>
+        /// <returns></returns>
         public String Last()
         {
             if (IsEmpty())
@@ -64,6 +86,11 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
                 return rear.Data;
             }
         }
+
+        /// <summary>
+        /// Enqueues the specified information.
+        /// </summary>
+        /// <param name="info">The information.</param>
         public void Enqueue(String info)
         {
             Node node = new Node();
@@ -79,6 +106,10 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             rear = node;
             length++;
         }
+        /// <summary>
+        /// Dequeues the first inserted element
+        /// </summary>
+        /// <returns></returns>
         public String Dequeue()
         {
             if (IsEmpty())

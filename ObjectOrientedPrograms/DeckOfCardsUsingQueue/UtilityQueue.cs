@@ -23,71 +23,93 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
             Random random = new Random();
             return random.Next(num);
         }
-        public static void ArrayOfCards(string[,] CardArray, string[] Suits, int[] Ranks)
+        /// <summary>
+        /// Arrays the of cards.
+        /// </summary>
+        /// <param name="CardArray">The card array.</param>
+        /// <param name="Suits">The suits.</param>
+        /// <param name="Ranks">The ranks.</param>
+        public static void ArrayOfCards(string[,] cardArray, string[] suits, int[] ranks)
         {
-            for (int i = 0; i < CardArray.GetLength(0); i++)
+            for (int i = 0; i < cardArray.GetLength(0); i++)
             {
-                for (int j = 0; j < CardArray.GetLength(1); j++)
+                for (int j = 0; j < cardArray.GetLength(1); j++)
                 {
                     if (j < 8)
                     {
-                        CardArray[i, j] = Suits[i] + "-" + Ranks[j];
+                        cardArray[i, j] = suits[i] + "-" + ranks[j];
                     }
                     else if (j == 8)
                     {
-                        CardArray[i, j] = Suits[i] + "-" + "Jack";
+                        cardArray[i, j] = suits[i] + "-" + "Jack";
                     }
                     else if (j == 9)
                     {
-                        CardArray[i, j] = Suits[i] + "-" + "Queen";
+                        cardArray[i, j] = suits[i] + "-" + "Queen";
                     }
                     else if (j == 10)
                     {
-                        CardArray[i, j] = Suits[i] + "-" + "King";
+                        cardArray[i, j] = suits[i] + "-" + "King";
                     }
                     else if (j == 11)
                     {
-                        CardArray[i, j] = Suits[i] + "-" + "Ace";
+                        cardArray[i, j] = suits[i] + "-" + "Ace";
                     }
                 }
             }
         }
-
-        public static void Shuffle(string[,] Array)
+        /// <summary>
+        /// Shuffles the specified array.
+        /// </summary>
+        /// <param name="Array">The array.</param>
+        public static void Shuffle(string[,] array)
         {
             int rowIndex1 = 0;
-            int ColumnIndex1 = 0;
+            int columnIndex1 = 0;
             int rowIndex2 = 0;
-            int ColumnIndex2 = 0;
+            int columnIndex2 = 0;
 
             for (int i = 0; i < 52; i++)
             {
                 rowIndex1 = GenerateRandom(4);
-                ColumnIndex1 = GenerateRandom(13);
+                columnIndex1 = GenerateRandom(13);
                 rowIndex2 = GenerateRandom(4);
-                ColumnIndex2 = GenerateRandom(13);
+                columnIndex2 = GenerateRandom(13);
                 ////call the swap method to swap the elements of array
-                Swap(Array, rowIndex1, ColumnIndex1, rowIndex2, ColumnIndex2);
+                Swap(array, rowIndex1, columnIndex1, rowIndex2, columnIndex2);
             }
         }
-
-        public static void Swap(string[,] Array, int rowIndex1, int columnIndex1, int rowIndex2, int columnIndex2)
+        /// <summary>
+        /// Swaps the specified array.
+        /// </summary>
+        /// <param name="array">The array.</param>
+        /// <param name="rowIndex1">The row index1.</param>
+        /// <param name="columnIndex1">The column index1.</param>
+        /// <param name="rowIndex2">The row index2.</param>
+        /// <param name="columnIndex2">The column index2.</param>
+        public static void Swap(string[,] array, int rowIndex1, int columnIndex1, int rowIndex2, int columnIndex2)
         {
-            string temp = Array[rowIndex1, columnIndex1];
-            Array[rowIndex1, columnIndex1] = Array[rowIndex2, columnIndex2];
-            Array[rowIndex2, columnIndex2] = temp;
+            string temp = array[rowIndex1, columnIndex1];
+            array[rowIndex1, columnIndex1] = array[rowIndex2, columnIndex2];
+            array[rowIndex2, columnIndex2] = temp;
         }
-
-        public static void Display2DPlayerArray(string[,] PlayersArray)
+        /// <summary>
+        /// Display2s the d player array.
+        /// </summary>
+        /// <param name="PlayersArray">The players array.</param>
+        public static void Display2DPlayerArray(string[,] playersArray)
         {
-            for (int i = 0; i < PlayersArray.GetLength(0); i++)
+            for (int i = 0; i < playersArray.GetLength(0); i++)
             {
-                for (int j = 0; j < PlayersArray.GetLength(1); j++)
-                    Console.Write(PlayersArray[i, j]);
+                for (int j = 0; j < playersArray.GetLength(1); j++)
+                    Console.Write(playersArray[i, j]);
                 Console.WriteLine();
             }
         }
-
+        /// <summary>
+        /// Creates the q player.
+        /// </summary>
+        /// <returns></returns>
         public static PlayerQueue CreateQPlayer()
         {
             PlayerQueue queuePlayer = new PlayerQueue();
@@ -95,7 +117,6 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
             queuePlayer.Rear = null;
             return queuePlayer;
         }
-
         /// <summary>
         /// Creates the Queue to store cards for players
         /// </summary>
@@ -107,6 +128,10 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
             queueCard.Rear = null;
             return queueCard;
         }
+        /// <summary>
+        /// Adds the players in queue.
+        /// </summary>
+        /// <param name="queuePlayer">The queue player.</param>
         public static void AddPlayersInQueue(PlayerQueue queuePlayer)
         {
             for (int i = 0; i < 4; i++)
@@ -115,6 +140,11 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
                 AddPlayers(queuePlayer, player);
             }
         }
+        /// <summary>
+        /// Adds the players.
+        /// </summary>
+        /// <param name="queuePlayer">The queue player.</param>
+        /// <param name="playerObj">The player object.</param>
         public static void AddPlayers(PlayerQueue queuePlayer, Player playerObj)
         {
             PlayerNode playerNode = new PlayerNode();
@@ -131,8 +161,12 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
             if (queuePlayer.Front == null)
                 queuePlayer.Front = queuePlayer.Rear;
         }
-
-        public static void DistributeCards(PlayerQueue queuePlayer, string[,] Array)
+        /// <summary>
+        /// Distributes the cards.
+        /// </summary>
+        /// <param name="queuePlayer">The queue player.</param>
+        /// <param name="Array">The array.</param>
+        public static void DistributeCards(PlayerQueue queuePlayer, string[,] array)
         {
             PlayerNode tempPlayer = queuePlayer.Front;
 
@@ -145,7 +179,7 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
                     ////create a new card to insert into the queue card of player
                     CardNode card = new CardNode();
                     ////assing the values (suit and rank) from array to card
-                    card = InputCardData(card, Array[j, i]);
+                    card = InputCardData(card, array[j, i]);
                     ////insert the card to the specified player's queue
                     if (card != null)
                         AddCardsToQueueCard(tempPlayer.Data.queueCard, card);
@@ -154,6 +188,12 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
                 }
             }
         }
+        /// <summary>
+        /// Inputs the card data.
+        /// </summary>
+        /// <param name="card">The card.</param>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         public static CardNode InputCardData(CardNode card, string input)
         {
             string[] splitArray = null;
@@ -191,7 +231,11 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
             }
             return card;
         }
-
+        /// <summary>
+        /// Adds the cards to queue card.
+        /// </summary>
+        /// <param name="queueCard">The queue card.</param>
+        /// <param name="card">The card.</param>
         public static void AddCardsToQueueCard(CardsQueue queueCard, CardNode card)
         {
             CardNode temp = null;
@@ -210,7 +254,10 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
                 queueCard.Front = queueCard.Rear;
             }
         }
-
+        /// <summary>
+        /// Prints the player.
+        /// </summary>
+        /// <param name="queuePlayer">The queue player.</param>
         public static void PrintQueuePlayer(PlayerQueue queuePlayer)
         {
             int count = 0;
@@ -252,7 +299,10 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
                 tempPlayer = tempPlayer.Next;
             }
         }
-
+        /// <summary>
+        /// Sorts the specified queue player.
+        /// </summary>
+        /// <param name="queuePlayer">The queue player.</param>
         public static void Sort(PlayerQueue queuePlayer)
         {
             PlayerNode temp = queuePlayer.Front;
@@ -262,6 +312,10 @@ namespace ObjectOrientedPrograms.DeckOfCardsUsingQueue
                 temp = temp.Next;
             }
         }
+        /// <summary>
+        /// Sorts the card queue.
+        /// </summary>
+        /// <param name="queueCard">The queue card.</param>
         public static void SortCardQueue(CardsQueue queueCard)
         {
             CardNode first = queueCard.Front;
