@@ -1,5 +1,5 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
-// <copyright file=Utility.cs" company="Bridgelabz">
+// <copyright file="Utility.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
@@ -222,7 +222,7 @@ namespace ObjectOrientedPrograms
             inventory[0] = model.Rices;
             inventory[1] = model.Wheats;
             inventory[2] = model.Pulses;
-            Console.WriteLine("enter LastName of a person to update in the list");
+            Console.WriteLine("enter name of the item to get updated in the list");
             String updateitem = Utility.readString();
             foreach (var items in inventory)
             {                                      // for rices or wheats or pulses
