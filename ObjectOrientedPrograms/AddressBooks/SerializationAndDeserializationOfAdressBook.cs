@@ -129,10 +129,10 @@ namespace ObjectOrientedPrograms
         {
             List<Person> people = modelinfo.Person;
             Console.WriteLine("enter Last Name of a person to get updated");
-            String Name = Utility.readString();
-            foreach (var field in people)
+            String lastName = Utility.readString();
+            foreach (var name in people)
             {
-                if (field.LastName == Name)
+                if (name.LastName == lastName)
                 {
                     Console.WriteLine("enter any property to get updated");
                     String property = Utility.readString();
@@ -140,42 +140,42 @@ namespace ObjectOrientedPrograms
                     {
                         Console.WriteLine("enter a new name to get updated");
                         String newName = Utility.readString();
-                        field.FirstName = newName;
+                        name.FirstName = newName;
                     }
                     if (property == "lastname")
                     {
                         Console.WriteLine("enter a new name to get updated");
                         String newName = Utility.readString();
-                        field.LastName = newName;
+                        name.LastName = newName;
                     }
                     if (property == "address")
                     {
                         Console.WriteLine("enter a new address to get updated");
                         String newAddress = Utility.readString();
-                        field.Address = newAddress;
+                        name.Address = newAddress;
                     }
                     if (property == "city")
                     {
                         Console.WriteLine("enter a new city to get updated");
                         String newCity = Utility.readString();
-                        field.City = newCity;
+                        name.City = newCity;
                     }
                     if (property == "state")
                     {
                         Console.WriteLine("enter a new state to get updated");
                         String newState = Utility.readString();
-                        field.State = newState;
+                        name.State = newState;
                     }
                     if (property == "zip")
                     {
                         Console.WriteLine("enter a new zip to get updated");
                         int newZip = Utility.readInt();
-                        field.Zip = newZip;
+                        name.Zip = newZip;
                     }
                     if (property == "phonenumber")
                     {
                         Console.WriteLine("enter new phone number");
-                        field.PhoneNumber = Utility.readInt();
+                        name.PhoneNumber = Utility.readInt();
                     }
                 }
             }
