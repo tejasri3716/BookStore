@@ -120,6 +120,7 @@ namespace ObjectOrientedPrograms
                 }
             }
         }
+
         /// <summary>
         /// Updates the person.
         /// </summary>
@@ -128,10 +129,10 @@ namespace ObjectOrientedPrograms
         {
             List<Person> people = modelinfo.Person;
             Console.WriteLine("enter Last Name of a person to get updated");
-            String UpdateField = Utility.readString();
+            String Name = Utility.readString();
             foreach (var field in people)
             {
-                if (field.LastName == UpdateField)
+                if (field.LastName == Name)
                 {
                     Console.WriteLine("enter any property to get updated");
                     String property = Utility.readString();
@@ -179,6 +180,7 @@ namespace ObjectOrientedPrograms
                 }
             }
         }
+
         /// <summary>
         /// Serializings the specified modelinfo.
         /// </summary>
