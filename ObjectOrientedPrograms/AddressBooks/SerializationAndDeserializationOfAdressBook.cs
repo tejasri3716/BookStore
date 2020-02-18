@@ -109,7 +109,7 @@ namespace ObjectOrientedPrograms
         public static void RemovePerson(ModelClass modelinfo)
         {
             List<Person> people = modelinfo.Person;
-            Console.WriteLine("enter persons last+ name to get removed from the list");
+            Console.WriteLine("enter persons last name to get removed from the list");
             String removePerson = Utility.readString();
             foreach (var person in people)
             {
@@ -127,7 +127,7 @@ namespace ObjectOrientedPrograms
         public static void UpdatePerson(ModelClass modelinfo)
         {
             List<Person> people = modelinfo.Person;
-            Console.WriteLine("enter Last Name of a person get updated");
+            Console.WriteLine("enter Last Name of a person to get updated");
             String UpdateField = Utility.readString();
             foreach (var field in people)
             {

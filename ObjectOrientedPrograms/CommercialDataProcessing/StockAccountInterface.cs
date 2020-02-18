@@ -38,7 +38,6 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// <param name="stocks">The stocks.</param>
         void Sell(Stocks stocks, Stack stack, Queue queue);
 
-
         /// <summary>
         /// Saves the specified filename.
         /// </summary>
@@ -50,7 +49,5 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
         /// </summary>
         /// <param name="stocks">The stocks.</param>
         void PrintReport(Stocks stocks);
-
-
     }
 }

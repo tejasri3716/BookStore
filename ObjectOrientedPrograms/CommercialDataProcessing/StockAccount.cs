@@ -176,6 +176,7 @@ namespace ObjectOrientedPrograms.CommercialDataProcessing
             ////add the companyshareObject to the stack.
 
         }
+
         /// <summary>
         /// Prints the customer share report.
         /// </summary>
