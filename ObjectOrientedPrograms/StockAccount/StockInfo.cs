@@ -11,19 +11,19 @@ namespace ObjectOrientedPrograms
     /// </summary>
     public class StockInfo
     {
-        public string stockname;
+        public string companyname;
         public double share;
         public double price;
 
-        public string StockName
+        public string CompanyName
         {
             set
             {
-                this.stockname = value;
+                this.companyname = value;
             }
             get
             {
-                return this.stockname;
+                return this.companyname;
             }
         }
         public double Share

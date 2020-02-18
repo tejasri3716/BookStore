@@ -295,12 +295,12 @@ namespace ObjectOrientedPrograms
             try
             {
                 IList<StockInfo> list = stockObj.TotalStocks;
-                Console.WriteLine("StockName\t\t\tPrice\t\tShare\t\tTotalPrice");
+                Console.WriteLine("CompanyName\t\t\tPrice\t\tShare\t\tTotalPrice");
                 if (stockObj != null)
                 {
                     foreach (var stock in list)
                     {
-                        Console.WriteLine(stock.StockName + "\t\t\t" + stock.Price + "\t\t" + stock.Share + "\t\t" + stock.Share * stock.Price);
+                        Console.WriteLine(stock.CompanyName + "\t\t\t" + stock.Price + "\t\t" + stock.Share + "\t\t" + stock.Share * stock.Price);
                     }
                 }
             }
@@ -393,4 +393,3 @@ namespace ObjectOrientedPrograms
 
     }
 }
-
