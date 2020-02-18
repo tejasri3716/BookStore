@@ -18,19 +18,19 @@ namespace ObjectOrientedPrograms
         /// </summary>
         public void DistributeCards()
         {
-            String[] Suits = { "Club", "Diamond", "Heart", "Spade" };
-            String[] Rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
-            String[,] Cards = new String[4, 13];
-            String[,] Players = new String[4, 13];
-            Utility.CardArray(Suits, Cards, Rank);
+            String[] suits = { "Club", "Diamond", "Heart", "Spade" };
+            String[] rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
+            String[,] cards = new String[4, 13];
+            String[,] players = new String[4, 13];
+            Utility.CardArray(suits, cards, rank);
 
-            Utility.ShufflingCards(Cards);
+            Utility.ShufflingCards(cards);
 
             ////Distributes 9 - 9 cards to each of 4 player
-            Utility.DistributingCards(Cards, Players);
+            Utility.DistributingCards(cards, players);
 
             //// prints the cards with each players
-            Utility.PrintString2DArray(Players);
+            Utility.PrintString2DArray(players);
         }
     }
 }
