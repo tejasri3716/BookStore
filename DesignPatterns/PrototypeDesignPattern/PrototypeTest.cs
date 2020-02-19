@@ -1,47 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="PrototypeTest.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns.PrototypeDesignPattern
 {
+    using System;
+
     class PrototypeTest
     {
             /// <summary>
             ///Test to execute all the operations
             /// </summary>
-            public void Test()
+            public static void Test()
             {
                 //// new Employee object creation 
-                Employee empobj1 = new Employee();
+                Employee emp = new Employee();
 
                 ////input the name
                 Console.Write("enter employee name : ");
-                empobj1.SetName(Console.ReadLine());
+                 emp.SetName(Utility.ReadString());
                 //// input the eid
                 Console.Write("enter employee id : ");
-                empobj1.SetEid(Convert.ToInt32(Console.ReadLine()));
+                emp.SetEid(Utility.ReadInt());
                 ////input the age
                 Console.Write("enter employee age : ");
-                empobj1.SetAge(Convert.ToInt32(Console.ReadLine()));
+                emp.SetAge(Utility.ReadInt());
 
             //// print the details
-            Console.WriteLine(empobj1.GetDetails());
+            Console.WriteLine(emp.GetDetails());
 
                 //// clone the Employee object
-                Employee empobj2 = empobj1.Clone();
+                Employee empobj = emp.Clone();
 
                 //// imput employee name
                 Console.Write("enter employee name : ");
-                empobj1.SetName(Console.ReadLine());
+                emp.SetName(Utility.ReadString());
 
-                //// input employee salary
-                Console.Write("enter employee salary");
-                empobj1.SetSalary(Convert.ToInt32(Console.ReadLine()));
+                //// input employee id
+                Console.Write("enter employee id");
+                emp.SetEid(Utility.ReadInt());
 
-                ////print the details
-                Console.WriteLine(empobj1.GetDetails());
-                Console.WriteLine(empobj2.GetDetails());
+                //// print the details
+                Console.WriteLine(emp.GetDetails());
+                Console.WriteLine(empobj.GetDetails());
             }
-        }
     }
 }

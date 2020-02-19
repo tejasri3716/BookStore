@@ -19,7 +19,7 @@ namespace DesignPatterns
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("Singleton Design Pattern\n 1.LazyIntializationSingleton\n2.ThreadSafeSingleton\n3.EagerIntialization\n4.FactoryDesignPattern");
+            Console.WriteLine("Singleton Design Pattern\n 1.LazyIntializationSingleton\n2.ThreadSafeSingleton\n3.EagerIntialization\n4.FactoryDesignPattern\n5.PrototypeDesignPattern");
             Console.WriteLine("enter an option to get executed");
             int option = Utility.ReadInt();
             switch (option)
@@ -35,6 +35,9 @@ namespace DesignPatterns
                     break;
                 case 4:
                     FactoryDesignPattern.FactoryTest.Test();
+                    break;
+                case 5:
+                    PrototypeDesignPattern.PrototypeTest.Test();
                     break;
             }
         }

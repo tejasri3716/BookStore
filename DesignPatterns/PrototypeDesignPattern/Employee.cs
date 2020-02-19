@@ -1,4 +1,10 @@
-﻿using System;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="PrototypeTest.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,13 +16,13 @@ namespace DesignPatterns.PrototypeDesignPattern
         private int eid;
         private int age;
 
-       public string GetName()
+        public string GetName()
         {
             return this.name;
         }
         public void SetName(string value)
         {
-            this.name = value ;
+            this.name = value;
         }
         public int GetEid()
         {
@@ -37,7 +43,7 @@ namespace DesignPatterns.PrototypeDesignPattern
         }
         public override string ToString()
         {
-            return string.Format("Name = {0},Eid = {1}, Age = {2}", name, eid, age);
+            return string.Format("Name = {0}, Eid = {1}, Age = {2}", name, eid, age);
         }
 
         public override Employee Clone()
@@ -47,6 +53,6 @@ namespace DesignPatterns.PrototypeDesignPattern
         public override string GetDetails()
         {
             return this.ToString();
-        } 
+        }
     }
 }
