@@ -1,15 +1,28 @@
-﻿using System;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns
 {
-    class Program
+    using System;
+
+    /// <summary>
+    /// This class is used to call all other class and their methods
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public static void Main(string[] args)
         {
             Console.WriteLine("Singleton Design Pattern\n 1.LazyIntializationSingleton\n2.ThreadSafeSingleton\n3.EagerIntialization\n4.FactoryDesignPattern");
             Console.WriteLine("enter an option to get executed");
             int option = Utility.ReadInt();
-            switch(option)
+            switch (option)
             {
                 case 1:
                     SingletonDesignPattern.LazyIntializationTest.Test();
