@@ -12,6 +12,9 @@ namespace DesignPatterns.FactoryDesignPattern
     /// </summary>
     class FactoryTest
     {
+        /// <summary>
+        /// Tests the Factory Design Pattern
+        /// </summary>
         public static void Test()
         {
             Console.WriteLine("enter your object type");
