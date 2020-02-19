@@ -7,8 +7,16 @@
 namespace DesignPatterns.FactoryDesignPattern
 {
     using System;
+    /// <summary>
+    /// Computer Factory Class is used as to hide implementation details from the client
+    /// </summary>
     class ComputerFactory
     {
+        /// <summary>
+        /// Gets the computer object.
+        /// </summary>
+        /// <param name="typeOfObj">The type of object.</param>
+        /// <returns></returns>
         public static Computer GetComputerObject(String typeOfObj)
         {
             Computer obj = null;
