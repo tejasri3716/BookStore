@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
-// <copyright file="PrototypeTest.cs" company="Bridgelabz">
+// <copyright file="FactoryTest.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace DesignPatterns.FactoryDesignPattern
 {
+    using System;
+    /// <summary>
+    /// Factory Test class is used to test  the Factory Design Pattern
+    /// </summary>
     class FactoryTest
     {
         public static void Test()
