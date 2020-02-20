@@ -9,7 +9,7 @@
 		private int volts;
 		public Volt()
 		{
-			this.volts = 240;
+			this.volts = 120;
 		}
 
 		public Volt(int v)
@@ -17,12 +17,12 @@
 			this.volts = v;
 		}
 
-		public int getVolts()
+		public int GetVolts()
 		{
 			return volts;
 		}
 
-		public void setVolts(int volts)
+		public void SetVolts(int volts)
 		{
 			this.volts = volts;
 		}

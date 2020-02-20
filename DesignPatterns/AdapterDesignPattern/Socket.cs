@@ -11,27 +11,27 @@ namespace DesignPatterns.AdapterDesignPattern
             /// <summary>
             /// Initializes a new instance of the <see cref="Socket"/> class.
             /// </summary>
-            public Socket()
+           /* public Socket()
             {
                 volts = new Volt();
             }
-
+*/
             /// <summary>
             /// Initializes a new instance of the <see cref="Socket"/> class.
             /// </summary>
             /// <param name="volt">The volt.</param>
-            public Socket(int volt)
+            /*public Socket(int volt)
             {
                 volts = new Volt(volt);
             }
-
+*/
             /// <summary>
             /// returs the volts
             /// </summary>
             /// <returns></returns>
-            public Volt GetSocket()
+            public Volt GetVolt()
             {
-                return this.volts;
+            return new Volt(); ;
             }
         }
 }
