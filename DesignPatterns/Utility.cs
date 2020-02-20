@@ -1,15 +1,15 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
-// <copyright file="PrototypeTest.cs" company="Bridgelabz">
+// <copyright file="Utility.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace DesignPatterns
 {
+    using System;
+    /// <summary>
+    /// Utility class consists of logics
+    /// </summary>
     class Utility
     {
         public static int ReadInt()
