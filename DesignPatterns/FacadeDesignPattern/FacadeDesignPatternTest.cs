@@ -1,17 +1,21 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
-// <copyright file="ComputerFactory.cs" company="Bridgelabz">
+// <copyright file="FacadeDesignPatternTest.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace DesignPatterns.FacadeDesignPattern
 {
-    class FacadeDesignPatternTest
+    using System;
+
+    /// <summary>
+    /// FacadeDesignPatternTest class used to test Facade pattern
+    /// </summary>
+    public class FacadeDesignPatternTest
     {
+        /// <summary>
+        /// Tests this instance.
+        /// </summary>
         public static void Test()
         {
             FacadeDesignPattern facade = new FacadeDesignPattern();
@@ -38,7 +42,6 @@ namespace DesignPatterns.FacadeDesignPattern
                         Console.WriteLine("invalid selection");
                         break;
                 }
-
             }
         }
     }
