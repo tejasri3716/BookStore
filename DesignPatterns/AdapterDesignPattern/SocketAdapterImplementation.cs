@@ -9,8 +9,8 @@ namespace DesignPatterns.AdapterDesignPattern
     /// <summary>
     /// SocketAdapterImplementation class implements SocketAdapterInterface interface
     /// </summary>
-    /// <seealso cref="DesignPatterns.AdapterDesignPattern.SocketAdapterInterface" />
-    public class SocketAdapterImplementation : SocketAdapterInterface
+    /// <seealso cref="DesignPatterns.AdapterDesignPattern.ISocketAdapterInterface" />
+    public class SocketAdapterImplementation : ISocketAdapterInterface
     {
         /// <summary>
         /// The socket
