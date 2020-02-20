@@ -1,18 +1,20 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
-// <copyright file="PrototypeTest.cs" company="Bridgelabz">
+// <copyright file="ThreadSafeSingletonTest.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DesignPatterns.SingletonDesignPattern
 {
+    using System.Threading.Tasks;
+    /// <summary>
+    /// ThreadSafeSingletonTest class is used invoke methods simulataneously to check thread safety
+    /// </summary>
     class ThreadSafeSingletonTest
     {
+        /// <summary>
+        /// Tests this instance.
+        /// </summary>
         public static void Test()
         {
             Parallel.Invoke(
@@ -20,13 +22,18 @@ namespace DesignPatterns.SingletonDesignPattern
                 () => SecondInstance()
                 );
         }
+        /// <summary>
+        /// Second instance method 
+        /// </summary>
         private static void SecondInstance()
         {
-            // Another Object created for thread safes intialization class
+            // Another Object created for thread safe intialization class
             ThreadSafeSingleton threadSafeIntialization = ThreadSafeSingleton.GetInstance;
             threadSafeIntialization.PrintDetails("this is my second instance of object");
         }
-
+        /// <summary>
+        /// First instance method
+        /// </summary>
         private static void FirstInstance()
         {
             // Object creation for thread safe intialization singleton class
