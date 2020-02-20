@@ -4,36 +4,17 @@
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
-namespace DesignPatterns.AdapterDesignPattern
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DesignPatterns.FacadeDesignPattern
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-	public class Volt
-	{
-
-		private int volts;
-		public Volt()
-		{
-			this.volts = 120;
-		}
-
-		public Volt(int v)
-		{
-			this.volts = v;
-		}
-
-		public int GetVolts()
-		{
-			return volts;
-		}
-
-		public void SetVolts(int volts)
-		{
-			this.volts = volts;
-		}
-
-	}
+    class HeadPhones : IShopping
+    {
+        public void BuyItem()
+        {
+            Console.WriteLine("your order of head phones is out for delivery");
+        }
+    }
 }
-
-

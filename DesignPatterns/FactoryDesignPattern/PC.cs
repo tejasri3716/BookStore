@@ -10,8 +10,8 @@ namespace DesignPatterns.FactoryDesignPattern
     /// <summary>
     /// PC class implements Computer class
     /// </summary>
-    /// <seealso cref="DesignPatterns.FactoryDesignPattern.Computer" />
-    class PC : Computer
+    /// <seealso cref="DesignPatterns.FactoryDesignPattern.IComputer" />
+   public class PC : IComputer
     {
         private string ram;
         private string hdd;
@@ -22,33 +22,39 @@ namespace DesignPatterns.FactoryDesignPattern
         /// <param name="ram">The ram.</param>
         /// <param name="hdd">The HDD.</param>
         /// <param name="cpu">The cpu.</param>
-        public PC(String ram, String hdd, String cpu)
+        public PC(string ram, string hdd, string cpu)
         {
             this.ram = ram;
             this.hdd = hdd;
             this.cpu = cpu;
         }
         /// <summary>
-        /// Gets the ram.
+        /// Gets the RAM.
         /// </summary>
-        /// <returns></returns>
-        public string getRAM()
+        /// <returns>
+        /// gets RAM
+        /// </returns>
+        public string GetRAM()
         {
             return this.ram;
         }
         /// <summary>
         /// Gets the HDD.
         /// </summary>
-        /// <returns></returns>
-        public string getHDD()
+        /// <returns>
+        /// gets HDD
+        /// </returns>
+        public string GetHDD()
         {
             return this.hdd;
         }
         /// <summary>
-        /// Gets the cpu.
+        /// Gets the CPU.
         /// </summary>
-        /// <returns></returns>
-        public string getCPU()
+        /// <returns>
+        /// gets CPU
+        /// </returns>
+        public string GetCPU()
         {
             return this.cpu;
         }

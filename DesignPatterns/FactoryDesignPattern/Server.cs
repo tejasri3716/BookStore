@@ -10,8 +10,8 @@ namespace DesignPatterns.FactoryDesignPattern
     /// <summary>
     /// Server class Implements Computer Class
     /// </summary>
-    /// <seealso cref="DesignPatterns.FactoryDesignPattern.Computer" />
-    class Server : Computer
+    /// <seealso cref="DesignPatterns.FactoryDesignPattern.IComputer" />
+    class Server : IComputer
     {
         private string ram;
         private string hdd;
@@ -32,7 +32,7 @@ namespace DesignPatterns.FactoryDesignPattern
         /// Gets the ram.
         /// </summary>
         /// <returns></returns>
-        public string getRAM()
+        public string GetRAM()
         {
             return this.ram;
         }
@@ -40,7 +40,7 @@ namespace DesignPatterns.FactoryDesignPattern
         /// Gets the HDD.
         /// </summary>
         /// <returns></returns>
-        public string getHDD()
+        public string GetHDD()
         {
             return this.hdd;
         }
@@ -48,7 +48,7 @@ namespace DesignPatterns.FactoryDesignPattern
         /// Gets the cpu.
         /// </summary>
         /// <returns></returns>
-        public string getCPU()
+        public string GetCPU()
         {
             return this.cpu;
         }

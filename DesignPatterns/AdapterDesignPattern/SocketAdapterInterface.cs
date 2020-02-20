@@ -1,4 +1,10 @@
-﻿namespace DesignPatterns.AdapterDesignPattern
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="ComputerFactory.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.AdapterDesignPattern
 {
     /// <summary>
     /// Interface for socket and adapter

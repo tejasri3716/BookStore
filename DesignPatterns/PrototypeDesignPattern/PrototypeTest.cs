@@ -7,7 +7,9 @@
 namespace DesignPatterns.PrototypeDesignPattern
 {
     using System;
-
+    /// <summary>
+    /// Prototype Test class is used to test whether object is cloned successfully or not
+    /// </summary>
     class PrototypeTest
     {
             /// <summary>
