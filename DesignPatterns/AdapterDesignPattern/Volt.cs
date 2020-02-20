@@ -1,39 +1,56 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
-// <copyright file="ComputerFactory.cs" company="Bridgelabz">
+// <copyright file="Volt.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns.AdapterDesignPattern
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-	public class Volt
-	{
+    /// <summary>
+    /// Volt class consisting of get volt method
+    /// </summary>
+    public class Volt
+    {
+        /// <summary>
+        /// The volts
+        /// </summary>
+        private int volts;
 
-		private int volts;
-		public Volt()
-		{
-			this.volts = 120;
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Volt"/> class.
+        /// </summary>
+        public Volt()
+        {
+            this.volts = 120;
+        }
 
-		public Volt(int v)
-		{
-			this.volts = v;
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Volt"/> class.
+        /// </summary>
+        /// <param name="v">The v.</param>
+        public Volt(int v)
+        {
+            this.volts = v;
+        }
 
-		public int GetVolts()
-		{
-			return volts;
-		}
+        /// <summary>
+        /// Gets the volts.
+        /// </summary>
+        /// <returns>
+        /// volts
+        /// </returns>
+        public int GetVolts()
+        {
+            return this.volts;
+        }
 
-		public void SetVolts(int volts)
-		{
-			this.volts = volts;
-		}
-
-	}
+        /// <summary>
+        /// Sets the volts.
+        /// </summary>
+        /// <param name="volts">The volts.</param>
+        public void SetVolts(int volts)
+        {
+            this.volts = volts;
+        }
+    }
 }
-
-
