@@ -10,9 +10,12 @@ namespace DesignPatterns.AdapterDesignPattern
     /// SocketAdapterImplementation class implements SocketAdapterInterface interface
     /// </summary>
     /// <seealso cref="DesignPatterns.AdapterDesignPattern.SocketAdapterInterface" />
-    class SocketAdapterImplementation : SocketAdapterInterface
+    public class SocketAdapterImplementation : SocketAdapterInterface
     {
-        Socket socket = new Socket();
+        /// <summary>
+        /// The socket
+        /// </summary>
+        private Socket socket = new Socket();
 
         /// <summary>
         /// Get 120 volts.
@@ -20,7 +23,7 @@ namespace DesignPatterns.AdapterDesignPattern
         /// <returns>gets 120 volts</returns>
         public Volt Get120Volts()
         {
-          return socket.GetVolt();
+            return this.socket.GetVolt();
         }
 
         /// <summary>
@@ -29,8 +32,8 @@ namespace DesignPatterns.AdapterDesignPattern
         /// <returns>gets 12 volts</returns>
         public Volt Get12Volts()
         {
-            Volt volt = socket.GetVolt();
-            return ConvertVolts(volt, 10);
+            Volt volt = this.socket.GetVolt();
+            return this.ConvertVolts(volt, 10);
         }
 
         /// <summary>
@@ -39,8 +42,8 @@ namespace DesignPatterns.AdapterDesignPattern
         /// <returns>gets 3 volts</returns>
         public Volt Get3Volts()
         {
-            Volt volt = socket.GetVolt();
-            return ConvertVolts(volt, 40);
+            Volt volt = this.socket.GetVolt();
+            return this.ConvertVolts(volt, 40);
         }
 
         /// <summary>
@@ -48,7 +51,7 @@ namespace DesignPatterns.AdapterDesignPattern
         /// </summary>
         /// <param name="volt">The volt.</param>
         /// <param name="i">The i.</param>
-        /// <returns></returns>
+        /// <returns>converts volts</returns>
         public Volt ConvertVolts(Volt volt, int i)
         {
             return new Volt(volt.GetVolts() / i);
