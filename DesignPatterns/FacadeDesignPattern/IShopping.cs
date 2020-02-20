@@ -1,17 +1,19 @@
 ﻿//--------------------------------------------------------------------------------------------------------------------
-// <copyright file="ComputerFactory.cs" company="Bridgelabz">
+// <copyright file="IShopping.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace DesignPatterns.FacadeDesignPattern
 {
-    interface IShopping
+    /// <summary>
+    /// IShopping interface consisting of BuyItem method
+    /// </summary>
+    public interface IShopping
     {
+        /// <summary>
+        /// Buys the item.
+        /// </summary>
         public void BuyItem();
     }
 }
