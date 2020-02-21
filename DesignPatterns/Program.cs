@@ -9,7 +9,7 @@ namespace DesignPatterns
     using System;
 
     /// <summary>
-    /// This class is used to call all other class and their methods
+    /// This class is used to call all other classes and their methods
     /// </summary>
     public class Program
     {
