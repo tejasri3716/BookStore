@@ -1,8 +1,20 @@
-﻿using System;
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="ICommandExecutor.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns.StructuralDesignPattern
 {
-    interface ICommandExecutor
+    /// <summary>
+    /// ICommandExecutor interface consists of RunCommand Abstract Method
+    /// </summary>
+    public interface ICommandExecutor
     {
-        public void RunCommand(String cmd);
+        /// <summary>
+        /// Runs the command.
+        /// </summary>
+        /// <param name="cmd">The command.</param>
+        public void RunCommand(string cmd);
     }
 }
