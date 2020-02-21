@@ -53,6 +53,10 @@ namespace DesignPatterns
                 case 9:
                     BehaviouralDesignPattern.ObserverDesignPattern.ObserverPatternTest.Test();
                     break;
+                default:
+                    Console.WriteLine("enter correct option");
+                    break;
+
             }
         }
     }
