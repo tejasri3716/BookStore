@@ -1,4 +1,10 @@
-﻿namespace DesignPatterns.BehaviouralDesignPattern.ObserverDesignPattern
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="ISubject.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.BehaviouralDesignPattern.ObserverDesignPattern
 {
     /// <summary>
     /// ISubject interface to register and unregister observers

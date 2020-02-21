@@ -1,4 +1,10 @@
-﻿namespace DesignPatterns.BehaviouralDesignPattern.ObserverDesignPattern
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="Subject.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.BehaviouralDesignPattern.ObserverDesignPattern
 {
     using System;
     using System.Collections.Generic;
