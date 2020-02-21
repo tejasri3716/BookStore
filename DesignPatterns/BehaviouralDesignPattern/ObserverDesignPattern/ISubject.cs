@@ -1,5 +1,8 @@
 ﻿namespace DesignPatterns.BehaviouralDesignPattern.ObserverDesignPattern
 {
+    /// <summary>
+    /// ISubject interface to register and unregister observers
+    /// </summary>
     public interface ISubject
     {
         /// <summary>
@@ -18,12 +21,5 @@
         /// Notifies the observers about changes.
         /// </summary>
         public void NotifyObservers();
-
-        /// <summary>
-        /// Gets the update.
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <returns></returns>
-        public object GetUpdate(IObserver obj);
     }
 }
