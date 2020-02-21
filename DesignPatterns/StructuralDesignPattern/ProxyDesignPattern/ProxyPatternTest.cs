@@ -1,11 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="ProxyPatternTest.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns.StructuralDesignPattern.ProxyDesignPattern
 {
+    using System;
+
+    /// <summary>
+    /// ProxyPatternTest is a proxy class which is used to instantiate CommandExecutorProxyPattern.
+    /// </summary>
     public class ProxyPatternTest
     {
+        /// <summary>
+        /// Tests this instance.
+        /// </summary>
         public static void Test()
         {
             ICommandExecutor executor = new CommandExecutorProxyPattern("tejasri", "tejsri@3716");
