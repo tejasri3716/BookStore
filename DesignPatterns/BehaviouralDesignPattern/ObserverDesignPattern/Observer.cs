@@ -39,7 +39,5 @@ namespace DesignPatterns.BehaviouralDesignPattern.ObserverDesignPattern
            Console.WriteLine(" Hello "+UserName +" Product is Now "+availability +" on Amazon");
          
         }
-
-       
     }
 }
