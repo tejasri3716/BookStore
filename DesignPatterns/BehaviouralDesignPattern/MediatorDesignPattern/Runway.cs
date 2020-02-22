@@ -8,18 +8,34 @@ namespace DesignPatterns.BehaviouralDesignPattern.MediatorDesignPattern
 {
     using System;
 
+    /// <summary>
+    /// Runway class implements ICommand interface which is used to give permission to land
+    /// </summary>
+    /// <seealso cref="DesignPatterns.BehaviouralDesignPattern.MediatorDesignPattern.ICommand" />
     public class Runway : ICommand
     {
-        private IATCMediator aTCMediator;
-        public Runway(IATCMediator aTCMediator)
+        /// <summary>
+        /// Air Traffic Control mediator
+        /// </summary>
+        private IATCMediator atcMediator;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Runway"/> class.
+        /// </summary>
+        /// <param name="atcMediator">Air Traffic Control mediator.</param>
+        public Runway(IATCMediator atcMediator)
         {
-            this.aTCMediator = aTCMediator;
-            aTCMediator.SetLandingStatus(true);
+            this.atcMediator = atcMediator;
+            this.atcMediator.SetLandingStatus(true);
         }
+
+        /// <summary>
+        /// Lands this instance.
+        /// </summary>
         public void Land()
         {
             Console.WriteLine("Landing permission granted");
-            aTCMediator.SetLandingStatus(true);
+            this.atcMediator.SetLandingStatus(true);
         }
     }
 }
