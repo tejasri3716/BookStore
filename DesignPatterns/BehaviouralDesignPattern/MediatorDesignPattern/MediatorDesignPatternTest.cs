@@ -6,14 +6,21 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns.BehaviouralDesignPattern.MediatorDesignPattern
 {
+    /// <summary>
+    /// MediatorDesignPatternTest class is used to send the landing status to flight 
+    /// and in response receives landed status
+    /// </summary>
     public class MediatorDesignPatternTest
     {
+        /// <summary>
+        /// Tests this instance.
+        /// </summary>
         public static void Test()
         {
-            IATCMediator aTCMediator= new ATCMediator();
-            Flight airAsia = new Flight(aTCMediator);
-            Runway runway = new Runway(aTCMediator);
-            aTCMediator.RegisterFlight(airAsia);
+            IATCMediator atcMediator = new ATCMediator();
+            Flight airAsia = new Flight(atcMediator);
+            Runway runway = new Runway(atcMediator);
+            atcMediator.RegisterFlight(airAsia);
             airAsia.GetReady();
             runway.Land();
             airAsia.Land();
