@@ -22,7 +22,7 @@ namespace DesignPatterns
             Console.WriteLine("Singleton Design Pattern\n1.LazyIntializationSingleton\n" +
                 "2.ThreadSafeSingleton\n3.EagerIntialization\n4.FactoryDesignPattern\n5.PrototypeDesignPattern" +
                 "\n6.Adapter Design Pattern\n7.FacadeDesignPattern\n8.ProxyDesignPattern\n9.ObserverDesignPattern" +
-                "\n10.VisitorDesignPattern\n11.MediatorDesignPattern");
+                "\n10.VisitorDesignPattern\n11.MediatorDesignPattern\n12.Reflection");
             Console.WriteLine("enter an option to get executed");
             int option = Utility.ReadInt();
             switch (option)
@@ -59,6 +59,9 @@ namespace DesignPatterns
                     break;
                 case 11:
                     BehaviouralDesignPattern.MediatorDesignPattern.MediatorDesignPatternTest.Test();
+                    break;
+                case 12:
+                    Reflection.ReflectionTest.Test();
                     break;
                 default:
                     Console.WriteLine("enter correct option");
