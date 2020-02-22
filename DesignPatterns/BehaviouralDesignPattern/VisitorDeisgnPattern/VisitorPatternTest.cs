@@ -7,7 +7,7 @@
 namespace DesignPatterns.BehaviouralDesignPattern.VisitorDeisgnPattern
 {
     /// <summary>
-    /// VisitorPatternTest class implements the Intent of visitor pattern
+    /// VisitorPatternTest class demonstrate the use of Visitor Pattern
     /// </summary>
     public class VisitorPatternTest
     {
