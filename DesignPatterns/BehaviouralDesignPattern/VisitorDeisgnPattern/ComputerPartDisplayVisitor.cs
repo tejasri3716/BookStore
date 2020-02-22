@@ -1,4 +1,10 @@
-﻿namespace DesignPatterns.BehaviouralDesignPattern.VisitorDeisgnPattern
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="IObserver.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.BehaviouralDesignPattern.VisitorDeisgnPattern
 {
     using System;
     public class ComputerPartDisplayVisitor : IComputerPartVisitor
