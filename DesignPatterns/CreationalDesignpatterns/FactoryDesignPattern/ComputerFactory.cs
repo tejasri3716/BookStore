@@ -6,10 +6,11 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns.FactoryDesignPattern
 {
+    using System;
     /// <summary>
     /// Computer Factory Class is used as to hide implementation details from the client
     /// </summary>
-   public class ComputerFactory
+    public class ComputerFactory
     {
         /// <summary>
         /// Gets the computer object.
@@ -20,14 +21,23 @@ namespace DesignPatterns.FactoryDesignPattern
         /// </returns>
         public static IComputer GetComputerObject(string typeOfObj)
         {
+
             IComputer obj = null;
             if (typeOfObj.ToLower() == "pc")
             {
-                obj = new PC("2GB", "500GB", "2.4GHz");
+                Console.WriteLine("enter RAM,HDD,CPU values for Pc");
+                string ram = Utility.ReadString();
+                string hdd = Utility.ReadString();
+                string cpu = Utility.ReadString();
+                obj = new PC(ram, hdd, cpu);
             }
             else
             {
-                obj = new Server("16GB", "1TB", "2.9GHz");
+                Console.WriteLine("enter RAM,HDD,CPU values for Server");
+                string ram = Utility.ReadString();
+                string hdd = Utility.ReadString();
+                string cpu = Utility.ReadString();
+                obj = new Server(ram, hdd, cpu);
             }
 
             return obj;
