@@ -31,8 +31,7 @@ namespace DesignPatterns.Reflection
 
             Console.WriteLine("Properties in Customer Class");
             PropertyInfo[] properties = typing.GetProperties();
-
-            ////Traversing the data present in the property object.
+            //// Traversing the data present in the property object.
             foreach (PropertyInfo property in properties)
             {
                 Console.WriteLine(property.PropertyType.Name + " " + property.Name);
