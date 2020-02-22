@@ -9,7 +9,8 @@ namespace DesignPatterns.BehaviouralDesignPattern.VisitorDeisgnPattern
     using System;
 
     /// <summary>
-    /// ComputerPartDisplayVisitor implements IComputerPartVisitor interface consists of Visit method
+    /// ComputerPartDisplayVisitor implements IComputerPartVisitor interface consists of Visit method which 
+    /// implements the intent of Visitor Pattern
     /// </summary>
     /// <seealso cref="DesignPatterns.BehaviouralDesignPattern.VisitorDeisgnPattern.IComputerPartVisitor" />
     public class ComputerPartDisplayVisitor : IComputerPartVisitor
