@@ -1,4 +1,10 @@
-﻿namespace DesignPatterns.DependencyInjection
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="Client.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.DependencyInjection
 {
     /// <summary>
     /// Client class consists of a parameterized constructor which invokes IService interface
