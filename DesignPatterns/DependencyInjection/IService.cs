@@ -1,4 +1,10 @@
-﻿namespace DesignPatterns.DependencyInjection
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="IService.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.DependencyInjection
 {
     /// <summary>
     /// IService interface consists of abstract method Serve
