@@ -1,9 +1,15 @@
-﻿namespace DesignPatterns.DependencyInjection
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="DependencyTest.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.DependencyInjection
 {
     /// <summary>
     /// DependencyInjectionTest class creates objects of Service class and Customer class
     /// </summary>
-    public class DependencyInjectionTest
+    public class DependencyTest
     {
         /// <summary>
         /// Tests this instance.
