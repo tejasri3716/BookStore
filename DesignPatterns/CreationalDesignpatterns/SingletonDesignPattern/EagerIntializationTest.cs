@@ -7,21 +7,20 @@
 namespace DesignPatterns.SingletonDesignPattern
 {
     using System.Threading.Tasks;
+
     /// <summary>
-    /// EagerIntializationTest to test the EagerIntialization in Singleton Design Pattern
+    /// EagerIntializationTest to test the Eager Intialization in Singleton Design Pattern
     /// </summary>
-    class EagerIntializationTest
+    public class EagerIntializationTest
     {
         /// <summary>
         /// Tests this instance.
         /// </summary>
         public static void Test()
         {
-            Parallel.Invoke(
-                () => FirstInstance(),
-                () => SecondInstance()
-                );
+            Parallel.Invoke(() => FirstInstance(), () => SecondInstance());
         }
+
         /// <summary>
         /// Seconds the instance.
         /// </summary>
