@@ -6,16 +6,27 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace DesignPatterns.FactoryDesignPattern
 {
-    using System;
     /// <summary>
     /// PC class implements Computer class
     /// </summary>
     /// <seealso cref="DesignPatterns.FactoryDesignPattern.IComputer" />
    public class PC : IComputer
     {
+        /// <summary>
+        /// The ram
+        /// </summary>
         private string ram;
+
+        /// <summary>
+        /// The HDD
+        /// </summary>
         private string hdd;
+
+        /// <summary>
+        /// The cpu
+        /// </summary>
         private string cpu;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PC"/> class.
         /// </summary>
@@ -28,6 +39,7 @@ namespace DesignPatterns.FactoryDesignPattern
             this.hdd = hdd;
             this.cpu = cpu;
         }
+
         /// <summary>
         /// Gets the RAM.
         /// </summary>
@@ -38,6 +50,7 @@ namespace DesignPatterns.FactoryDesignPattern
         {
             return this.ram;
         }
+
         /// <summary>
         /// Gets the HDD.
         /// </summary>
@@ -48,6 +61,7 @@ namespace DesignPatterns.FactoryDesignPattern
         {
             return this.hdd;
         }
+
         /// <summary>
         /// Gets the CPU.
         /// </summary>
