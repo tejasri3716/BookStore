@@ -28,16 +28,17 @@ namespace DesignPatterns.SingletonDesignPattern
         private static void SecondInstance()
         {
             // Another Object created for thread safes intialization class
-            ThreadSafeSingleton threadSafeIntialization = ThreadSafeSingleton.GetInstance;
-            threadSafeIntialization.PrintDetails("this is my second instance of object");
+            EagerIntialization eagerIntialization = EagerIntialization.GetInstance;
+            eagerIntialization.PrintDetails("this is my second instance of object");
         }
+
         /// <summary>
         /// Firsts the instance.
         /// </summary>
         private static void FirstInstance()
         {
             // Object creation for thread safe intialization singleton class
-            ThreadSafeSingleton intialization = ThreadSafeSingleton.GetInstance;
+            EagerIntialization intialization = EagerIntialization.GetInstance;
             intialization.PrintDetails("this is my first instance of object");
         }
     }
