@@ -12,11 +12,6 @@ namespace DesignPatterns.AdapterDesignPattern
     public class Socket
     {
         /// <summary>
-        /// Creates object volts for Volt class
-        /// </summary>
-      private Volt volts;
-
-        /// <summary>
         /// Gets the volt.
         /// </summary>
         /// <returns>get volts</returns>
