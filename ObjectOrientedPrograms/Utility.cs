@@ -102,7 +102,7 @@ namespace ObjectOrientedPrograms
             Console.WriteLine("enter weight");
             newitem.Weight = Utility.readDouble();
             rice.Add(newitem);
-            model.Rices = rice;
+           // model.Rices = rice;
         }
         public static void AddWheats(InventoryManagement.Model model)
         {
