@@ -11,23 +11,36 @@ namespace DesignPatterns.FactoryDesignPattern
     /// Server class Implements Computer Class
     /// </summary>
     /// <seealso cref="DesignPatterns.FactoryDesignPattern.IComputer" />
-    class Server : IComputer
+    public class Server : IComputer
     {
+        /// <summary>
+        /// The ram
+        /// </summary>
         private string ram;
+
+        /// <summary>
+        /// The HDD
+        /// </summary>
         private string hdd;
+
+        /// <summary>
+        /// The cpu
+        /// </summary>
         private string cpu;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Server"/> class.
         /// </summary>
         /// <param name="ram">The ram.</param>
         /// <param name="hdd">The HDD.</param>
         /// <param name="cpu">The cpu.</param>
-        public Server(String ram, String hdd, String cpu)
+        public Server(string ram, string hdd, string cpu)
         {
             this.ram = ram;
             this.hdd = hdd;
             this.cpu = cpu;
         }
+
         /// <summary>
         /// Gets the ram.
         /// </summary>
@@ -36,6 +49,7 @@ namespace DesignPatterns.FactoryDesignPattern
         {
             return this.ram;
         }
+
         /// <summary>
         /// Gets the HDD.
         /// </summary>
@@ -44,6 +58,7 @@ namespace DesignPatterns.FactoryDesignPattern
         {
             return this.hdd;
         }
+
         /// <summary>
         /// Gets the cpu.
         /// </summary>

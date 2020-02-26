@@ -73,6 +73,7 @@ namespace DesignPatterns.PrototypeDesignPattern
         {
             return string.Format("Name = {0}, Eid = {1}, Age = {2}", name, eid, age);
         }
+
         /// <summary>
         /// Clones this instance.
         /// </summary>
