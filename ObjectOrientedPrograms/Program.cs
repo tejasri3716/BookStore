@@ -19,7 +19,8 @@ namespace ObjectOrientedPrograms
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("1.AddressBook\n2.Inventory\n3.InventoryDetails\n4.StockManagement\n9.DeckOfCards\n5.CommercialDataProcessing\n10.DeckOfCardsUsingQ");
+            Console.WriteLine("1.AddressBook\n2.Inventory\n3.InventoryDetails\n4.StockManagement" +
+                "\n9.DeckOfCards\n5.CommercialDataProcessing\n10.DeckOfCardsUsingQ\n11.Delegates");
 
             Console.WriteLine("enter an option to get executed");
             int option = Utility.readInt();
@@ -49,6 +50,12 @@ namespace ObjectOrientedPrograms
                     break;
                 case 10:
                     DeckOfCardsUsingQueue.DeckOfCardsUsingQ.DistributeCards();
+                    break;
+                case 11:
+                    Delegates.Delegate.MultiCasting();
+                    break;
+                default:
+                    Console.WriteLine("enter correct option");
                     break;
             }
         }
