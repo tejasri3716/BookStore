@@ -1,39 +1,68 @@
-﻿namespace DesignPatterns.Annotations
+﻿//--------------------------------------------------------------------------------------------------------------------
+// <copyright file="CustomAttribute.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace DesignPatterns.Annotations
 {
     using System;
     using System.Reflection;
 
+    /// <summary>
+    /// CustomAttribute class extends Attribute class to create custom attributes
+    /// </summary>
+    /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.All)]
     public class CustomAttribute : Attribute
     {
-        // Provides name of the member 
+        /// <summary>
+        /// The name
+        /// </summary>
         private string name;
 
-        // Provides description of the member 
+        /// <summary>
+        /// The action
+        /// </summary>
         private string action;
 
-        // Constructor 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomAttribute"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="action">The action.</param>
         public CustomAttribute(string name, string action)
         {
             this.name = name;
             this.action = action;
         }
 
-        // property to get name 
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name
         {
-            get { return name; }
+            get { return this.name; }
         }
 
-        // property to get description 
+        /// <summary>
+        /// Gets the action.
+        /// </summary>
+        /// <value>
+        /// The action.
+        /// </value>
         public string Action
         {
-            get { return action; }
+            get { return this.action; }
         }
 
-        // Method to show the Fields 
-        // of the CustomAttribute 
-        // using reflection 
+        /// <summary>
+        /// Displays the Attributes.
+        /// </summary>
+        /// <param name="classType">Type of the class.</param>
         public static void AttributeDisplay(Type classType)
         {
             Console.WriteLine("Methods of class {0}", classType.Name);
@@ -45,7 +74,6 @@
             // for loop to read through all methods 
             for (int i = 0; i < methods.GetLength(0); i++)
             {
-
                 // Creating object array to receive 
                 // method attributes returned 
                 // by the GetCustomAttributes method 
@@ -59,8 +87,7 @@
                     {
                         // Display the fields of the CustomAttribute 
                         CustomAttribute attributeObject = (CustomAttribute)item;
-                        Console.WriteLine("{0} - {1}, {2} ", methods[i].Name,
-                        attributeObject.name, attributeObject.action);
+                        Console.WriteLine("{0} - {1}, {2} ", methods[i].Name, attributeObject.name, attributeObject.action);
                     }
                 }
             }
