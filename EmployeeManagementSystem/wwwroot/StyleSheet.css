@@ -8,11 +8,11 @@ h1 {
     display: block;
     font-size: 2em;
     color: black;
-    font-weight:400;
+    font-weight: 400;
 }
 
 .alignment {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 60%;
