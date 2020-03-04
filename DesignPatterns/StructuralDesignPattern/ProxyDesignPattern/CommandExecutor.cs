@@ -7,6 +7,7 @@
 namespace DesignPatterns.StructuralDesignPattern.ProxyDesignPattern
 {
     using System;
+    using System.Diagnostics;
 
     /// <summary>
     /// CommandExecutor class implements ICommandExecutor interface
@@ -20,11 +21,12 @@ namespace DesignPatterns.StructuralDesignPattern.ProxyDesignPattern
         /// <param name="cmd">The command.</param>
         public void RunCommand(string cmd)
         {
-            /*string strCmdText;
+            string strCmdText;
             strCmdText = "COLOR fc";
             Process process = new Process();
-            Process.Start("CMD.exe", cmd);*/
+            Process.Start("CMD.exe", cmd);
             Console.WriteLine("'" + cmd + "' : Command Executed");
+            process.WaitForExit();
             
             // process.WaitForExit();
         }

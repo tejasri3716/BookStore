@@ -18,7 +18,7 @@ namespace DesignPatterns.StructuralDesignPattern.ProxyDesignPattern
         /// </summary>
         public static void Test()
         {
-            ICommandExecutor executor = new CommandExecutorProxyPattern("tejasri", "tejsri@3716");
+            ICommandExecutor executor = new CommandExecutorProxyPattern("tejasri", "tejasri@3716");
             try
             {
                 executor.RunCommand("ipconfig");
