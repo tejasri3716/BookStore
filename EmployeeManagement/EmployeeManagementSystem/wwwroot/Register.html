@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+   
+    <script type="text/javascript" src="Employee.js"></script>
+    <h2 style="color:black; display:flex; justify-content:center;align-items:center">Registration Page</h2>
+    <div>
+        <div class="registration" id="registration" onsubmit="return validate()">
+            <div class="alignment">
+                <div class="reg">First Name</div>
+                <input type="text" id="fname" name="fname" required>
+            </div>
+            <br />
+            <div class="alignment">
+                <div class="reg">Last Name</div>
+                <input type="text" id="lname" name="lname" required>
+            </div>
+            <br />
+            <div class="alignment">
+                <div class="reg">Email Id</div>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br />
+            <div class="alignment">
+                <div class="reg">Password</div>
+                <input onblur="EmailValidation()" type="password" id="password" name="password" required>
+            </div>
+            <br />
+            <div class="button">
+                <div class="sign">
+                    <input type="button" name="Register" id="btn" onclick="btn" value="Register" class="login" />
+                </div>
+                <div class="sign">
+                    <input type="button" id="login" onclick="window.location.href='https://localhost:5001/Home.html'" value="Login" class="login" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script language="JavaScript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                var formData = new FormData;
+                formData.append("fname", $("#fname").val());
+                formData.append("lname", $("#lname").val());
+                formData.append("email", $("#email").val());
+                formData.append("password", $("#password").val());
+                $.ajax({
+                    url: 'api/add',
+                    type: 'post',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+
+                    success: function (response) {
+                        window.location.href = 'https://localhost:5001/Home.html'
+                        alert("Registered successfully");
+                    },
+                    error: function () {
+                        alert("Fields can't be left empty");
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+            background-color: azure;
+        }
+
+        .reg {
+            width: 100px;
+        }
+
+        .alignment {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #registration {
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cardreg {
+            padding: 10px 5px 15px 20px;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login {
+            background: #36718c;
+            color: white;
+            outline: none;
+            width: 72px;
+            height: 28px;
+            border-radius: 9px;
+            border: 1px solid #aaa;
+        }
+
+        .error {
+            color: red;
+            margin-left: 5px;
+        }
+
+        .sign {
+            width: 120px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</body>
+</html>

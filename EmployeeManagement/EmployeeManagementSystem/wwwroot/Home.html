@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Employee Management System
+    </title>
+</head>
+<body style="padding-top: 100px;">
+    <h1 align="center"><i>Employee Management System</i></h1>
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <div class="card" style=" background-color: whitesmoke;">
+        <h2 style="color:black; display:flex; justify-content:center;align-items:center">Login</h2>
+        <div class="alignment">
+            <div class="email">Email Id</div>
+            <input onblur="EmailValidation()" type="text" name="Email" id="email" placeholder="Email Id" required>
+        </div>
+        <br />
+        <div class="alignment">
+            <div class="email">Password</div>
+            <input type="password" name="password" id="password" placeholder="Password" required="required">
+        </div>
+        <br />
+        <div class="buttons">
+            <div class="loginButton">
+                <input type="button" id="login" onclick="login" value="Login" class="register">
+            </div>
+            <div class="registerbutton">
+                <input type="button" onclick="window.location.href='https://localhost:5001/Register.html'" value="Register" class="register" />
+            </div>
+        </div>
+    </div>
+
+    <script language="JavaScript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        $(function () {
+            $("#login").click(function () {
+                 var formData = new FormData;
+                formData.append("email", $("#email").val());
+                formData.append("password", $("#password").val());
+                //var data = {
+                //    "email": document.getElementById("email").value,
+                //    "password": document.getElementById("password").value
+                //}
+                console.log("data", formData);
+                $.ajax({
+                    url: 'api/login',
+                    type: 'POST',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+
+                    success: function (response) {
+                        alert("Successfully Logged In");
+                        window.location.href = 'https://localhost:5001/Options.html';
+                    },
+                    error: function () {
+                        alert("enter correct username and password");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>List Of Employees</title>
+</head>
+<body>
+    <div>
+        <div class="options">List Of Employees</div>
+        <table border="1" align="center" id="employee">
+            <thead>
+                <tr>
+                    <th class="list">FirstName</th>
+                    <th class="list">LastName</th>
+                    <th class="list">Email Id</th>
+                    <th class="list">Password</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="buttons">
+        <div class="btn">
+            <input type="button" id="btn" onclick="window.location.href='https://localhost:5001/Update.html'" value="Update" class="update" />
+        </div>
+        <div class="btn">
+            <input type="button" id="btn" onclick="window.location.href='https://localhost:5001/Delete.html'"
+                   value="Delete" class="delete"/>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax(
+                {
+                    url: 'api/get',
+                    type: 'Get',
+
+                    success:
+                        function (data) {
+                            var employeelist = $("#employee tbody");
+                            $(data).each(function (index, emp) {
+                                employeelist.append('<tr><td>' + emp.firstName + '</td><td>' + emp.lastName + '</td><td>' + emp.email + '</td><td>' + emp.password + '</td></tr>');
+                            });
+                        }
+                });
+        });
+    </script>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+            background-color:azure;
+        }
+
+        .options {
+            align-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color:lightseagreen;
+        }
+
+        .list {
+            border-radius: 5px;
+            border-style:groove;
+            color:lightseagreen;
+        }
+
+        .buttons {
+            align-content: center;
+            justify-content: center;
+            display: flex;
+            color:lightseagreen;
+        }
+
+        .btn {
+            padding: 20px;
+            color:lightseagreen;
+        }
+
+        .update, .delete {
+            background: #36718c;
+            color: white;
+            width: 75px;
+            height: 30px;
+            border: 1px solid;
+            border-radius: 9px;
+        }
+
+        .table {
+            width: 100px;
+        }
+    </style>
+</body>
+</html>
