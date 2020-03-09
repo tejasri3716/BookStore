@@ -19,5 +19,17 @@ namespace FundooTest
             };
             Assert.IsNotNull(repository.Login(login));
         }
+
+        [Test]
+        public void RegisterTest()
+        {
+            RegisterModel register = new RegisterModel();
+            register.FirstName = "polsani";
+            register.LastName = "harshini";
+            register.Email = "harshini@gmail.com";
+            register.Password = "hello@3716";
+            AccountManager manager = new AccountManager();
+            Assert.IsNotNull(manager.Register(register));
+        }
     }
 }
