@@ -1,0 +1,17 @@
+{
+  "Head": {
+    "Info": {
+      "Symbol": "Google",
+      "TotalShares": 15,
+      "DateTime": "2020-02-28T15:26:01.4302334+05:30"
+    },
+    "Link": {
+      "Info": {
+        "Symbol": "Wipro",
+        "TotalShares": 31,
+        "DateTime": "2020-02-28T15:26:53.3642394+05:30"
+      },
+      "Link": null
+    }
+  }
+}
