@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file=DeckOfCardsUsingQ.cs" company="Bridgelabz">
+// <copyright file=Startup.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
@@ -11,6 +11,10 @@ namespace EmployeeManagementSystem
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.DependencyInjection;
+
+    /// <summary>
+    /// Startup class is used to set the route of EmployeeManagementSystem and to add dependency injections
+    /// </summary>
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
