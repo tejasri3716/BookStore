@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file=DeckOfCardsUsingQ.cs" company="Bridgelabz">
+// <copyright file=EmployeeOperations.cs" company="Bridgelabz">
 //   Copyright © 2019 Company="BridgeLabz"
 // </copyright>
 // <creator name="tejasri"/>
