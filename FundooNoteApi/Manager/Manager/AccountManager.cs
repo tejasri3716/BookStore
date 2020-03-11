@@ -36,9 +36,9 @@
         /// </summary>
         /// <param name="loginModel">The login model.</param>
         /// <returns></returns>
-        public  Task<RegisterModel> EmailLogin(LoginModel loginModel)
+        public async Task<RegisterModel> EmailLogin(LoginModel loginModel)
         {
-            return  this.repository.EmailLogin(loginModel);
+            return await this.repository.EmailLogin(loginModel);
         }
 
         /// <summary>
@@ -46,9 +46,9 @@
         /// </summary>
         /// <param name="loginModel">The login model.</param>
         /// <returns></returns>
-        public  Task<RegisterModel> FaceBookLogin(LoginModel loginModel)
+        public async Task<RegisterModel> FaceBookLogin(LoginModel loginModel)
         {
-            return  this.repository.FaceBookLogin(loginModel);
+            return await this.repository.FaceBookLogin(loginModel);
         }
 
         /// <summary>
@@ -56,9 +56,9 @@
         /// </summary>
         /// <param name="forgotPassword">The forgot password.</param>
         /// <returns></returns>
-        public  Task<string> ForgotPassword(ForgotPassword forgotPassword)
+        public async Task<string> ForgotPassword(ForgotPassword forgotPassword)
         {
-            return  this.repository.ForgotPassword(forgotPassword);
+            return await this.repository.ForgotPassword(forgotPassword);
         }
 
         /// <summary>
@@ -87,9 +87,9 @@
         /// </summary>
         /// <param name="reset">The reset.</param>
         /// <returns></returns>
-        public  Task<string> ResetPassword(ResetPassword reset)
+        public async Task<string> ResetPassword(ResetPassword reset)
         {
-            return  this.repository.ResetPassword(reset);
+           return await this.repository.ResetPassword(reset);
         }
     }
 }
