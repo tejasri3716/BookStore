@@ -1,13 +1,14 @@
-﻿
-
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=DeckOfCardsUsingQ.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace EmployeeManagementSystem.Manager
 {
     using EmployeeManagementSystem.Model;
     using EmployeeManagementSystem.Repository;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// EmployeeManager class implements IEmployeeManager
