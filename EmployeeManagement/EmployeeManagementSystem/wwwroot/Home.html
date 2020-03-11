@@ -38,10 +38,6 @@
                  var formData = new FormData;
                 formData.append("email", $("#email").val());
                 formData.append("password", $("#password").val());
-                //var data = {
-                //    "email": document.getElementById("email").value,
-                //    "password": document.getElementById("password").value
-                //}
                 console.log("data", formData);
                 $.ajax({
                     url: 'api/login',
