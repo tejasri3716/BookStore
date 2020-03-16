@@ -1,6 +1,7 @@
 ﻿namespace Repository.Context
 {
     using Microsoft.EntityFrameworkCore;
+    using Model.NoteModel;
     using Model.UserModel;
 
     /// <summary>
@@ -25,5 +26,6 @@
         /// The accountregister.
         /// </value>
         public DbSet<RegisterModel> Accountregister { get; set; }
+        public DbSet<NoteModel> Notes { get; set; }
     }
 }

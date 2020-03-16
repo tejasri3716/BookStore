@@ -10,7 +10,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using Repository.Context;
     using Repository.IRepository;
-    using Repository.Repository;
+    using Repository.RepositoryClasses;
     using Swashbuckle.AspNetCore.Swagger;
 
     /// <summary>

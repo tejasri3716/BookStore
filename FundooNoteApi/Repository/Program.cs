@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace Repository
+﻿namespace Repository
 {
+    using System;
     class Program
     {
         static void Main(string[] args)
