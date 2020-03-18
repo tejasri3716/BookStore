@@ -24,7 +24,6 @@
         {
             NoteModel noteModel = new NoteModel()
             {
-                Id = note.Id,
                 Title = note.Title,
                 Description=note.Description,
                 Email=note.Email,
