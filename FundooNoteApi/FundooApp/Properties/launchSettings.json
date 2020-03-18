@@ -19,6 +19,7 @@
     },
     "FundooApp": {
       "commandName": "Project",
+      "workingDirectory": "swagger",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
