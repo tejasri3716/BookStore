@@ -11,20 +11,23 @@ namespace Manager.Manager
         private readonly INoteRepository repository;
         public NoteManager(INoteRepository note)
         {
-            note = repository;
+            repository = note;
         }
         public NoteManager()
         {
 
         }
-        public async Task AddNotes(NoteModel note)
+        public async Task<string> AddNotes(NoteModel note)
         {
-            await this.repository.AddNotes(note);
+        await this.repository.AddNotes(note);
+            return "Added Successfully";
         }
 
-        public async Task DeleteNote(int id)
+        public async Task<string> DeleteNote(int id)
         {
             await this.repository.DeleteNote(id);
+            return "Deleted Successfully";
+
         }
 
         public List<NoteModel> GetNote(int id)
@@ -38,9 +41,10 @@ namespace Manager.Manager
             return this.repository.GetAllNotes();
         }
 
-        public Task UpdateNote(NoteModel note)
+        public async Task<string> UpdateNote(NoteModel note)
         {
-            return this.repository.UpdateNote(note);
+             await this.repository.UpdateNote(note);
+            return "Updated Successfully";
         }
     }
 }
