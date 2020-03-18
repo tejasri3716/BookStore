@@ -11,7 +11,7 @@
     public class NoteController : ControllerBase
     {
         private readonly INoteManager manager;
-        
+
         public NoteController(INoteManager noteManager)
         {
             manager = noteManager;
@@ -46,5 +46,54 @@
                 return BadRequest(exception.Message);
             }
         }
+
+        [HttpGet]
+        [Route("api/get")]
+        public async Task<IActionResult> GetAllNotes()
+        {
+            try
+            {
+                List<NoteModel> notes = this.manager.GetAllNotes();
+                return Ok(notes);
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/getById")]
+        public async Task<IActionResult> GetNote(int id)
+        {
+            try
+            {
+                var result = this.manager.GetNote(id);
+                return Ok(result);
+            }
+
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Route("api/delete")]
+        public async Task<IActionResult> DeleteNote(int id)
+        {
+            try
+            {
+                this.manager.DeleteNote(id);
+                return Ok(id);
+            }
+            catch(Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
     }
 }
+
+
+
