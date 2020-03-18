@@ -1,13 +1,25 @@
-﻿namespace FundooApp.Controllers
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=ValuesController.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace FundooApp.Controllers
 {
     using System.Collections.Generic;
     using Microsoft.AspNetCore.Mvc;
 
+    /// <summary>
+    /// ValuesController extends ControllerBase
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+        /// <summary>
+        /// ActionResult returns values
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {

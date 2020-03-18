@@ -1,4 +1,10 @@
-﻿namespace Model.UserModel
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=LoginModel.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Model.UserModel
 {
     /// <summary>
     /// Login Model class is used to get and set email ans password properties

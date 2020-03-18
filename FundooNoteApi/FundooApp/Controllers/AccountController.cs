@@ -1,4 +1,10 @@
-﻿namespace FundooApp.Controllers
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=AccountController.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace FundooApp.Controllers
 {
     using Manager.IManager;
     using Microsoft.AspNetCore.Mvc;
@@ -6,6 +12,9 @@
     using System;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// AccountController class extends ControllerBase
+    /// </summary>
     public class AccountController : ControllerBase
     {
         /// <summary>

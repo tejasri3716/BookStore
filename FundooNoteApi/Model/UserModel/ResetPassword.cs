@@ -1,4 +1,10 @@
-﻿namespace Model.UserModel
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=ResetPassword.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Model.UserModel
 {
     /// <summary>
     /// Reset Password class is used to reset the existing password

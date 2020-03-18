@@ -1,4 +1,10 @@
-﻿namespace Repository.RepositoryClasses
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=AccountRepository.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Repository.RepositoryClasses
 {
     using Microsoft.IdentityModel.Tokens;
     using Model.UserModel;

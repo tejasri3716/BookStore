@@ -1,4 +1,10 @@
-﻿namespace Model.UserModel
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=RegisterModel.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Model.UserModel
 {
     using System.ComponentModel.DataAnnotations;
 

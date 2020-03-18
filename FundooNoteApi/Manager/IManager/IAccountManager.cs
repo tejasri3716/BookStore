@@ -1,4 +1,10 @@
-﻿namespace Manager.IManager
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=IAccountManager.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Manager.IManager
 {
     using Model.UserModel;
     using System.Threading.Tasks;

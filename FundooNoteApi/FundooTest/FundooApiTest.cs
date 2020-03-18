@@ -2,7 +2,6 @@ using Manager.Manager;
 using Model.UserModel;
 using NUnit.Framework;
 using Repository.RepositoryClasses;
-
 namespace FundooTest
 {
     [TestFixture]

@@ -1,4 +1,10 @@
-﻿namespace Repository.IRepository
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=INoteRepository.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Repository.IRepository
 {
     using Model.NoteModel;
     using System.Collections.Generic;

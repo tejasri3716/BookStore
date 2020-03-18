@@ -1,4 +1,10 @@
-﻿namespace FundooApp
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=Startup.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace FundooApp
 {
     using Manager.IManager;
     using Manager.Manager;

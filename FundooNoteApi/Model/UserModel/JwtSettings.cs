@@ -1,4 +1,10 @@
-﻿namespace Model.UserModel
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=JwtSettings.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Model.UserModel
 {
     /// <summary>
     /// JwtSettings class is used to set and the secret key

@@ -1,4 +1,10 @@
-﻿namespace Repository.Context
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=UserContext.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Repository.Context
 {
     using Microsoft.EntityFrameworkCore;
     using Model.NoteModel;

@@ -1,4 +1,10 @@
-﻿namespace Manager.Manager
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=AccountManager.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Manager.Manager
 {
     using Model.UserModel;
     using Repository.IRepository;

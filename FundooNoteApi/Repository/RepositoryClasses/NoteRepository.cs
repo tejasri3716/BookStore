@@ -1,4 +1,10 @@
-﻿namespace Repository.RepositoryClasses
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file=NoteRepository.cs" company="Bridgelabz">
+//   Copyright © 2019 Company="BridgeLabz"
+// </copyright>
+// <creator name="tejasri"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Repository.RepositoryClasses
 {
     using global::Repository.IRepository;
     using Model.NoteModel;
