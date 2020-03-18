@@ -5,10 +5,10 @@
     using System.Threading.Tasks;
     public interface INoteManager
     {
-        Task AddNotes(NoteModel note);
-        Task DeleteNote(int id);
+        Task<string> AddNotes(NoteModel note);
+        Task<string> DeleteNote(int id);
         List<NoteModel> GetNote(int id);
-        Task UpdateNote(NoteModel note);
+        Task<string> UpdateNote(NoteModel note);
         List<NoteModel> GetAllNotes();
     }
 }
