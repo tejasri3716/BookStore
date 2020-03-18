@@ -1,7 +1,7 @@
 using Manager.Manager;
 using Model.UserModel;
 using NUnit.Framework;
-using Repository.Repository;
+using Repository.RepositoryClasses;
 
 namespace FundooTest
 {
@@ -14,7 +14,7 @@ namespace FundooTest
             AccountRepository repository = new AccountRepository();
             LoginModel login = new LoginModel
             {
-                Email = "radha@gmail.com",
+                Email = "radhag@gmail.com",
                 Password="radha@3716"
             };
             Assert.IsNotNull(repository.Login(login));
@@ -24,10 +24,10 @@ namespace FundooTest
         public void RegisterTest()
         {
             RegisterModel register = new RegisterModel();
-            register.FirstName = "hello";
-            register.LastName = "hi";
-            register.Email = "jm@gmail.com";
-            register.Password = "hello@3716";
+            register.FirstName = "a";
+            register.LastName = "aa";
+            register.Email = "aa@gmail.com";
+            register.Password = "a@3716";
             AccountManager manager = new AccountManager();
             Assert.IsNotNull(manager.Register(register));
         }
@@ -46,8 +46,8 @@ namespace FundooTest
             {
                 Email="tejasmiely129@gmail.com",
                 Password="hello",
-                NewPassword="hello@3716",
-                ConfirmPassword="hello@3716"
+                NewPassword="hell@3716",
+                ConfirmPassword="hell@3716"
             };
             AccountManager manager = new AccountManager();
             Assert.IsNotNull(manager.ResetPassword(reset));
@@ -58,7 +58,7 @@ namespace FundooTest
             LoginModel login = new LoginModel()
             {
                 Email="tejasmiley129@gmail.com",
-                Password="hello@3716"
+                Password="hell@3716"
             };
             AccountManager manager = new AccountManager();
             Assert.IsNotNull(manager.EmailLogin(login));
