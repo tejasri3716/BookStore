@@ -6,10 +6,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace Repository.RepositoryClasses
 {
+    using global::Repository.Context;
+    using global::Repository.IRepository;
     using Microsoft.IdentityModel.Tokens;
     using Model.UserModel;
-    using Repository.Context;
-    using Repository.IRepository;
     using StackExchange.Redis;
     using System;
     using System.IdentityModel.Tokens.Jwt;
