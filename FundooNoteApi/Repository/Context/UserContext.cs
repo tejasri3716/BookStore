@@ -7,6 +7,7 @@
 namespace Repository.Context
 {
     using Microsoft.EntityFrameworkCore;
+    using Model.LabelModels;
     using Model.NoteModel;
     using Model.UserModel;
 
@@ -33,5 +34,6 @@ namespace Repository.Context
         /// </value>
         public DbSet<RegisterModel> Accountregister { get; set; }
         public DbSet<NoteModel> Notes { get; set; }
+        public DbSet<LabelModel> Labels { get; set; }
     }
 }
