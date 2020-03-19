@@ -4,20 +4,21 @@
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
+using Manager.IManager;
+using Manager.Manager;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Repository.Context;
+using Repository.IRepository;
+using Repository.Repository;
+using Repository.RepositoryClasses;
+using Swashbuckle.AspNetCore.Swagger;
 namespace FundooApp
 {
-    using Manager.IManager;
-    using Manager.Manager;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Repository.Context;
-    using Repository.IRepository;
-    using Repository.RepositoryClasses;
-    using Swashbuckle.AspNetCore.Swagger;
 
     /// <summary>
     /// Start class used to add dependencies
@@ -48,10 +49,13 @@ namespace FundooApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IAccountManager, AccountManager>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<INoteRepository, NoteRepository>();
             services.AddTransient<INoteManager, NoteManager>();
+            services.AddTransient<ILabelRepository, LabelRepository>();
+            services.AddTransient<ILabelManager, LabelManager>();
+
             services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserDBConncetion")));
 
             //services.AddCors(OP => OP.AddPolicy("Polices", builder =>
@@ -65,11 +69,11 @@ namespace FundooApp
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "Fundoo Note API",
+                    Title = "My Fundoo Note API",
                     Description = "My First ASP.NET Core Web API",
+                    TermsOfService = "None",
                 });
             });
-
         }
 
         /// <summary>
@@ -82,11 +86,6 @@ namespace FundooApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "FUNDOO NOTE API");
-                });
             }
             else
             {
@@ -94,6 +93,11 @@ namespace FundooApp
             }
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Fundoo Note API V1");
+            });
         }
     }
 }
