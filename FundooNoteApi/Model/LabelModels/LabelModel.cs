@@ -8,6 +8,7 @@ namespace Model.LabelModels
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
     /// LabelModel class is used as model class
@@ -28,6 +29,11 @@ namespace Model.LabelModels
         /// Label Name
         /// </summary>
         private string labelName;
+
+        /// <summary>
+        /// Email Id
+        /// </summary>
+        private string email;
         
         /// <summary>
         /// Label Id property
@@ -44,5 +50,11 @@ namespace Model.LabelModels
         /// Label Name property
         /// </summary>
         public string LabelName { get => this.labelName; set => this.labelName = value; }
+
+        /// <summary>
+        /// Email Id
+        /// </summary>
+        [ForeignKey("RegisterModel")]
+        public string Email { get => this.email; set => this.email = value; }
     }
 }
