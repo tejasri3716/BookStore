@@ -57,7 +57,7 @@ namespace FundooApp
             services.AddTransient<ILabelRepository, LabelRepository>();
             services.AddTransient<ILabelManager, LabelManager>();
             services.AddTransient<ICollaboratorManager, CollaboratorManager>();
-            services.AddTransient<ICollaborator, CollaboratorRepository>();
+            services.AddTransient<ICollaboratorRepository, CollaboratorRepository>();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
