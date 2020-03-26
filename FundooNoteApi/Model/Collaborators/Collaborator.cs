@@ -14,6 +14,11 @@ namespace Model.Collaborators
     public class Collaborator
     {
         /// <summary>
+        /// Id of the collaborator
+        /// </summary>
+        private int id;
+        
+        /// <summary>
         /// Note ID 
         /// </summary>
         private int noteId;
@@ -36,12 +41,17 @@ namespace Model.Collaborators
         /// <summary>
         /// Sender Email property
         /// </summary>
-        [Key]
         public string SenderEmail { get => this.senderEmail; set => this.senderEmail = value; }
 
         /// <summary>
         /// Receiver Email property
         /// </summary>
         public string ReceiverEmail { get => this.receiverEmail; set => this.receiverEmail = value; }
+
+        /// <summary>
+        /// Id property is considered as primary key
+        /// </summary>
+        [Key]
+        public int Id { get => this.id; set => this.id = value; }
     }
 }
