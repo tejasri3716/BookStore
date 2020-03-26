@@ -28,7 +28,7 @@ namespace Repository.IRepository
         /// </summary>
         /// <param name="labelModel">The label model.</param>
         /// <returns></returns>
-        string UpdateLabel(int id, string name);
+        string UpdateLabel(int id, string name, string email);
 
         /// <summary>
         /// Deletes the label.
