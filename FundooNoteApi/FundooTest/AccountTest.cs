@@ -14,7 +14,7 @@ namespace FundooTest
             LoginModel login = new LoginModel
             {
                 Email = "radhag@gmail.com",
-                Password="radha@3716"
+                Password = "radha@3716"
             };
             Assert.IsNotNull(repository.Login(login));
         }
@@ -30,6 +30,7 @@ namespace FundooTest
             AccountManager manager = new AccountManager();
             Assert.IsNotNull(manager.Register(register));
         }
+
         [Test]
         public void ForgotPassword()
         {
@@ -38,30 +39,33 @@ namespace FundooTest
             var result = new AccountManager();
             Assert.IsNotNull(result.ForgotPassword(forgot));
         }
+
         [Test]
         public void ResetPasswordTest()
         {
             ResetPassword reset = new ResetPassword()
             {
-                Email="tejasmiely129@gmail.com",
-                Password="hello",
-                NewPassword="hell@3716",
-                ConfirmPassword="hell@3716"
+                Email = "tejasmiely129@gmail.com",
+                Password = "hello",
+                NewPassword = "hell@3716",
+                ConfirmPassword = "hell@3716"
             };
             AccountManager manager = new AccountManager();
             Assert.IsNotNull(manager.ResetPassword(reset));
         }
+
         [Test]
         public void EmailLoginTest()
         {
             LoginModel login = new LoginModel()
             {
-                Email="tejasmiley129@gmail.com",
-                Password="hell@3716"
+                Email = "tejasmiley129@gmail.com",
+                Password = "hell@3716"
             };
             AccountManager manager = new AccountManager();
             Assert.IsNotNull(manager.EmailLogin(login));
         }
+
         [Test]
         public void FaceBookLoginTest()
         {
