@@ -7,6 +7,7 @@
 namespace Repository.Context
 {
     using Microsoft.EntityFrameworkCore;
+    using Model.Collaborators;
     using Model.LabelModels;
     using Model.NoteModel;
     using Model.UserModel;
@@ -33,7 +34,29 @@ namespace Repository.Context
         /// The accountregister.
         /// </value>
         public DbSet<RegisterModel> Accountregister { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Notes.
+        /// </summary>
+        /// <value>
+        /// The Notes.
+        /// </value>
         public DbSet<NoteModel> Notes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Labels.
+        /// </summary>
+        /// <value>
+        /// The Labels.
+        /// </value>
         public DbSet<LabelModel> Labels { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Collaborator.
+        /// </summary>
+        /// <value>
+        /// The Collaborators.
+        /// </value>
+        public DbSet<Collaborator> Collaborators { get; set; }
     }
 }
