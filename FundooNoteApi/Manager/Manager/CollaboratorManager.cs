@@ -10,15 +10,22 @@ namespace Manager.Manager
     using Model.Collaborators;
     using Repository.IRepository;
     using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using System.Threading.Tasks;
 
+    /// <summary>
+    /// Collaborator Manager class implements ICollaborator Manager
+    /// </summary>
     public class CollaboratorManager : ICollaboratorManager
     {
-        private readonly ICollaborator collaborator;
+        /// <summary>
+        /// Instantiating ICollaborator interface
+        /// </summary>
+        private readonly ICollaboratorRepository collaborator;
 
-        public CollaboratorManager(ICollaborator collaborator)
+        /// <summary>
+        /// Collaborator Manager constructor used to add dependency
+        /// </summary>
+        /// <param name="collaborator"></param>
+        public CollaboratorManager(ICollaboratorRepository collaborator)
         {
             this.collaborator = collaborator;
         }
@@ -27,7 +34,9 @@ namespace Manager.Manager
         /// Adds the collaborator asynchronous.
         /// </summary>
         /// <param name="collaborator">The collaborator.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// Added Successfully
+        /// </returns>
         /// <exception cref="Exception"></exception>
         public string AddCollaborator(Collaborator collaborator)
         {
@@ -42,6 +51,14 @@ namespace Manager.Manager
             }
         }
 
+        /// <summary>
+        /// Delete Collaborator method is used to delete collaborator using id 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Delted Successfully
+        /// </returns>
+        /// <exception cref="Exception"></exception>
         public string DeleteCollaborator(int id)
         {
             try
