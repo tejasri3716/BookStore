@@ -132,11 +132,11 @@ namespace Manager.Manager
         /// <returns>
         /// Updated Successfully
         /// </returns>
-        public string UpdateLabel(int id, string name)
+        public string UpdateLabel(int id, string name, string email)
         {
             try
             {
-                this.label.UpdateLabel(id, name);
+                this.label.UpdateLabel(id, name, email);
                 return "Updated Successfully";
             }
             catch (Exception exception)
