@@ -16,10 +16,10 @@ using Repository.Context;
 using Repository.IRepository;
 using Repository.Repository;
 using Repository.RepositoryClasses;
+using StackExchange.Redis;
 using Swashbuckle.AspNetCore.Swagger;
 namespace FundooApp
 {
-
     /// <summary>
     /// Start class used to add dependencies
     /// </summary>
@@ -49,40 +49,39 @@ namespace FundooApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContextPool<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserDBConncetion")));
             services.AddTransient<IAccountManager, AccountManager>();
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<INoteRepository, NoteRepository>();
             services.AddTransient<INoteManager, NoteManager>();
             services.AddTransient<ILabelRepository, LabelRepository>();
             services.AddTransient<ILabelManager, LabelManager>();
-
-            services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserDBConncetion")));
-
-            //services.AddCors(OP => OP.AddPolicy("Polices", builder =>
-            //{
-            //    builder.AllowAnyOrigin();
-            //    builder.AllowAnyHeader();
-            //    builder.AllowAnyMethod();
-            //}));
+            services.AddTransient<ICollaboratorManager, CollaboratorManager>();
+            services.AddTransient<ICollaborator, CollaboratorRepository>();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
                     Title = "My Fundoo Note API",
-                    Description = "My First ASP.NET Core Web API",
-                    TermsOfService = "None",
                 });
+                /* c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());*/
+            });
+            services.Configure<IISOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
             });
         }
-
-        /// <summary>
-        /// Configures the specified application.
-        /// </summary>
-        /// <param name="app">The application.</param>
-        /// <param name="env">The env.</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseAuthentication();
+            app.UseCors("MyPolicy");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -92,7 +91,7 @@ namespace FundooApp
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
