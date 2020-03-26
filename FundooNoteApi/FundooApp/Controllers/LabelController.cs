@@ -13,6 +13,7 @@ namespace FundooApp.Controllers
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     public class LabelController : ControllerBase
     {
         /// <summary>
@@ -38,7 +39,7 @@ namespace FundooApp.Controllers
         /// </returns>
         [HttpPost]
         [Route("api/addLabel")]
-        public ActionResult AddLabel(LabelModel labelModel)
+        public ActionResult AddLabel([FromBody]LabelModel labelModel)
         {
             try
             {
@@ -57,7 +58,7 @@ namespace FundooApp.Controllers
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("api/delete")]
+        [Route("api/deleteLabel")]
         public IActionResult Delete(int id)
         {
             try
@@ -77,12 +78,12 @@ namespace FundooApp.Controllers
         /// <param name="labelModel">The label model.</param>
         /// <returns></returns>
         [HttpPut]
-        [Route("api/update")]
-        public IActionResult Update(int id, string name)
+        [Route("api/updateLabel")]
+        public IActionResult Update(int id, string name, string email)
         {
             try
             {
-                var result = this.labelManager.UpdateLabel(id, name);
+                var result = this.labelManager.UpdateLabel(id, name, email);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -96,7 +97,7 @@ namespace FundooApp.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("api/get")]
+        [Route("api/getAllLabels")]
         public List<LabelModel> GetAllLables()
         {
             return this.labelManager.GetAllLabels();
@@ -108,7 +109,7 @@ namespace FundooApp.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("api/getById")]
+        [Route("api/getLabelById")]
         public List<LabelModel> GetLabel(int id)
         {
             return this.labelManager.GetLabel(id);
