@@ -63,7 +63,7 @@ namespace FundooApp.Controllers
         /// updated successfully
         /// </returns>
         [HttpPut]
-        [Route("api/update")]
+        [Route("api/updateNote")]
         public async Task<IActionResult> UpdateNote([FromBody]NoteModel note)
         {
             try
@@ -84,7 +84,7 @@ namespace FundooApp.Controllers
         /// list of notes
         /// </returns>
         [HttpGet]
-        [Route("api/get")]
+        [Route("api/getNote")]
         public async Task<IActionResult> GetAllNotes()
         {
             try
@@ -106,7 +106,7 @@ namespace FundooApp.Controllers
         /// note by id
         /// </returns>
         [HttpGet]
-        [Route("api/getById")]
+        [Route("api/getNoteById")]
         public async Task<IActionResult> GetNote(int id)
         {
             try
@@ -129,7 +129,7 @@ namespace FundooApp.Controllers
         /// Deleted Successfully
         /// </returns>
         [HttpDelete]
-        [Route("api/delete")]
+        [Route("api/deleteNote")]
         public async Task<IActionResult> DeleteNote(int id)
         {
             try
