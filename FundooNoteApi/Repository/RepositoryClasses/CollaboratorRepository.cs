@@ -19,7 +19,7 @@ namespace Repository.RepositoryClasses
     /// Collaboratory Repository class extends ICollaborator interface
     /// </summary>
     /// <seealso cref="Repository.IRepository.ICollaborator" />
-    public class CollaboratorRepository : ICollaborator
+    public class CollaboratorRepository : ICollaboratorRepository
     {
         /// <summary>
         /// UserContext private readonly variable
