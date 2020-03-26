@@ -4,6 +4,7 @@
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
+using Microsoft.AspNetCore.Mvc;
 using Model.LabelModels;
 using Repository.Context;
 using Repository.IRepository;
@@ -42,20 +43,16 @@ namespace Repository.Repository
         /// </summary>
         /// <param name="labelModel">The label model.</param>
         /// <returns></returns>
-        public string AddLabel(LabelModel labelModel)
+        public string AddLabel([FromBody]LabelModel labelModel)
         {
             try
             {
-                var note = this.userContext.Notes.Where(noteId => noteId.Id == labelModel.LabelId).SingleOrDefault();
-                if (note == null)
-                {
-                    return "Note not available";
-                }
                 LabelModel label = new LabelModel()
                 {
                     LabelId = labelModel.LabelId,
                     LabelName = labelModel.LabelName,
-                    NoteId=labelModel.NoteId
+                    NoteId=labelModel.NoteId,
+                    Email = labelModel.Email
                 };
                 this.userContext.Labels.Add(label);
                 var result = this.userContext.SaveChanges();
@@ -112,11 +109,12 @@ namespace Repository.Repository
         /// </summary>
         /// <param name="labelModel">The label model.</param>
         /// <returns></returns>
-        public string UpdateLabel(int id, string name)
+        public string UpdateLabel(int id, string name, string email)
         {
             var result = this.userContext.Labels.Where(op => op.LabelId == id).SingleOrDefault();
             if (result != null)
             {
+                result.Email = email;
                 result.LabelName = name;
                 var res = this.userContext.SaveChanges();
                 return "Updated Successfully";
