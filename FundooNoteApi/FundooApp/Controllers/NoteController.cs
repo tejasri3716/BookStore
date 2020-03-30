@@ -6,10 +6,13 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace FundooApp.Controllers
 {
-    using Manager.IManager;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Model.NoteModel;
     using System;
+    using Manager.IManager;
+    using Microsoft.AspNetCore.Mvc;
+    using Model.NoteModel;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -134,12 +137,255 @@ namespace FundooApp.Controllers
         {
             try
             {
-                this.manager.DeleteNote(id);
+                await this.manager.DeleteNote(id);
                 return Ok(id);
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Trash method is used to send the specific note to bin
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/trash")]
+        public async Task<IActionResult> Trash(int id)
+        {
+            try
+            {
+                var result = this.manager.Trash(id);
+                return this.Ok(new { result });
+            }
+            catch (Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Empty Trash method is used to empty the bin
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("api/emptyTrash")]
+        public async Task<IActionResult> EmptyTrash()
+        {
+            try
+            {
+                var result = this.manager.EmptyTrash();
+                return this.Ok(new { result });
+            }
+            catch (Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Trash List method is used to the list of notes in trash
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/trashList")]
+        public List<NoteModel> TrashList()
+        {
+            return this.manager.TrashList();
+        }
+
+        /// <summary>
+        /// Restore method is used to retrieve the specific note from trash
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/restore")]
+        public async Task<IActionResult> Restore(int id)
+        {
+            try
+            {
+                var result = this.manager.Restore(id);
+                return this.Ok(new { result });
+            }
+            catch (Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Restore All method is used retrieve all notes from trash
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/restoreAll")]
+        public async Task<IActionResult> RestoreAll()
+        {
+            try
+            {
+                var result = this.manager.RestoreAll();
+                return this.Ok(new { result });
+            }
+            catch (Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Is Archive method is used to send the note archive list
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/isArchive")]
+        public async Task<IActionResult> IsArchive(int id)
+        {
+            try
+            {
+                var result = this.manager.IsArchive(id);
+                return this.Ok(new { result });
+            }
+            catch (Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Un Archive method is used to retrieve specific note from archive list
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/unArchive")]
+        public async Task<IActionResult> UnArchive(int id)
+        {
+            try
+            {
+                var result = this.manager.UnArchive(id);
+                return this.Ok(new { result });
+            }
+            catch (Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Archive List method is used to get the total notes in that are archived
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/archiveList")]
+        public List<NoteModel> ArchiveList()
+        {
+            return this.manager.ArchiveList();
+        }
+
+        /// <summary>
+        /// Is Pin method is used to pin the specific note
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/isPin")]
+        public async Task<IActionResult> IsPin(int id)
+        {
+            try
+            {
+                var result = this.manager.IsPin(id);
+                return this.Ok(new { result });
             }
             catch(Exception exception)
             {
-                return BadRequest(exception.Message);
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Un Pin method is used to un pin the specific note
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/unPin")]
+        public async Task<IActionResult> UnPin(int id)
+        {
+            try
+            {
+                var result = this.manager.UnPin(id);
+                return this.Ok(new { result });
+            }
+            catch(Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Reminder method is used to set the reminder to the note
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="reminder"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/reminder")]
+        public async Task<IActionResult> Reminder(int id,string reminder)
+        {
+            try
+            {
+                var result = this.manager.Reminder(id, reminder);
+                return this.Ok(new { result });
+            }
+            catch(Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Chnage Color method is used to change the color of the note
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/changeColor")]
+        public async Task<IActionResult> ChangeColor(int id ,string color)
+        {
+            try
+            {
+                var result = this.manager.ChangeColor(id, color);
+                return this.Ok(new { result });
+            }
+            catch(Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// Upload Image method is used to upload the image to the note
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("api/uploadImage")]
+        public IActionResult UploadImage(IFormFile image, int id)
+        {
+            try
+            {
+                var result = this.manager.UploadImage(image, id);
+                return this.Ok(new { result });
+            }
+            catch(Exception exception)
+            {
+                return this.BadRequest(exception.Message);
             }
         }
     }
