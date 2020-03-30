@@ -6,6 +6,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace Manager.IManager
 {
+    using Microsoft.AspNetCore.Http;
     using Model.NoteModel;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -56,5 +57,93 @@ namespace Manager.IManager
         /// list of notes
         /// </returns>
         List<NoteModel> GetAllNotes();
+
+        /// <summary>
+        /// Trash method is used to send the note to trash
+        /// </summary>
+        /// <returns>
+        /// 
+        /// </returns>
+        Task<string> Trash(int id);
+
+
+        Task<string> EmptyTrash();
+
+        /// <summary>
+        /// Gets the archive list.
+        /// </summary>
+        /// <returns></returns>
+        List<NoteModel> ArchiveList();
+
+        /// <summary>
+        /// Unpin method is used to unpin the note.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        Task<string> UnPin(int id);
+
+        /// <summary>
+        /// Changes the color.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="color">The color.</param>
+        /// <returns></returns>
+        Task<string> ChangeColor(int id, string color);
+
+        /// <summary>
+        /// Determines whether [is archive] [the specified identifier].
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        Task<string> IsArchive(int id);
+
+        /// <summary>
+        /// Uns the archive.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        Task<string> UnArchive(int id);
+
+        /// <summary>
+        /// Restores the trashed note.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        Task<string> Restore(int id);
+
+        /// <summary>
+        /// Restores all notes.
+        /// </summary>
+        /// <returns></returns>
+        Task<string> RestoreAll();
+
+        /// <summary>
+        /// Determines whether is pin the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+       Task<string> IsPin(int id);
+
+        /// <summary>
+        /// Reminder method is used to set the reminder.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="reminder">The reminder.</param>
+        /// <returns></returns>
+        string Reminder(int id, string reminder);
+
+        /// <summary>
+        /// Uploads the images.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="image">The image.</param>
+        /// <returns></returns>
+        string UploadImage(IFormFile image, int id);
+
+        /// <summary>
+        /// Trashes the list.
+        /// </summary>
+        /// <returns></returns>
+        List<NoteModel> TrashList();
     }
 }
