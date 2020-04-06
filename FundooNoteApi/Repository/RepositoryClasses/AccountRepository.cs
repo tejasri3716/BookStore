@@ -6,6 +6,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace Repository.RepositoryClasses
 {
+    using Experimental.System.Messaging;
     using global::Repository.Context;
     using global::Repository.IRepository;
     using Microsoft.IdentityModel.Tokens;
@@ -95,15 +96,38 @@ namespace Repository.RepositoryClasses
 
         public async Task<string> ForgotPassword(ForgotPassword forgotPassword)
         {
+            string email = forgotPassword.Email;
             var user = CheckEmail(forgotPassword.Email);
             if (user == true)
             {
-                var fromAddress = new MailAddress("tejasmiley129@gmail.com");
-                var fromPassword = "9553302822";
-                var toAddress = new MailAddress(forgotPassword.Email);
+                string Message = forgotPassword.Email;
+                MessageQueue Myqueue;
+
+                if (MessageQueue.Exists(@".\private$\Myqueue"))
+                {
+                    Myqueue = new MessageQueue(@".\private$\Myqueue");
+                }
+                else
+                {
+                    Myqueue = MessageQueue.Create(@".\private$\Myqueue");
+                }
+                Message message = new Message();
+                message.Formatter = new BinaryMessageFormatter();
+                message.Body = user;
+                message.Label = "MsmqMessage";
+                if (Message.Contains(email))
+                {
+                    message.Priority = MessagePriority.High;
+                }
+                else
+                {
+                    message.Priority = MessagePriority.Low;
+                }
+                var fromemailaddress = new MailAddress("tejasmiley129@gmail.com");
+                var Password = "9553302822";
+                var toEmailaddress = new MailAddress(forgotPassword.Email);
                 string subject = "Reset Password";
-                string body = "To reset your password click the below given link :- " +
-                    " http://localhost:44324/api/reset";
+                string body = "To Reset password";
                 SmtpClient smtp = new SmtpClient
                 {
                     Host = "smtp.gmail.com",
@@ -111,26 +135,28 @@ namespace Repository.RepositoryClasses
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
-                    Credentials = new System.Net.NetworkCredential(fromAddress.Address, fromPassword)
+                    Credentials = new System.Net.NetworkCredential(fromemailaddress.Address, Password)
                 };
-
-                using (var message = new MailMessage(fromAddress, toAddress)
+                using (var messages = new MailMessage(fromemailaddress, toEmailaddress)
                 {
                     Subject = subject,
                     Body = body
                 })
                     try
                     {
-                        smtp.Send(message);
+                        Myqueue.Send(Message);
+
+                        smtp.Send(messages);
                     }
                     catch (Exception e)
                     {
                         throw new Exception(e.Message);
                     }
                 await Task.Run(() => this.userContext.SaveChangesAsync());
-                return "Success";
+                return "Sucess";
             }
             return null;
+
         }
         public Task<int> RegisterAccount(RegisterModel register)
         {
