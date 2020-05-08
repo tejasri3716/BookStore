@@ -7,7 +7,7 @@
 namespace Model.UserModel
 {
     using System.ComponentModel.DataAnnotations;
-
+    
     /// <summary>
     /// Register Model class is used to get and set private fields
     /// </summary>
@@ -33,6 +33,7 @@ namespace Model.UserModel
         /// The password
         /// </summary>
         private string password;
+
 
         /// <summary>
         /// Gets or sets the first name.
