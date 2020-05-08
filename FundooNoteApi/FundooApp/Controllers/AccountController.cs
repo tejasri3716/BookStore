@@ -38,12 +38,12 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("api/register")]
-        public ActionResult Register([FromBody]RegisterModel register)
+        public async Task<ActionResult> Register([FromBody]RegisterModel register)
         {
             try
             {
-                var res = this.accountManager.Register(register);
-                return Ok(register);
+                var res = await this.accountManager.Register(register);
+                return Ok(new { res });
             }
             catch (Exception exception)
             {
@@ -58,12 +58,19 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("api/login")]
-        public ActionResult Login([FromBody]LoginModel loginModel)
+        public IActionResult Login([FromBody]LoginModel loginModel)
         {
             try
             {
                 var result = this.accountManager.Login(loginModel);
-                return Ok(result);
+                if (result != null)
+                {
+                    return Ok(new { Token = result });
+                }
+                else
+                {
+                    return BadRequest("invalid credentials");
+                }
             }
             catch (Exception exception)
             {
@@ -82,14 +89,18 @@ namespace FundooApp.Controllers
         {
             try
             {
-                var result = await this.accountManager.ForgotPassword(forgotPassword);
+
+               // string url = Url.Action("resetPassword", "", new { email = forgotPassword.Email }, Request.Scheme);
+                var result = await this.accountManager.ForgotPassword( forgotPassword);
 
                 return Ok(result);
             }
+            ///localhost//api/reset/email=a@gmail.com
             catch (Exception exception)
             {
                 return BadRequest(exception.Message);
             }
+
         }
 
         /// <summary>
@@ -99,7 +110,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/reset")]
-        public async Task<IActionResult> ResetPassword([FromBody] ResetPassword reset)
+        public async Task<IActionResult> ResetPassword(ResetPassword reset)
         {
             try
             {
@@ -124,7 +135,7 @@ namespace FundooApp.Controllers
             try
             {
                 var result = await this.accountManager.EmailLogin(login);
-                return Ok();
+                return Ok(result);
             }
             catch (Exception exception)
             {
@@ -146,7 +157,7 @@ namespace FundooApp.Controllers
                 var result = await this.accountManager.FaceBookLogin(login);
                 return Ok(result);
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 return BadRequest(exception.Message);
             }
