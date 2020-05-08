@@ -26,7 +26,7 @@ namespace Repository.IRepository
         /// </summary>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        Task<string> Login(LoginModel login);
+        string Login(LoginModel login);
 
         /// <summary>
         /// Forgots the password.
@@ -47,13 +47,13 @@ namespace Repository.IRepository
         /// </summary>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        Task<RegisterModel> EmailLogin(LoginModel login);
+        Task<string> EmailLogin(LoginModel login);
 
         /// <summary>
         /// Facebook login.
         /// </summary>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        Task<RegisterModel> FaceBookLogin(LoginModel login);
+        Task<string> FaceBookLogin(LoginModel login);
     }
 }

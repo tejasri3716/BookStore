@@ -9,6 +9,7 @@ namespace Repository.RepositoryClasses
     using Experimental.System.Messaging;
     using global::Repository.Context;
     using global::Repository.IRepository;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.IdentityModel.Tokens;
     using Model.UserModel;
     using StackExchange.Redis;
@@ -23,8 +24,10 @@ namespace Repository.RepositoryClasses
     public class AccountRepository : IAccountRepository
     {
         private readonly UserContext userContext;
-        public AccountRepository(UserContext userContext)
+        private readonly IConfiguration configuration;
+        public AccountRepository(UserContext userContext, IConfiguration configuration)
         {
+            this.configuration = configuration;
             this.userContext = userContext;
         }
 
@@ -32,64 +35,54 @@ namespace Repository.RepositoryClasses
         {
         }
 
-        public async Task<RegisterModel> EmailLogin(LoginModel login)
+        public async Task<string> EmailLogin(LoginModel login)
         {
-            var jwtSetting = new JwtSettings();
-            var result=this.userContext.Accountregister.Where(option => option.Email==login.Email).SingleOrDefault();
-            if(result != null)
+            var result = this.userContext.Accountregister.Where(option => option.Email == login.Email).SingleOrDefault();
+            if (result != null)
             {
-                try
-                {
-                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("jwtSetting.Secret"));
-                    var credential = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-                    var token = new JwtSecurityToken(
-                        expires: DateTime.Now.AddDays(1),
-                        signingCredentials: credential
-                        );
-                    var cacheKey = login.Email;
-                    ConnectionMultiplexer multiplexer = ConnectionMultiplexer.Connect("127.0.0.1:6379");
-                    IDatabase data = multiplexer.GetDatabase();
-                    data.StringSet(cacheKey, token.ToString());
-                    data.StringGet(cacheKey);
-                    result.Status = true;
-                    await this.userContext.SaveChangesAsync();
-                    return result;
-                }
-                catch(Exception exception)
-                {
-                    throw new Exception(exception.Message);
-                }
+                var key = configuration["Jwt:secretKey"];
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+                var signInCr = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                var token = new JwtSecurityToken(
+                    issuer: configuration["Jwt:url"],
+                    audience: configuration["Jwt:url"],
+                    expires: DateTime.Now.AddMinutes(60),
+                    signingCredentials: signInCr);
+                var securityToken = new JwtSecurityTokenHandler().WriteToken(token);
+                var cacheKey = login.Email;
+                ConnectionMultiplexer multiplexer = ConnectionMultiplexer.Connect("127.0.0.1:6379");
+                IDatabase data = multiplexer.GetDatabase();
+                data.StringSet(cacheKey, token.ToString());
+                data.StringGet(cacheKey);
+                result.Status = true;
+                await this.userContext.SaveChangesAsync();
+                return securityToken;
             }
             return default;
         }
 
-        public async Task<RegisterModel> FaceBookLogin(LoginModel login)
+        public async Task<string> FaceBookLogin(LoginModel login)
         {
-            var jwt = new JwtSettings();
             var result = this.userContext.Accountregister.Where(option => option.Email == login.Email).SingleOrDefault();
             if (result != null)
             {
-                try
-                {
-                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("jwt.Secret"));
-                    var credential = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-                    var token = new JwtSecurityToken(
-                        expires: DateTime.Now.AddDays(1),
-                        signingCredentials: credential
-                        );
-                    var cacheKey = login.Email;
-                    ConnectionMultiplexer multiplexer = ConnectionMultiplexer.Connect("127.0.0.1:6379");
-                    IDatabase data = multiplexer.GetDatabase();
-                    data.StringSet(cacheKey, token.ToString());
-                    data.StringGet(cacheKey);
-                    result.Status = true;
-                    await this.userContext.SaveChangesAsync();
-                    return result;
-                }
-                catch (Exception exception)
-                {
-                    throw new Exception(exception.Message);
-                }
+                var key = configuration["Jwt:secretKey"];
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+                var signInCr = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                var token = new JwtSecurityToken(
+                    issuer: configuration["Jwt:url"],
+                    audience: configuration["Jwt:url"],
+                    expires: DateTime.Now.AddMinutes(60),
+                    signingCredentials: signInCr);
+                var securityToken = new JwtSecurityTokenHandler().WriteToken(token);
+                var cacheKey = login.Email;
+                ConnectionMultiplexer multiplexer = ConnectionMultiplexer.Connect("127.0.0.1:6379");
+                IDatabase data = multiplexer.GetDatabase();
+                data.StringSet($"cacheKey", token.ToString());
+                data.StringGet($"cacheKey");
+                result.Status = true;
+                await this.userContext.SaveChangesAsync();
+                return securityToken;
             }
             return default;
         }
@@ -127,7 +120,7 @@ namespace Repository.RepositoryClasses
                 var Password = "9553302822";
                 var toEmailaddress = new MailAddress(forgotPassword.Email);
                 string subject = "Reset Password";
-                string body = "To Reset password";
+                string body = "To reset your password click the  given link :- " +  "http://localhost:4200/resetPassword/forgotPassword.email";
                 SmtpClient smtp = new SmtpClient
                 {
                     Host = "smtp.gmail.com",
@@ -172,26 +165,35 @@ namespace Repository.RepositoryClasses
             return Task.Run(() => result);
         }
 
-        public async Task<string> Login(LoginModel login)
+        public string Login(LoginModel login)
         {
-            LoginModel loginModel = new LoginModel();
-            var check = CheckEmail(login.Email);
-            var result = CheckPassword(login.Email, login.Password);
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenDescriptor = new SecurityTokenDescriptor
+            if (CheckEmail(login.Email))
             {
-                Subject = new ClaimsIdentity(new Claim[]
+                if (CheckPassword(login.Email, login.Password))
                 {
-                    new Claim("Email",login.Email),    
-                    new Claim("Password",login.Password)
-                }),
-            };
-            var descriptor = tokenHandler.CreateToken(tokenDescriptor);
-            var securityToken = tokenHandler.WriteToken(descriptor);
-            var res = this.userContext.SaveChangesAsync();
-            await Task.Run(() => userContext.SaveChanges());
-            return "Logged In Successfully";
+                    //var tokenDescriptor = new SecurityTokenDescriptor
+                    //{
+                    //    Subject = new ClaimsIdentity(new Claim[]
+                    //    {
+                    //           new Claim("Email", login.Email),
+                    //            new Claim("Password",login.Password)
+                    //    }),
+                    //    Expires = DateTime.UtcNow.AddDays(1),
+                    //    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Hello this is Radis Cache")), SecurityAlgorithms.HmacSha256Signature)
+                    //};
+                    var key = configuration["Jwt:secretKey"];
+                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+                    var signInCr = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                    var token = new JwtSecurityToken(
+                        issuer: configuration["Jwt:url"],
+                        audience: configuration["Jwt:url"],
+                        expires: DateTime.Now.AddMinutes(90),
+                        signingCredentials: signInCr);
+                    var securityToken = new JwtSecurityTokenHandler().WriteToken(token);
+                    return securityToken;
+                }
+            }
+            return "invalid";
         }
 
         public bool CheckEmail(string email)
@@ -209,8 +211,8 @@ namespace Repository.RepositoryClasses
 
         public bool CheckPassword(string email, string password)
         {
-            var result = userContext.Accountregister.Where(option => option.Email == email && option.Password == password).FirstOrDefault();
-            if(result != null)
+            var result = userContext.Accountregister.Where(option => option.Email == email && option.Password == password).SingleOrDefault();
+            if (result != null)
             {
                 return true;
             }
@@ -222,10 +224,11 @@ namespace Repository.RepositoryClasses
 
         public async Task<string> ResetPassword(ResetPassword reset)
         {
-            string password = reset.Password;
-            RegisterModel model= this.userContext.Accountregister.Where<RegisterModel>(option =>
-             option.Password == password).FirstOrDefault();
-            if(model != null)
+            string email = reset.Email;
+            string password = reset.NewPassword;
+            RegisterModel model = this.userContext.Accountregister.Where<RegisterModel>(option =>
+              option.Email == email).SingleOrDefault();
+            if (model != null)
             {
                 string pwd = reset.ConfirmPassword;
                 model.Password = pwd;

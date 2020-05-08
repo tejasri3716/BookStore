@@ -77,20 +77,17 @@ namespace Repository.RepositoryClasses
         /// <exception cref="Exception"></exception>
         public string DeleteCollaborator(int id)
         {
-            try
-            {
-                var result = this.context.Collaborators.Where(op => op.Id == id).SingleOrDefault();
+             var result = this.context.Collaborators.Where(op => op.Id == id).SingleOrDefault();
                 if (result != null)
                 {
                     this.context.Collaborators.Remove(result);
-                }
                  Task.Run(() => context.SaveChanges());
                 return "Deleted Successfully";
-            }   
-            catch(Exception exception)
-            {
-                throw new Exception(exception.Message);
-            }
+                }
+                else
+                {
+                    return null;
+                }
         }
     }
 }

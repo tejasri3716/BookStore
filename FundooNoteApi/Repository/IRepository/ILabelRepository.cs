@@ -8,6 +8,7 @@ namespace Repository.IRepository
 {
     using Model.LabelModels;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// ILabel Repository interface is used to define abstract methods
@@ -28,7 +29,7 @@ namespace Repository.IRepository
         /// </summary>
         /// <param name="labelModel">The label model.</param>
         /// <returns></returns>
-        string UpdateLabel(int id, string name, string email);
+        string UpdateLabel(int id, string name);
 
         /// <summary>
         /// Deletes the label.
@@ -45,7 +46,7 @@ namespace Repository.IRepository
         /// <returns>
         /// 
         /// </returns>
-        List<LabelModel> GetAllLabels();
+        Task<List<LabelModel>> GetAllLabels();
 
         /// <summary>
         /// Gets the label.

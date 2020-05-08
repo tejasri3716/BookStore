@@ -12,23 +12,24 @@ namespace Repository.IRepository
     using System.Threading.Tasks;
     public interface INoteRepository
     {
-        Task AddNotes(NoteModel note);
-        Task UpdateNote(NoteModel note);
-        Task DeleteNote(int id);
-        List<NoteModel> GetAllNotes();
+        string AddNotes(NoteModel note);
+        string UpdateNote(NoteModel note);
+        string DeleteNote(int id);
+        Task<List<NoteModel>> GetAllNotes();
         List<NoteModel> GetNote(int id);
-        Task Trash(int id);
-        Task EmptyTrash();
+        string Trash(int id);
+        string EmptyTrash();
         List<NoteModel> TrashList();
-         Task Restore(int id);
-        Task RestoreAll();
-        Task IsArchive(int id);
-        Task UnArchive(int id);
+         string Restore(int id);
+        string RestoreAll();
+        string IsArchive(int id);
+        string UnArchive(int id);
         List<NoteModel> ArchiveList();
-        Task Ispin(int id);
-        Task Unpin(int id);
+        string Ispin(int id);
+        string Unpin(int id);
         int Reminder(int id, string reminder);
-        Task ChangeColor(int id, string color);
+        int DeleteRemainder(int id);
+        string ChangeColor(int id, string color);
         string UploadImage(IFormFile image, int id);
     }
 }
