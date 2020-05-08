@@ -4,6 +4,8 @@
 // </copyright>
 // <creator name="tejasri"/>
 // --------------------------------------------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
+
 namespace Model.UserModel
 {
     /// <summary>
@@ -15,11 +17,6 @@ namespace Model.UserModel
         /// The email
         /// </summary>
         private string email;
-
-        /// <summary>
-        /// The old password
-        /// </summary>
-        private string password;
 
         /// <summary>
         /// Creates new password.
@@ -40,19 +37,12 @@ namespace Model.UserModel
         public string Email { get => email; set => email = value; }
 
         /// <summary>
-        /// Gets or sets the password.
-        /// </summary>
-        /// <value>
-        /// The password.
-        /// </value>
-        public string Password { get => password; set => password = value; }
-
-        /// <summary>
         /// Creates new password.
         /// </summary>
         /// <value>
         /// The new password.
         /// </value>
+         [Required, DataType(DataType.Password)]
         public string NewPassword { get => newPassword; set => newPassword = value; }
 
         /// <summary>
@@ -61,6 +51,8 @@ namespace Model.UserModel
         /// <value>
         /// The confirm password.
         /// </value>
+        [Required, Compare("Password", ErrorMessage = "Passwords does not match"),
+           DataType(DataType.Password)]
         public string ConfirmPassword { get => confirmPassword; set => confirmPassword = value; }
     }
 }
