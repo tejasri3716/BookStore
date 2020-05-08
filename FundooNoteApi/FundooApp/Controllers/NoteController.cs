@@ -11,15 +11,14 @@ namespace FundooApp.Controllers
     using Model.NoteModel;
     using System;
     using Manager.IManager;
-    using Microsoft.AspNetCore.Mvc;
-    using Model.NoteModel;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authorization;
 
     /// <summary>
     /// NoteController class extends Controller Base class 
     /// </summary>
+    [Authorize]
     public class NoteController : ControllerBase
     {
         /// <summary>
@@ -45,12 +44,13 @@ namespace FundooApp.Controllers
         /// </returns>
         [HttpPost]
         [Route("api/addnote")]
-        public async Task<IActionResult> AddNote([FromBody]NoteModel note)
+        public IActionResult AddNote([FromBody]NoteModel note)
         {
             try
             {
-                var result = await this.manager.AddNotes(note);
-                return Ok(new { result });
+                var result = this.manager.AddNotes(note);
+               
+                    return Ok(new { result });
             }
             catch (Exception exeception)
             {
@@ -67,11 +67,11 @@ namespace FundooApp.Controllers
         /// </returns>
         [HttpPut]
         [Route("api/updateNote")]
-        public async Task<IActionResult> UpdateNote([FromBody]NoteModel note)
+        public IActionResult UpdateNote([FromBody]NoteModel note)
         {
             try
             {
-                var result = await this.manager.UpdateNote(note);
+                var result = this.manager.UpdateNote(note);
                 return Ok(new { result });
             }
             catch (Exception exception)
@@ -92,7 +92,7 @@ namespace FundooApp.Controllers
         {
             try
             {
-                List<NoteModel> notes = this.manager.GetAllNotes();
+                List<NoteModel> notes = await this.manager.GetAllNotes();
                 return Ok(notes);
             }
             catch (Exception exception)
@@ -110,7 +110,7 @@ namespace FundooApp.Controllers
         /// </returns>
         [HttpGet]
         [Route("api/getNoteById")]
-        public async Task<IActionResult> GetNote(int id)
+        public IActionResult GetNote(int id)
         {
             try
             {
@@ -131,14 +131,14 @@ namespace FundooApp.Controllers
         /// <returns>
         /// Deleted Successfully
         /// </returns>
-        [HttpDelete]
+        [HttpPut]
         [Route("api/deleteNote")]
-        public async Task<IActionResult> DeleteNote(int id)
+        public IActionResult DeleteNote(int id)
         {
             try
             {
-                await this.manager.DeleteNote(id);
-                return Ok(id);
+               var result= this.manager.DeleteNote(id);
+                return Ok(new { result });
             }
             catch (Exception exception)
             {
@@ -153,7 +153,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/trash")]
-        public async Task<IActionResult> Trash(int id)
+        public IActionResult Trash(int id)
         {
             try
             {
@@ -172,7 +172,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpDelete]
         [Route("api/emptyTrash")]
-        public async Task<IActionResult> EmptyTrash()
+        public IActionResult EmptyTrash()
         {
             try
             {
@@ -203,7 +203,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/restore")]
-        public async Task<IActionResult> Restore(int id)
+        public IActionResult Restore(int id)
         {
             try
             {
@@ -222,7 +222,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/restoreAll")]
-        public async Task<IActionResult> RestoreAll()
+        public IActionResult RestoreAll()
         {
             try
             {
@@ -242,7 +242,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/isArchive")]
-        public async Task<IActionResult> IsArchive(int id)
+        public IActionResult IsArchive(int id)
         {
             try
             {
@@ -262,7 +262,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/unArchive")]
-        public async Task<IActionResult> UnArchive(int id)
+        public IActionResult UnArchive(int id)
         {
             try
             {
@@ -293,14 +293,14 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/isPin")]
-        public async Task<IActionResult> IsPin(int id)
+        public IActionResult IsPin(int id)
         {
             try
             {
                 var result = this.manager.IsPin(id);
                 return this.Ok(new { result });
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 return this.BadRequest(exception.Message);
             }
@@ -313,14 +313,14 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/unPin")]
-        public async Task<IActionResult> UnPin(int id)
+        public IActionResult UnPin(int id)
         {
             try
             {
                 var result = this.manager.UnPin(id);
                 return this.Ok(new { result });
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 return this.BadRequest(exception.Message);
             }
@@ -334,18 +334,33 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/reminder")]
-        public async Task<IActionResult> Reminder(int id,string reminder)
+        public IActionResult Reminder(int id, string reminder)
         {
             try
             {
                 var result = this.manager.Reminder(id, reminder);
                 return this.Ok(new { result });
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 return this.BadRequest(exception.Message);
             }
         }
+        [HttpPut]
+        [Route("api/deleteReminder")]
+        public IActionResult DeleteReminder(int id)
+        {
+            try
+            {
+                var result = this.manager.DeleteRemainder(id);
+                return this.Ok("Reminder Deleted");
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
+
 
         /// <summary>
         /// Chnage Color method is used to change the color of the note
@@ -355,14 +370,21 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/changeColor")]
-        public async Task<IActionResult> ChangeColor(int id ,string color)
+        public IActionResult ChangeColor(int id, string changeColor)
         {
             try
             {
-                var result = this.manager.ChangeColor(id, color);
-                return this.Ok(new { result });
+                var result = this.manager.ChangeColor(id, changeColor);
+                if (result != null)
+                {
+                    return this.Ok(new { result });
+                }
+                else
+                {
+                    return this.BadRequest(result);
+                }
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 return this.BadRequest(exception.Message);
             }
@@ -381,9 +403,9 @@ namespace FundooApp.Controllers
             try
             {
                 var result = this.manager.UploadImage(image, id);
-                return this.Ok(new { result });
+                return this.Ok(result);
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 return this.BadRequest(exception.Message);
             }

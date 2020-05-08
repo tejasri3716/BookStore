@@ -7,6 +7,7 @@
 namespace FundooApp.Controllers
 {
     using Manager.IManager;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Model.LabelModels;
     using System;
@@ -14,6 +15,7 @@ namespace FundooApp.Controllers
     using System.Linq;
     using System.Threading.Tasks;
 
+    [Authorize]
     public class LabelController : ControllerBase
     {
         /// <summary>
@@ -57,7 +59,7 @@ namespace FundooApp.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpPut]
         [Route("api/deleteLabel")]
         public IActionResult Delete(int id)
         {
@@ -79,11 +81,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/updateLabel")]
-        public IActionResult Update(int id, string name, string email)
+        public IActionResult Update(int id, string name)
         {
             try
             {
-                var result = this.labelManager.UpdateLabel(id, name, email);
+                var result = this.labelManager.UpdateLabel(id, name);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -98,9 +100,9 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("api/getAllLabels")]
-        public List<LabelModel> GetAllLables()
+        public async Task<List<LabelModel>> GetAllLables()
         {
-            return this.labelManager.GetAllLabels();
+           return await this.labelManager.GetAllLabels();
         }
 
         /// <summary>

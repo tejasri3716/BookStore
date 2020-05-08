@@ -19,6 +19,7 @@ namespace FundooApp
         /// </summary>
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
+        
         {
             CreateWebHostBuilder(args).Build().Run();
         }

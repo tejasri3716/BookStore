@@ -7,6 +7,7 @@
 namespace FundooApp.Controllers
 {
     using Manager.IManager;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Model.Collaborators;
     using System;
@@ -18,6 +19,7 @@ namespace FundooApp.Controllers
     /// Collaborator Controller extends Controller base 
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
+    [Authorize]
     public class CollaboratorController : ControllerBase
     {
         private readonly ICollaboratorManager collaborator;
@@ -38,7 +40,7 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("api/addColloborator")]
-        public async Task<IActionResult> AddColloborator([FromBody]Collaborator collaborator)
+        public IActionResult AddColloborator([FromBody]Collaborator collaborator)
         {
             try
             {
@@ -59,12 +61,12 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpDelete]
         [Route("api/deleteCollaborator")]
-        public async Task<IActionResult> DeleteCollaborator(int id)
+        public  IActionResult DeleteCollaborator(int id)
         {
             try
             {
-                var result = this.collaborator.DeleteCollaborator(id);
-                return this.Ok(new { result });
+                var result =  this.collaborator.DeleteCollaborator(id);
+                return  this.Ok(new { result });
             }
             catch(Exception exception)
             {
