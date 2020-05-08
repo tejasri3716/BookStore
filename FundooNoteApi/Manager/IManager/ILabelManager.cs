@@ -9,6 +9,7 @@ namespace Manager.IManager
     using Model.LabelModels;
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Label Manager interface consists of abstract methods
@@ -27,7 +28,7 @@ namespace Manager.IManager
         /// </summary>
         /// <param name="labelModel">The label model.</param>
         /// <returns></returns>
-        string UpdateLabel(int id, string name, string email);
+        string UpdateLabel(int id, string name);
 
         /// <summary>
         /// Deletes the specified identifier.
@@ -40,7 +41,7 @@ namespace Manager.IManager
         /// Gets all list.
         /// </summary>
         /// <returns></returns>
-        List<LabelModel> GetAllLabels();
+        Task<List<LabelModel>> GetAllLabels();
 
         /// <summary>
         /// Gets the label.

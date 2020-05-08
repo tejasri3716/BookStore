@@ -23,7 +23,7 @@ namespace Manager.IManager
         /// <returns>
         /// added successfully
         /// </returns>
-        Task<string> AddNotes(NoteModel note);
+        string AddNotes(NoteModel note);
 
         /// <summary>
         /// DeleteNote is used to delete note by id
@@ -32,7 +32,7 @@ namespace Manager.IManager
         /// <returns>
         /// deleted successfully
         /// </returns>
-        Task<string> DeleteNote(int id);
+        string DeleteNote(int id);
 
         /// <summary>
         /// GetNote method is used get a specific note by using id
@@ -48,7 +48,7 @@ namespace Manager.IManager
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        Task<string> UpdateNote(NoteModel note);
+        string UpdateNote(NoteModel note);
 
         /// <summary>
         /// GetAllNotes method is used to get all notes
@@ -56,7 +56,7 @@ namespace Manager.IManager
         /// <returns>
         /// list of notes
         /// </returns>
-        List<NoteModel> GetAllNotes();
+        Task<List<NoteModel>> GetAllNotes();
 
         /// <summary>
         /// Trash method is used to send the note to trash
@@ -64,10 +64,10 @@ namespace Manager.IManager
         /// <returns>
         /// 
         /// </returns>
-        Task<string> Trash(int id);
+        string Trash(int id);
 
 
-        Task<string> EmptyTrash();
+        string EmptyTrash();
 
         /// <summary>
         /// Gets the archive list.
@@ -80,7 +80,7 @@ namespace Manager.IManager
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Task<string> UnPin(int id);
+        string UnPin(int id);
 
         /// <summary>
         /// Changes the color.
@@ -88,41 +88,41 @@ namespace Manager.IManager
         /// <param name="id">The identifier.</param>
         /// <param name="color">The color.</param>
         /// <returns></returns>
-        Task<string> ChangeColor(int id, string color);
+        string ChangeColor(int id, string color);
 
         /// <summary>
         /// Determines whether [is archive] [the specified identifier].
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Task<string> IsArchive(int id);
+        string IsArchive(int id);
 
         /// <summary>
         /// Uns the archive.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Task<string> UnArchive(int id);
+        string UnArchive(int id);
 
         /// <summary>
         /// Restores the trashed note.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Task<string> Restore(int id);
+        string Restore(int id);
 
         /// <summary>
         /// Restores all notes.
         /// </summary>
         /// <returns></returns>
-        Task<string> RestoreAll();
+        string RestoreAll();
 
         /// <summary>
         /// Determines whether is pin the specified identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-       Task<string> IsPin(int id);
+        string IsPin(int id);
 
         /// <summary>
         /// Reminder method is used to set the reminder.
@@ -132,6 +132,13 @@ namespace Manager.IManager
         /// <returns></returns>
         string Reminder(int id, string reminder);
 
+        /// <summary>
+        /// DeleteReminder method is used to remove the reminder.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="reminder">The reminder.</param>
+        /// <returns></returns
+        int DeleteRemainder(int id);
         /// <summary>
         /// Uploads the images.
         /// </summary>

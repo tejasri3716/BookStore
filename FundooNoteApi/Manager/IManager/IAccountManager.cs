@@ -26,7 +26,7 @@ namespace Manager.IManager
         /// </summary>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        Task<string> Login(LoginModel login);
+         string Login(LoginModel login);
 
         /// <summary>
         /// Forgots the password.
@@ -47,13 +47,13 @@ namespace Manager.IManager
         /// </summary>
         /// <param name="loginModel">The login model.</param>
         /// <returns></returns>
-        Task<RegisterModel> EmailLogin(LoginModel loginModel);
+        Task<string> EmailLogin(LoginModel loginModel);
 
         /// <summary>
         /// Faces the book login.
         /// </summary>
         /// <param name="loginModel">The login model.</param>
         /// <returns></returns>
-        Task<RegisterModel> FaceBookLogin(LoginModel loginModel);
+        Task<string> FaceBookLogin(LoginModel loginModel);
     }
 }

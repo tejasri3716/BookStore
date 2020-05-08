@@ -11,6 +11,7 @@ namespace Manager.Manager
     using Repository.IRepository;
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Label Manager Class implements ILabelManger interface
@@ -83,17 +84,12 @@ namespace Manager.Manager
         /// <returns>
         /// list of labels
         /// </returns>
-        public List<LabelModel> GetAllLabels()
+        public async Task<List<LabelModel>> GetAllLabels()
         {
             try
             {
-                var list = new List<LabelModel>();
-                var result = this.label.GetAllLabels();
-                foreach (var item in result)
-                {
-                    list.Add(item);
-                }
-                return list;
+               
+                return await this.label.GetAllLabels();
             }
             catch (Exception exception)
             {
@@ -132,11 +128,11 @@ namespace Manager.Manager
         /// <returns>
         /// Updated Successfully
         /// </returns>
-        public string UpdateLabel(int id, string name, string email)
+        public string UpdateLabel(int id, string name)
         {
             try
             {
-                this.label.UpdateLabel(id, name, email);
+                this.label.UpdateLabel(id, name);
                 return "Updated Successfully";
             }
             catch (Exception exception)

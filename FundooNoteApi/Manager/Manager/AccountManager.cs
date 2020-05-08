@@ -42,7 +42,7 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="loginModel">The login model.</param>
         /// <returns></returns>
-        public async Task<RegisterModel> EmailLogin(LoginModel loginModel)
+        public async Task<string> EmailLogin(LoginModel loginModel)
         {
             return await this.repository.EmailLogin(loginModel);
         }
@@ -52,7 +52,7 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="loginModel">The login model.</param>
         /// <returns></returns>
-        public async Task<RegisterModel> FaceBookLogin(LoginModel loginModel)
+        public async Task<string> FaceBookLogin(LoginModel loginModel)
         {
             return await this.repository.FaceBookLogin(loginModel);
         }
@@ -72,9 +72,10 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        public Task<string> Login(LoginModel login)
+        public  string Login(LoginModel login)
         {
-            return this.repository.Login(login);
+            var a =  this.repository.Login(login);
+            return a;
         }
 
         /// <summary>
