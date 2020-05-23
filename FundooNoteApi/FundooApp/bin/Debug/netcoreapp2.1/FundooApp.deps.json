@@ -27,6 +27,7 @@
           "Manager": "1.0.0",
           "Microsoft.AspNetCore": "2.1.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.0.0",
+          "Microsoft.AspNetCore.Cors": "2.1.0",
           "Microsoft.AspNetCore.Hosting": "2.1.0",
           "Microsoft.AspNetCore.HttpsPolicy": "2.1.0",
           "Microsoft.AspNetCore.Identity": "2.1.1",
