@@ -129,6 +129,12 @@
               "target": "Package",
               "version": "[2.1.0, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -138,6 +144,10 @@
             "Microsoft.VisualStudio.Services.Client": {
               "target": "Package",
               "version": "[16.153.0, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.20, )"
             },
             "StackExchange.Redis": {
               "target": "Package",
