@@ -40,11 +40,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("api/addColloborator")]
-        public IActionResult AddColloborator([FromBody]Collaborator collaborator)
+        public async Task<IActionResult> AddColloborator([FromBody]Collaborator collaborator)
         {
             try
             {
-                var result = this.collaborator.AddCollaborator(collaborator);
+                var result =await this.collaborator.AddCollaborator(collaborator);
                 return this.Ok(new { result });
             }
             catch(Exception exception)
@@ -59,14 +59,29 @@ namespace FundooApp.Controllers
         /// </summary>
         /// <param name="collaboratorsModel">The collaborators model.</param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpPut]
         [Route("api/deleteCollaborator")]
-        public  IActionResult DeleteCollaborator(int id)
+        public async Task<IActionResult> DeleteCollaborator(int id)
         {
             try
             {
-                var result =  this.collaborator.DeleteCollaborator(id);
+                var result = await this.collaborator.DeleteCollaborator(id);
                 return  this.Ok(new { result });
+            }
+            catch(Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/getAllCollaborators")]
+        public async Task<IActionResult> GetAllCollaborators()
+        {
+            try
+            {
+                var result = await this.collaborator.GetAllCollabarators();
+                return this.Ok(result);
             }
             catch(Exception exception)
             {
