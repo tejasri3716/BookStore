@@ -120,7 +120,7 @@ namespace Repository.RepositoryClasses
                 var Password = "9553302822";
                 var toEmailaddress = new MailAddress(forgotPassword.Email);
                 string subject = "Reset Password";
-                string body = "To reset your password click the  given link :- " +  "http://localhost:4200/resetPassword/forgotPassword.email";
+                string body = "To reset your password click the  given link :- " +  "http://localhost:4200/resetPassword/";
                 SmtpClient smtp = new SmtpClient
                 {
                     Host = "smtp.gmail.com",
@@ -160,6 +160,7 @@ namespace Repository.RepositoryClasses
                 Email = register.Email,
                 Password = register.Password
             };
+            registerModel.Status = true;
             var rrr = this.userContext.Accountregister.Add(register);
             var result = this.userContext.SaveChanges();
             return Task.Run(() => result);
@@ -187,7 +188,7 @@ namespace Repository.RepositoryClasses
                     var token = new JwtSecurityToken(
                         issuer: configuration["Jwt:url"],
                         audience: configuration["Jwt:url"],
-                        expires: DateTime.Now.AddMinutes(90),
+                        expires: DateTime.Now.AddDays(1),
                         signingCredentials: signInCr);
                     var securityToken = new JwtSecurityTokenHandler().WriteToken(token);
                     return securityToken;
