@@ -9,6 +9,7 @@ namespace Manager.IManager
     using Microsoft.AspNetCore.Http;
     using Model.NoteModel;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -23,7 +24,7 @@ namespace Manager.IManager
         /// <returns>
         /// added successfully
         /// </returns>
-        string AddNotes(NoteModel note);
+        Task<string> AddNotes(NoteModel note);
 
         /// <summary>
         /// DeleteNote is used to delete note by id
@@ -32,7 +33,7 @@ namespace Manager.IManager
         /// <returns>
         /// deleted successfully
         /// </returns>
-        string DeleteNote(int id);
+        Task<string> DeleteNote(int id);
 
         /// <summary>
         /// GetNote method is used get a specific note by using id
@@ -48,7 +49,7 @@ namespace Manager.IManager
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        string UpdateNote(NoteModel note);
+        Task<string> UpdateNote(NoteModel note);
 
         /// <summary>
         /// GetAllNotes method is used to get all notes
@@ -64,10 +65,10 @@ namespace Manager.IManager
         /// <returns>
         /// 
         /// </returns>
-        string Trash(int id);
+        Task<string> Trash(int id);
 
 
-        string EmptyTrash();
+        Task<string> EmptyTrash();
 
         /// <summary>
         /// Gets the archive list.
@@ -80,7 +81,7 @@ namespace Manager.IManager
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        string UnPin(int id);
+        Task<string> UnPin(int id);
 
         /// <summary>
         /// Changes the color.
@@ -88,41 +89,41 @@ namespace Manager.IManager
         /// <param name="id">The identifier.</param>
         /// <param name="color">The color.</param>
         /// <returns></returns>
-        string ChangeColor(int id, string color);
+        Task<string> ChangeColor(int id, string color);
 
         /// <summary>
         /// Determines whether [is archive] [the specified identifier].
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        string IsArchive(int id);
+        Task<string> IsArchive(int id);
 
         /// <summary>
         /// Uns the archive.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        string UnArchive(int id);
+        Task<string> UnArchive(int id);
 
         /// <summary>
         /// Restores the trashed note.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        string Restore(int id);
+        Task<string> Restore(int id);
 
         /// <summary>
         /// Restores all notes.
         /// </summary>
         /// <returns></returns>
-        string RestoreAll();
+        Task<string> RestoreAll();
 
         /// <summary>
         /// Determines whether is pin the specified identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        string IsPin(int id);
+        Task<string> IsPin(int id);
 
         /// <summary>
         /// Reminder method is used to set the reminder.
@@ -130,7 +131,9 @@ namespace Manager.IManager
         /// <param name="id">The identifier.</param>
         /// <param name="reminder">The reminder.</param>
         /// <returns></returns>
-        string Reminder(int id, string reminder);
+        Task<string> Reminder(int id, string reminder);
+
+        Task<IQueryable<NoteModel>> Search(string searchParameter);
 
         /// <summary>
         /// DeleteReminder method is used to remove the reminder.
@@ -138,14 +141,14 @@ namespace Manager.IManager
         /// <param name="id">The identifier.</param>
         /// <param name="reminder">The reminder.</param>
         /// <returns></returns
-        int DeleteRemainder(int id);
+        Task<int> DeleteRemainder(int id);
         /// <summary>
         /// Uploads the images.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="image">The image.</param>
         /// <returns></returns>
-        string UploadImage(IFormFile image, int id);
+        Task<string> UploadImage(IFormFile image, int id);
 
         /// <summary>
         /// Trashes the list.
