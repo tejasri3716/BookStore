@@ -39,15 +39,14 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        public string AddNotes(NoteModel note)
+        public async Task<string> AddNotes(NoteModel note)
         {
             NoteModel noteModel = new NoteModel()
             {
                 Title = note.Title,
                 Description = note.Description,
                 Email = note.Email,
-                Date = note.Date,
-                ModifiedDate = note.ModifiedDate,
+                Date = DateTime.Now,
                 Archive = note.Archive,
                 Pin = note.Pin,
                 ChangeColor = note.ChangeColor,
@@ -58,7 +57,7 @@ namespace Repository.RepositoryClasses
             if (noteModel.Title != " " || noteModel.Description != " ")
             {
                 this.context.Notes.Add(noteModel);
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "Added SuccessFully";
             }
             else
@@ -72,14 +71,14 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string DeleteNote(int id)
+        public async Task<string> DeleteNote(int id)
         {
             var notes = this.context.Notes.Where(option => option.Id == id).SingleOrDefault();
             if (notes != null)
             {
                 context.Notes.Remove(notes);
                 context.SaveChanges();
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "Deleted Successfully";
             }
             else
@@ -119,7 +118,7 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>
-        public string UpdateNote(NoteModel note)
+        public async Task<string> UpdateNote(NoteModel note)
         {
             var notes = context.Notes.Where(option => option.Id == note.Id).SingleOrDefault();
             if (notes != null)
@@ -127,10 +126,10 @@ namespace Repository.RepositoryClasses
                 notes.Email = note.Email;
                 notes.Title = note.Title;
                 notes.Description = note.Description;
-                notes.Date = note.Date;
-                notes.ModifiedDate = note.ModifiedDate;
+                notes.Date = DateTime.Now;
+                notes.ModifiedDate = notes.Date;
                 note.ChangeColor = note.ChangeColor;
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "updated successfully";
             }
             else
@@ -142,13 +141,13 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string Trash(int id)
+        public async Task<string> Trash(int id)
         {
             var result = this.context.Notes.Where(note => note.Id == id).SingleOrDefault();
             if (result != null)
             {
                 result.Trash = true;
-                Task.Run(() => context.SaveChanges());
+                await context.SaveChangesAsync();
                 return "moved to trash";
             }
             return null;
@@ -158,7 +157,7 @@ namespace Repository.RepositoryClasses
         /// Empty Trash method is used to empty the trash
         /// </summary>
         /// <returns></returns>
-        public string EmptyTrash()
+        public async Task<string> EmptyTrash()
         {
             var result = from notes in this.context.Notes where notes.Trash == true select notes;
             if (result != null)
@@ -167,10 +166,36 @@ namespace Repository.RepositoryClasses
                 {
                     this.context.Notes.Remove(note);
                 }
-                var res = Task.Run(() => this.context.SaveChanges());
+                var res = await this.context.SaveChangesAsync();
                 return "trash removed"; ;
             }
             return default;
+        }
+
+        public async Task<IQueryable<NoteModel>> Search(string searchParameter)
+        {
+            try
+            {
+                //var seargfch = "%" + Request.QueryString(searchParameter) + "%";
+                var results = this.context.Notes.AsQueryable();
+
+                foreach (var values in searchParameter)
+                {
+                    results = results.Where(search => search.Description.Contains(values) || search.Title.Contains(values));
+                }
+
+                //foreach (var singleResult in results)
+                //{
+                //    return results.Where(singleSearch => singleSearch.Description == searchParameter ||
+                //   singleSearch.Title == searchParameter).ToList().AsQueryable();
+                //}
+                await this.context.SaveChangesAsync();
+                return results;
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
         }
 
         /// <summary>
@@ -199,13 +224,13 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string Restore(int id)
+        public async Task<string> Restore(int id)
         {
             var result = this.context.Notes.Where(note => note.Id == id && note.Trash == true).SingleOrDefault();
             if (result != null)
             {
                 result.Trash = false;
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "restored successfully";
             }
             return null;
@@ -235,13 +260,13 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string IsArchive(int id)
+        public async Task<string> IsArchive(int id)
         {
             var result = this.context.Notes.Where(note => note.Id == id).SingleOrDefault();
             if (result != null)
             {
                 result.Archive = true;
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "archived";
             }
             return null;
@@ -252,13 +277,13 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string UnArchive(int id)
+        public async Task<string> UnArchive(int id)
         {
             var result = this.context.Notes.Where(note => note.Id == id && note.Archive == true).SingleOrDefault();
             if (result != null)
             {
                 result.Archive = false;
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "unArchived";
             }
             return null;
@@ -283,13 +308,13 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string Ispin(int id)
+        public async Task<string> Ispin(int id)
         {
             var result = this.context.Notes.Where(note => note.Id == id).SingleOrDefault();
             if (result != null)
             {
                 result.Pin = true;
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "pinned";
             }
             return null;
@@ -300,13 +325,13 @@ namespace Repository.RepositoryClasses
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string Unpin(int id)
+        public async Task<string> Unpin(int id)
         {
             var result = this.context.Notes.Where(note => note.Id == id).SingleOrDefault();
             if (result != null)
             {
                 result.Pin = false;
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "unpinned";
             }
             return null;
@@ -318,29 +343,29 @@ namespace Repository.RepositoryClasses
         /// <param name="id"></param>
         /// <param name="reminder"></param>
         /// <returns></returns>
-        public int Reminder(int id, string reminder)
+        public async Task<int> Reminder(int id, string reminder)
         {
             var remind = this.context.Notes.Where(note => note.Id == id).SingleOrDefault();
             if (remind != null)
             {
                 remind.Reminder = reminder.ToString();
-                return context.SaveChanges();
+                return await context.SaveChangesAsync();
             }
             return 0;
         }
 
-        public int DeleteRemainder(int id)
+        public async Task<int> DeleteRemainder(int id)
         {
             try
             {
                 if (this.FindById(id))
                 {
                     var note = this.context.Notes.Where(op => op.Id == id).SingleOrDefault();
-                    var res =  Task.Run(() => note.Reminder);
+                    var res = Task.Run(() => note.Reminder);
                     if (res != null && !res.Equals(string.Empty))
                     {
                         note.Reminder = string.Empty;
-                        var result = this.context.SaveChanges();
+                        var result = await this.context.SaveChangesAsync();
                         return result;
                     }
                     return 0;
@@ -359,7 +384,7 @@ namespace Repository.RepositoryClasses
         /// <param name="id"></param>
         /// <param name="color"></param>
         /// <returns></returns>
-        public string ChangeColor(int id, string color)
+        public async Task<string> ChangeColor(int id, string color)
         {
             var result = this.context.Notes.Where(note => note.Id == id).SingleOrDefault();
             if (result != null)
@@ -368,7 +393,7 @@ namespace Repository.RepositoryClasses
                 {
                     result.ChangeColor = color;
                     this.context.Notes.Update(result);
-                    Task.Run(() => context.SaveChanges());
+                    await this.context.SaveChangesAsync();
                     return "color changed";
                 }
                 else
@@ -397,7 +422,7 @@ namespace Repository.RepositoryClasses
         /// <param name="file"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string UploadImage(IFormFile file, int id)
+        public async Task<string> UploadImage(IFormFile file, int id)
         {
             /*if (file == null)
             {
@@ -417,7 +442,7 @@ namespace Repository.RepositoryClasses
             data.AddImage = uploadResult.Uri.ToString();
             try
             {
-                var result = this.context.SaveChanges();
+                await this.context.SaveChangesAsync();
                 return data.AddImage;
             }
             catch (Exception e)
