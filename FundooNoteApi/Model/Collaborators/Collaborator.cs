@@ -17,7 +17,8 @@ namespace Model.Collaborators
         /// Id of the collaborator
         /// </summary>
         private int id;
-        
+        //private int colId;
+
         /// <summary>
         /// Note ID 
         /// </summary>
@@ -46,6 +47,7 @@ namespace Model.Collaborators
         /// <summary>
         /// Receiver Email property
         /// </summary>
+       
         public string ReceiverEmail { get => this.receiverEmail; set => this.receiverEmail = value; }
 
         /// <summary>
@@ -53,5 +55,7 @@ namespace Model.Collaborators
         /// </summary>
         [Key]
         public int Id { get => this.id; set => this.id = value; }
+
+        //public int ColId { get => this.colId; set => this.colId = value; }
     }
 }
