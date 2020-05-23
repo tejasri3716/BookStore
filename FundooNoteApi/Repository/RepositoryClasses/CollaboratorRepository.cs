@@ -41,15 +41,13 @@ namespace Repository.RepositoryClasses
         /// <param name="collaborator">The collaborator.</param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public string AddCollaboratorToNotes(Collaborator collaborator)
+        public async Task<string> AddCollaboratorToNotes(Collaborator collaborator)
         {
             try
             {
                 bool result = this.context.Notes.Any(option => option.Email == collaborator.SenderEmail && option.Id == collaborator.NoteId);
                 if (result)
                 {
-                    var user = this.context.Accountregister.Where(usr => usr.Email == collaborator.ReceiverEmail).SingleOrDefault();
-                    {
                         var addCollaborator = new Collaborator()
                         {
                             NoteId = collaborator.NoteId,
@@ -57,11 +55,11 @@ namespace Repository.RepositoryClasses
                             ReceiverEmail = collaborator.ReceiverEmail
                         };
                         context.Collaborators.Add(collaborator);
-                    }
+                    
                 }
-                Task.Run(() => context.SaveChanges());
+                await this.context.SaveChangesAsync();
                 return "Added Successfully";
-                
+
             }
             catch (Exception exception)
             {
@@ -75,19 +73,25 @@ namespace Repository.RepositoryClasses
         /// <param name="collaborator">The collaborator.</param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public string DeleteCollaborator(int id)
+        public async Task<string> DeleteCollaborator(int id)
         {
-             var result = this.context.Collaborators.Where(op => op.Id == id).SingleOrDefault();
-                if (result != null)
-                {
-                    this.context.Collaborators.Remove(result);
-                 Task.Run(() => context.SaveChanges());
+            var result = this.context.Collaborators.Where(op => op.Id == id).SingleOrDefault();
+            if (result != null)
+            {
+                this.context.Collaborators.Remove(result);
+                await this.context.SaveChangesAsync();
                 return "Deleted Successfully";
-                }
-                else
-                {
-                    return null;
-                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<Collaborator>> GetAllCollabarators()
+        {
+            await this.context.SaveChangesAsync();
+            return this.context.Collaborators.ToList();
         }
     }
 }
