@@ -13,6 +13,7 @@ namespace Manager.Manager
     using Repository.IRepository;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -41,9 +42,9 @@ namespace Manager.Manager
         /// <returns>
         /// added successfully
         /// </returns>
-        public string AddNotes(NoteModel note)
+        public async Task<string> AddNotes(NoteModel note)
         {
-            var result=this.repository.AddNotes(note);
+            var result=await this.repository.AddNotes(note);
                 return result;
         }
 
@@ -54,9 +55,9 @@ namespace Manager.Manager
         /// <returns>
         /// deleted successfully
         /// </returns>
-        public string DeleteNote(int id)
+        public async Task<string> DeleteNote(int id)
         {
-             this.repository.DeleteNote(id);
+             await this.repository.DeleteNote(id);
             return "Deleted Successfully";
         }
 
@@ -91,9 +92,9 @@ namespace Manager.Manager
         /// <returns>
         /// updated successfully
         /// </returns>
-        public string UpdateNote(NoteModel note)
+        public async Task<string> UpdateNote(NoteModel note)
         {
-            this.repository.UpdateNote(note);
+            await this.repository.UpdateNote(note);
             return "Updated Successfully";
         }
 
@@ -102,11 +103,11 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string Trash(int id)
+        public async Task<string> Trash(int id)
         {
             try
             {
-               this.repository.Trash(id);
+                 await this.repository.Trash(id);
                 return "Moved to Trash";
             }
             catch (Exception exception)
@@ -119,11 +120,11 @@ namespace Manager.Manager
         /// Empty Trash method is used to empty the trash
         /// </summary>
         /// <returns></returns>
-        public string EmptyTrash()
+        public async Task<string> EmptyTrash()
         {
             try
             {
-               this.repository.EmptyTrash();
+                await this.repository.EmptyTrash();
                 return "Trash Removed";
             }
             catch (Exception exception)
@@ -152,11 +153,11 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string UnPin(int id)
+        public async Task<string> UnPin(int id)
         {
             try
             {
-                this.repository.Unpin(id);
+                await this.repository.Unpin(id);
                 return "Note UnPinned";
             }
             catch (Exception exception)
@@ -171,7 +172,7 @@ namespace Manager.Manager
         /// <param name="id"></param>
         /// <param name="color"></param>
         /// <returns></returns>
-        public string ChangeColor(int id, string color)
+        public async Task<string> ChangeColor(int id, string color)
         {
             try
             {
@@ -197,11 +198,11 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string IsArchive(int id)
+        public async Task<string> IsArchive(int id)
         {
             try
             {
-               this.repository.IsArchive(id);
+             await  this.repository.IsArchive(id);
                 return "Archived Successfully";
             }
             catch(Exception exception)
@@ -215,11 +216,11 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string UnArchive(int id)
+        public async Task<string> UnArchive(int id)
         {
             try
             {
-               this.repository.UnArchive(id);
+               await this.repository.UnArchive(id);
                 return "UnArchived Successfully";
             }
             catch(Exception exception)
@@ -233,11 +234,11 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string Restore(int id)
+        public async Task<string> Restore(int id)
         {
             try
             {
-               this.repository.Restore(id);
+              await this.repository.Restore(id);
                 return "Restored Successfully";
             }
             catch(Exception exception)
@@ -250,7 +251,7 @@ namespace Manager.Manager
         /// Restore All method is used to get back all notes that sent to trash
         /// </summary>
         /// <returns></returns>
-        public string RestoreAll()
+        public async Task<string> RestoreAll()
         {
             try
             {
@@ -268,11 +269,11 @@ namespace Manager.Manager
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string IsPin(int id)
+        public async Task<string> IsPin(int id)
         {
             try
             {
-               this.repository.Ispin(id);
+               await this.repository.Ispin(id);
                 return "Pinned";
             }
             catch(Exception exception)
@@ -287,11 +288,11 @@ namespace Manager.Manager
         /// <param name="id"></param>
         /// <param name="reminder"></param>
         /// <returns></returns>
-        public string Reminder(int id, string reminder)
+        public async Task<string> Reminder(int id, string reminder)
         {
             try
             {
-                this.repository.Reminder(id, reminder);
+                await this.repository.Reminder(id, reminder);
                 return "Reminder Set";
             }
             catch(Exception exception)
@@ -300,11 +301,23 @@ namespace Manager.Manager
             }
         }
 
-        public int DeleteRemainder(int id)
+        public async Task<IQueryable<NoteModel>> Search(string searchParameter)
         {
             try
             {
-                return this.repository.DeleteRemainder(id);
+                return await this.repository.Search(searchParameter);
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
+        public async Task<int> DeleteRemainder(int id)
+        {
+            try
+            {
+                return await this.repository.DeleteRemainder(id);
                
             }
             catch(Exception exception)
@@ -319,7 +332,7 @@ namespace Manager.Manager
         /// <param name="file"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string UploadImage(IFormFile image, int id)
+        public async Task<string> UploadImage(IFormFile image, int id)
         {
             try
             {
@@ -353,7 +366,5 @@ namespace Manager.Manager
                 throw new Exception(exception.Message);
             }
         }
-
-        
     }
 }
