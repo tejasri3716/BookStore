@@ -45,7 +45,7 @@ namespace Repository.Repository
         /// </summary>
         /// <param name="labelModel">The label model.</param>
         /// <returns></returns>
-        public string AddLabel([FromBody]LabelModel labelModel)
+        public string AddLabel(LabelModel labelModel)
         {
             try
             {
