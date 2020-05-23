@@ -14,6 +14,7 @@ namespace FundooApp.Controllers
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authorization;
+    using System.Linq;
 
     /// <summary>
     /// NoteController class extends Controller Base class 
@@ -44,11 +45,11 @@ namespace FundooApp.Controllers
         /// </returns>
         [HttpPost]
         [Route("api/addnote")]
-        public IActionResult AddNote([FromBody]NoteModel note)
+        public async Task<IActionResult> AddNote([FromBody]NoteModel note)
         {
             try
             {
-                var result = this.manager.AddNotes(note);
+                var result = await this.manager.AddNotes(note);
                
                     return Ok(new { result });
             }
@@ -67,11 +68,11 @@ namespace FundooApp.Controllers
         /// </returns>
         [HttpPut]
         [Route("api/updateNote")]
-        public IActionResult UpdateNote([FromBody]NoteModel note)
+        public async Task<IActionResult> UpdateNote([FromBody]NoteModel note)
         {
             try
             {
-                var result = this.manager.UpdateNote(note);
+                var result =await this.manager.UpdateNote(note);
                 return Ok(new { result });
             }
             catch (Exception exception)
@@ -133,11 +134,11 @@ namespace FundooApp.Controllers
         /// </returns>
         [HttpPut]
         [Route("api/deleteNote")]
-        public IActionResult DeleteNote(int id)
+        public async Task<IActionResult> DeleteNote(int id)
         {
             try
             {
-               var result= this.manager.DeleteNote(id);
+               var result=await this.manager.DeleteNote(id);
                 return Ok(new { result });
             }
             catch (Exception exception)
@@ -153,11 +154,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/trash")]
-        public IActionResult Trash(int id)
+        public async Task<IActionResult> Trash(int id)
         {
             try
             {
-                var result = this.manager.Trash(id);
+                var result = await this.manager.Trash(id);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -172,11 +173,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpDelete]
         [Route("api/emptyTrash")]
-        public IActionResult EmptyTrash()
+        public async Task<IActionResult> EmptyTrash()
         {
             try
             {
-                var result = this.manager.EmptyTrash();
+                var result = await this.manager.EmptyTrash();
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -203,11 +204,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/restore")]
-        public IActionResult Restore(int id)
+        public async Task<IActionResult> Restore(int id)
         {
             try
             {
-                var result = this.manager.Restore(id);
+                var result = await this.manager.Restore(id);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -242,11 +243,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/isArchive")]
-        public IActionResult IsArchive(int id)
+        public async Task<IActionResult> IsArchive(int id)
         {
             try
             {
-                var result = this.manager.IsArchive(id);
+                var result = await this.manager.IsArchive(id);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -262,11 +263,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/unArchive")]
-        public IActionResult UnArchive(int id)
+        public async Task<IActionResult> UnArchive(int id)
         {
             try
             {
-                var result = this.manager.UnArchive(id);
+                var result = await this.manager.UnArchive(id);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -293,11 +294,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/isPin")]
-        public IActionResult IsPin(int id)
+        public async Task<IActionResult> IsPin(int id)
         {
             try
             {
-                var result = this.manager.IsPin(id);
+                var result = await this.manager.IsPin(id);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -313,11 +314,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/unPin")]
-        public IActionResult UnPin(int id)
+        public async Task<IActionResult> UnPin(int id)
         {
             try
             {
-                var result = this.manager.UnPin(id);
+                var result =await this.manager.UnPin(id);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -334,11 +335,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/reminder")]
-        public IActionResult Reminder(int id, string reminder)
+        public async Task<IActionResult> Reminder(int id, string reminder)
         {
             try
             {
-                var result = this.manager.Reminder(id, reminder);
+                var result =await this.manager.Reminder(id, reminder);
                 return this.Ok(new { result });
             }
             catch (Exception exception)
@@ -348,11 +349,11 @@ namespace FundooApp.Controllers
         }
         [HttpPut]
         [Route("api/deleteReminder")]
-        public IActionResult DeleteReminder(int id)
+        public async Task<IActionResult> DeleteReminder(int id)
         {
             try
             {
-                var result = this.manager.DeleteRemainder(id);
+                var result = await this.manager.DeleteRemainder(id);
                 return this.Ok("Reminder Deleted");
             }
             catch (Exception exception)
@@ -361,7 +362,26 @@ namespace FundooApp.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/search")]
+        public async Task<IActionResult> Search(string searchParameter)
+        {
+            var result =await this.manager.Search(searchParameter);
+            try
+            {
+                if (result.Count() > 0)
+                {
+                    return this.Ok(result);
+                }
 
+                return this.BadRequest("No search results are Available");
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+        
         /// <summary>
         /// Chnage Color method is used to change the color of the note
         /// </summary>
@@ -370,11 +390,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("api/changeColor")]
-        public IActionResult ChangeColor(int id, string changeColor)
+        public async Task<IActionResult> ChangeColor(int id, string changeColor)
         {
             try
             {
-                var result = this.manager.ChangeColor(id, changeColor);
+                var result = await this.manager.ChangeColor(id, changeColor);
                 if (result != null)
                 {
                     return this.Ok(new { result });
@@ -398,11 +418,11 @@ namespace FundooApp.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("api/uploadImage")]
-        public IActionResult UploadImage(IFormFile image, int id)
+        public async Task<IActionResult> UploadImage(IFormFile image, int id)
         {
             try
             {
-                var result = this.manager.UploadImage(image, id);
+                var result = await this.manager.UploadImage(image, id);
                 return this.Ok(result);
             }
             catch (Exception exception)
