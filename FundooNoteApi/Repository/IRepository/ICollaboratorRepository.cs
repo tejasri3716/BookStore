@@ -7,6 +7,7 @@
 namespace Repository.IRepository
 {
     using Model.Collaborators;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -19,13 +20,15 @@ namespace Repository.IRepository
         /// </summary>
         /// <param name="collaborator">The collaborator .</param>
         /// <returns></returns>
-        string AddCollaboratorToNotes(Collaborator collaborator);
+        Task<string> AddCollaboratorToNotes(Collaborator collaborator);
 
         /// <summary>
         /// Deletes the collaborator.
         /// </summary>
         /// <param name="collaborator">The collaborator .</param>
         /// <returns></returns>
-        string DeleteCollaborator(int id);
+        Task<string> DeleteCollaborator(int id);
+
+        Task<List<Collaborator>> GetAllCollabarators();
     }
 }
