@@ -10,6 +10,8 @@ namespace Manager.Manager
     using Model.Collaborators;
     using Repository.IRepository;
     using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Collaborator Manager class implements ICollaborator Manager
@@ -38,11 +40,11 @@ namespace Manager.Manager
         /// Added Successfully
         /// </returns>
         /// <exception cref="Exception"></exception>
-        public string AddCollaborator(Collaborator collaborator)
+        public async Task<string> AddCollaborator(Collaborator collaborator)
         {
             try
             {
-                 var result=this.collaborator.AddCollaboratorToNotes(collaborator);
+                 var result=await this.collaborator.AddCollaboratorToNotes(collaborator);
                 return result;
             }
             catch(Exception exception)
@@ -59,12 +61,25 @@ namespace Manager.Manager
         /// Delted Successfully
         /// </returns>
         /// <exception cref="Exception"></exception>
-        public string DeleteCollaborator(int id)
+        public async Task<string> DeleteCollaborator(int id)
         {
             try
             {
-                 this.collaborator.DeleteCollaborator(id);
+                await this.collaborator.DeleteCollaborator(id);
                 return "Deleted Successfully";
+            }
+            catch(Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
+        }
+
+        public async Task<List<Collaborator>> GetAllCollabarators()
+        {
+            try
+            {
+              var list=  await this.collaborator.GetAllCollabarators();
+                return list;
             }
             catch(Exception exception)
             {
