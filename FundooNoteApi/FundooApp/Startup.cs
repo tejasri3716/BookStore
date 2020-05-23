@@ -61,7 +61,7 @@ namespace FundooApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContextPool<UserContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("UserDBConncetion")));
-            services.AddSingleton<UserContext>();
+            services.AddTransient<UserContext>();
             services.AddTransient<IAccountManager, AccountManager>();
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<INoteRepository, NoteRepository>();
@@ -100,6 +100,7 @@ namespace FundooApp
                 builder.AllowAnyMethod();
                 builder.AllowAnyHeader();
             }));
+           // services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
@@ -125,6 +126,8 @@ namespace FundooApp
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //    app.UseCors(options =>
+            //options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseCors("MyPolicy");
             if (env.IsDevelopment())
             {
