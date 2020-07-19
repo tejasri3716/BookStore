@@ -1,0 +1,15 @@
+C:\Users\saite\source\repos\Repository\bin\Debug\netcoreapp2.1\Repository.deps.json
+C:\Users\saite\source\repos\Repository\bin\Debug\netcoreapp2.1\Repository.runtimeconfig.json
+C:\Users\saite\source\repos\Repository\bin\Debug\netcoreapp2.1\Repository.runtimeconfig.dev.json
+C:\Users\saite\source\repos\Repository\bin\Debug\netcoreapp2.1\Repository.dll
+C:\Users\saite\source\repos\Repository\bin\Debug\netcoreapp2.1\Repository.pdb
+C:\Users\saite\source\repos\Repository\bin\Debug\netcoreapp2.1\Model.dll
+C:\Users\saite\source\repos\Repository\bin\Debug\netcoreapp2.1\Model.pdb
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.csprojAssemblyReference.cache
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.AssemblyInfoInputs.cache
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.AssemblyInfo.cs
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.csproj.CoreCompileInputs.cache
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.csproj.CopyComplete
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.dll
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.pdb
+C:\Users\saite\source\repos\Repository\obj\Debug\netcoreapp2.1\Repository.genruntimeconfig.cache
