@@ -1,0 +1,10 @@
+C:\Users\hariv\source\repos\FundooLogger\bin\Debug\netcoreapp2.1\FundooLogger.deps.json
+C:\Users\hariv\source\repos\FundooLogger\bin\Debug\netcoreapp2.1\FundooLogger.runtimeconfig.json
+C:\Users\hariv\source\repos\FundooLogger\bin\Debug\netcoreapp2.1\FundooLogger.runtimeconfig.dev.json
+C:\Users\hariv\source\repos\FundooLogger\bin\Debug\netcoreapp2.1\FundooLogger.dll
+C:\Users\hariv\source\repos\FundooLogger\bin\Debug\netcoreapp2.1\FundooLogger.pdb
+C:\Users\hariv\source\repos\FundooLogger\obj\Debug\netcoreapp2.1\FundooLogger.csprojAssemblyReference.cache
+C:\Users\hariv\source\repos\FundooLogger\obj\Debug\netcoreapp2.1\FundooLogger.AssemblyInfoInputs.cache
+C:\Users\hariv\source\repos\FundooLogger\obj\Debug\netcoreapp2.1\FundooLogger.AssemblyInfo.cs
+C:\Users\hariv\source\repos\FundooLogger\obj\Debug\netcoreapp2.1\FundooLogger.dll
+C:\Users\hariv\source\repos\FundooLogger\obj\Debug\netcoreapp2.1\FundooLogger.pdb

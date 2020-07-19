@@ -1,0 +1,3 @@
+C:\Users\hariv\source\repos\FundooTest\obj\Debug\netcoreapp3.1\FundooTest.csprojAssemblyReference.cache
+C:\Users\hariv\source\repos\FundooTest\obj\Debug\netcoreapp3.1\FundooTest.AssemblyInfoInputs.cache
+C:\Users\hariv\source\repos\FundooTest\obj\Debug\netcoreapp3.1\FundooTest.AssemblyInfo.cs
